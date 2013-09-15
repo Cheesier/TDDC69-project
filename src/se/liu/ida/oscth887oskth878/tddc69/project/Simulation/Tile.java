@@ -13,7 +13,7 @@ public abstract class Tile {
     }
 
     protected MonsterMobility monsterMobility;
-    private boolean buildable;
+    private boolean buildable = false;
     private Tower tower;
 
     protected Tile(MonsterMobility mobility) {
@@ -23,6 +23,14 @@ public abstract class Tile {
 
     protected Tile(MonsterMobility monsterMobility, boolean buildable) {
         this.monsterMobility = monsterMobility;
+        this.buildable = buildable;
+    }
+
+    public boolean isBuildable() {
+        return (tower != null || buildable); // can only build on if no current tower is placed on tile
+    }
+
+    protected void setBuildable(boolean buildable) {
         this.buildable = buildable;
     }
 
