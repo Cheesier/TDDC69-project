@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887.oskth878.tddc69.project.Server;
+package se.liu.ida.oscth887oskth878.tddc69.project.Server;
 
 import com.esotericsoftware.kryonet.Server;
 
