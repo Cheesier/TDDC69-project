@@ -6,10 +6,10 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Util;
  * Date: 2013-09-15
  * Time: 20:48
  */
-public class Vec2 {
+public class Point {
     public int x, y;
 
-    public Vec2(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }

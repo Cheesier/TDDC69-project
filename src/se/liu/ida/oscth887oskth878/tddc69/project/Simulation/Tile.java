@@ -6,24 +6,25 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
  * Date: 2013-09-15
  * Time: 20:26
  */
-public abstract class Tile {
+public class Tile {
     // who can move over this tile
     static enum MonsterMobility {
         NONE, ALL, GROUND_ONLY, AIR_ONLY
     }
 
+    static enum Type {
+        GRASS, SPECIAL
+    }
+
     protected MonsterMobility monsterMobility;
     private boolean buildable = false;
     private Tower tower;
+    private Type type;
 
-    protected Tile(MonsterMobility mobility) {
+    protected Tile(MonsterMobility mobility, boolean buildable, Type type) {
         this.monsterMobility = mobility;
         this.buildable = false;
-    }
-
-    protected Tile(MonsterMobility monsterMobility, boolean buildable) {
-        this.monsterMobility = monsterMobility;
-        this.buildable = buildable;
+        this.type = type;
     }
 
     public boolean isBuildable() {
@@ -48,5 +49,9 @@ public abstract class Tile {
                 Thread.currentThread().getStackTrace();
                 return false;
         }
+    }
+
+    public Type getType() {
+        return type;
     }
 }

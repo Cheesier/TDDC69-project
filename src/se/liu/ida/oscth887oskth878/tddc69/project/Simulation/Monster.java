@@ -1,5 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Oscar
@@ -13,6 +15,8 @@ public abstract class Monster {
 
     private int hitpoints;
     private MoveType moveType;
+    private Point location;
+    private Point[] tilesToMoveOver;
 
     protected Monster(int hitpoints, MoveType moveType) {
         this.hitpoints = hitpoints;
@@ -31,7 +35,15 @@ public abstract class Monster {
         return this.hitpoints > 0;
     }
 
+    public int getHitpoints() {
+        return hitpoints;
+    }
+
     public MoveType getMoveType() {
         return moveType;
+    }
+
+    public Point getLocation() {
+        return location;
     }
 }

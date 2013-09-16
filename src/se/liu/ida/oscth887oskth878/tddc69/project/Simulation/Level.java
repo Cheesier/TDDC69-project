@@ -18,8 +18,25 @@ public class Level {
         dimensions = new Dimension(x, y);
     }
 
+    // should not be shipped with release version
+    // just for development
+    public static Level generateBasicLevel() {
+        Dimension dim = new Dimension(20, 41);
+        Level level = new Level(dim.x, dim.y);
+        for (int x = 0; x < dim.x; x++) {
+            for (int y = 0; y < dim.y; y++) {
+                level.setTile(x, y, new Tile(Tile.MonsterMobility.ALL, true, Tile.Type.GRASS));
+            }
+        }
+        return level;
+    }
+
     public Tile getTile(int x, int y) {
         return tileGrid[x][y];
+    }
+
+    public void setTile(int x, int y, Tile tile) {
+
     }
 
     public Dimension getDimensions() {
