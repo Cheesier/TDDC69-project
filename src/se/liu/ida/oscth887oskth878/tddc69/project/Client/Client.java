@@ -1,5 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.Network.GameClient;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Oscar
@@ -8,6 +10,12 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Client;
  */
 public class Client {
     public static void main(String[] args) {
-        // Load up startmenu
+        GameClient server = new GameClient();
+
+        try {
+            Thread.sleep(10000l);
+            server.close("End of game");
+        } catch (InterruptedException e) {
+        }
     }
 }

@@ -12,6 +12,6 @@ public abstract class Tower extends Tile {
     }
 
     protected Tower(MonsterMobility monsterMobility) {
-        super(monsterMobility, false);
+        super(monsterMobility, false, Type.SPECIAL);
     }
 }

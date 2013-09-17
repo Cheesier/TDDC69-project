@@ -1,6 +1,12 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Server;
 
+import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
+import com.esotericsoftware.minlog.Log;
+import se.liu.ida.oscth887oskth878.tddc69.project.Packet.Protocol.InitPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.Packet.Protocol.TerminatePacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Network;
 
 import java.io.IOException;
 
@@ -13,18 +19,21 @@ import java.io.IOException;
  */
 public class GameServer {
     public final int LISTERNER_PORT;
-    public static final int DEFAULT_PORT = 22400;
 
     public static void main(String[] args) {
         if (args.length == 1) {
-            new GameServer(Integer.parseInt(args[1]));
+            new GameServer(Integer.parseInt(args[0]));
         }
         else if (args.length > 1) {
             System.out.println("Too many arguments, ignoring that.");
         }
         else {
-            new GameServer(DEFAULT_PORT);
+            new GameServer();
         }
+    }
+
+    public GameServer() {
+        this(Network.DEFAULT_PORT);
     }
 
     public GameServer(int port) {
@@ -32,11 +41,17 @@ public class GameServer {
 
         Server server = new Server();
         try {
+            Network.registerClasses(server.getKryo());
             server.start();
             server.bind(LISTERNER_PORT);
+
+            System.out.println("Started server on port " + LISTERNER_PORT);
+
+            server.addListener(new PacketHandler());
         } catch (IOException e) {
-            System.err.println("Could not bind to port: " + port);
+            System.err.println("Could not bind to port: " + LISTERNER_PORT);
             e.printStackTrace();
+            System.exit(0);
         }
     }
 }
