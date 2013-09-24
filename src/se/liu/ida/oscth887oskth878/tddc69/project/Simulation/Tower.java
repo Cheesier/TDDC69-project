@@ -7,11 +7,11 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
  * Time: 20:27
  */
 public abstract class Tower extends Tile {
-    public enum DamageType {
+    public static enum DamageType {
         PHYSICAL
     }
 
     protected Tower(MonsterMobility monsterMobility) {
-        super(monsterMobility, false, Type.SPECIAL);
+        super(monsterMobility, false, Type.TOWER);
     }
 }

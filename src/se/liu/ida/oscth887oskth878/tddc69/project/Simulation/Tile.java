@@ -13,7 +13,7 @@ public class Tile {
     }
 
     static enum Type {
-        GRASS, SPECIAL
+        GRASS, SPECIAL, TOWER
     }
 
     protected MonsterMobility monsterMobility;

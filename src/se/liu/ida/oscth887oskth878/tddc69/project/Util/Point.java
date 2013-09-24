@@ -7,9 +7,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Util;
  * Time: 20:48
  */
 public class Point {
-    public int x, y;
+    public float x, y;
 
-    public Point(int x, int y) {
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }

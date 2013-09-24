@@ -35,6 +35,10 @@ public class Level {
         return tileGrid[x][y];
     }
 
+    public boolean canPass(int x, int y, Monster monster) {
+        return getTile(x, y).canPass(monster);
+    }
+
     public void setTile(int x, int y, Tile tile) {
 
     }

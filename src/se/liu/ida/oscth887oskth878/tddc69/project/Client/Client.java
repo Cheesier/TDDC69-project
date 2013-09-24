@@ -1,6 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.Network.GameClient;
+import se.liu.ida.oscth887oskth878.tddc69.project.Network.Client.GameClient;
 
 /**
  * Created with IntelliJ IDEA.
