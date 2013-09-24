@@ -21,7 +21,7 @@ public class Level {
     // should not be shipped with release version
     // just for development
     public static Level generateBasicLevel() {
-        Dimension dim = new Dimension(20, 41);
+        Dimension dim = new Dimension(41, 20);
         Level level = new Level(dim.x, dim.y);
         for (int x = 0; x < dim.x; x++) {
             for (int y = 0; y < dim.y; y++) {
