@@ -20,11 +20,17 @@ public class Tile {
     private boolean buildable = false;
     private Tower tower;
     private Type type;
+    private Player.Team owner = Player.Team.NEUTRAL;
+
 
     protected Tile(MonsterMobility mobility, boolean buildable, Type type) {
         this.monsterMobility = mobility;
-        this.buildable = false;
+        this.buildable = buildable;
         this.type = type;
+    }
+
+    public void setOwner(Player.Team owner) {
+        this.owner = owner;
     }
 
     public boolean isBuildable() {
