@@ -1,7 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Util;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Monster;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Unit;
 
 import java.util.ArrayList;
 
@@ -14,11 +14,11 @@ import java.util.ArrayList;
  */
 public class Astar implements Pathfinding {
     @Override
-    public Point[] findPath(Monster monster, Point destination, Level level) {
+    public Point[] findPath(Unit unit, Point destination, Level level) {
         ArrayList<Point> open = new ArrayList<Point>();   // to be evaluated
         ArrayList<Point> closed = new ArrayList<Point>(); // has been evaluated
 
-        open.add(monster.getLocation());
+        open.add(unit.getLocation());
 
         return closed.toArray(new Point[closed.size()]);
     }

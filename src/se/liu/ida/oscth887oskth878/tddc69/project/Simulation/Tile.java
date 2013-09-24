@@ -8,7 +8,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
  */
 public class Tile {
     // who can move over this tile
-    static enum MonsterMobility {
+    protected static enum UnitMobility {
         NONE, ALL, GROUND_ONLY, AIR_ONLY
     }
 
@@ -16,15 +16,15 @@ public class Tile {
         GRASS, SPECIAL, TOWER
     }
 
-    protected MonsterMobility monsterMobility;
+    protected UnitMobility unitMobility;
     private boolean buildable = false;
     private Tower tower;
     private Type type;
     private Player.Team owner = Player.Team.NEUTRAL;
 
 
-    protected Tile(MonsterMobility mobility, boolean buildable, Type type) {
-        this.monsterMobility = mobility;
+    protected Tile(UnitMobility mobility, boolean buildable, Type type) {
+        this.unitMobility = mobility;
         this.buildable = buildable;
         this.type = type;
     }
@@ -41,17 +41,17 @@ public class Tile {
         this.buildable = buildable;
     }
 
-    public boolean canPass(Monster monster) {
-        if (monsterMobility == MonsterMobility.NONE) return false;
-        if (tower != null && !tower.canPass(monster)) return false;
+    public boolean canPass(Unit unit) {
+        if (unitMobility == UnitMobility.NONE) return false;
+        if (tower != null && !tower.canPass(unit)) return false;
 
-        switch (monster.getMoveType()) {
+        switch (unit.getMoveType()) {
             case GROUND:
-                return monsterMobility == MonsterMobility.ALL || monsterMobility == MonsterMobility.GROUND_ONLY;
+                return unitMobility == UnitMobility.ALL || unitMobility == UnitMobility.GROUND_ONLY;
             case AIR:
-                return monsterMobility == MonsterMobility.ALL || monsterMobility == MonsterMobility.AIR_ONLY;
+                return unitMobility == UnitMobility.ALL || unitMobility == UnitMobility.AIR_ONLY;
             default:
-                System.err.println("Could not calculate the movability for: " + monster.getMoveType().toString());
+                System.err.println("Could not calculate the movability for: " + unit.getMoveType().toString());
                 Thread.currentThread().getStackTrace();
                 return false;
         }

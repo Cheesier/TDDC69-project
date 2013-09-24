@@ -8,26 +8,28 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
  * Date: 2013-09-15
  * Time: 20:35
  */
-public abstract class Monster {
+public abstract class Unit {
     public enum MoveType {
         GROUND, AIR
     }
 
     private int hitpoints;
     private MoveType moveType;
+    private int speed;
     private Point location;
     private Point[] tilesToMoveOver;
 
-    protected Monster(int hitpoints, MoveType moveType) {
+    protected Unit(int hitpoints, MoveType moveType, int speed) {
         this.hitpoints = hitpoints;
         this.moveType = moveType;
+        this.speed = speed;
     }
 
     /**
-     * Attempt to hurt a monster
-     * @param damage an integer specifying how much hitpoints should be taken from the monster
+     * Attempt to hurt a unit
+     * @param damage an integer specifying how much hitpoints should be taken from the unit
      *               (before any resistance or )
-     * @return boolean monsters alive status
+     * @return boolean unit alive status
      */
     public boolean hurt(int damage, Tower.DamageType type) {
         this.hitpoints -= damage;
@@ -45,5 +47,9 @@ public abstract class Monster {
 
     public Point getLocation() {
         return location;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 }

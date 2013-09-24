@@ -25,7 +25,7 @@ public class Level {
         Level level = new Level(dim.x, dim.y);
         for (int x = 0; x < dim.x; x++) {
             for (int y = 0; y < dim.y; y++) {
-                level.setTile(x, y, new Tile(Tile.MonsterMobility.ALL, true, Tile.Type.GRASS));
+                level.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS));
             }
         }
         return level;
@@ -35,8 +35,8 @@ public class Level {
         return tileGrid[x][y];
     }
 
-    public boolean canPass(int x, int y, Monster monster) {
-        return getTile(x, y).canPass(monster);
+    public boolean canPass(int x, int y, Unit unit) {
+        return getTile(x, y).canPass(unit);
     }
 
     public void setTile(int x, int y, Tile tile) {

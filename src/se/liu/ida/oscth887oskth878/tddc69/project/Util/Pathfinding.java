@@ -1,7 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Util;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Monster;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Unit;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,5 +11,5 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Monster;
  * To change this template use File | Settings | File Templates.
  */
 public interface Pathfinding {
-    public Point[] findPath(Monster monster, Point destination, Level level);
+    public Point[] findPath(Unit unit, Point destination, Level level);
 }
