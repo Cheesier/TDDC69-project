@@ -8,6 +8,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.IntPoint;
 
 
 public class Client {
@@ -42,6 +44,16 @@ public class Client {
         long lastTime = System.nanoTime();
 
         while (!Display.isCloseRequested()) {
+            if (Mouse.next()) {
+                IntPoint mousePosition = MouseTileSelector.getTile();
+                int x = mousePosition.x;
+                int y = mousePosition.y;
+                if (Mouse.isButtonDown(0))
+                    level.getTile(x, y).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+                else if (Mouse.isButtonDown(1))
+                    level.getTile(x, y).removeTower();
+            }
+
             try {
                 Display.swapBuffers();
             } catch (LWJGLException e) {
@@ -57,7 +69,7 @@ public class Client {
                 lastTime = System.nanoTime();
             }
             Display.update();
-            Display.sync(20);
+            //Display.sync(60);
 
             //Display.setVSyncEnabled(true);
         }
