@@ -1,14 +1,18 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Client.GameClient;
-
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
+import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 
 
 public class Client {
     public static void main(String[] args) {
+        Renderer renderer = new GLBegin();
+        Level level = new Level(43, 20);
+
         /*GameClient server = new GameClient();
 
         try {
@@ -18,26 +22,36 @@ public class Client {
         }
         */
 
-        DisplayMode[] modes = new DisplayMode[0];
-        try {
-            modes = Display.getAvailableDisplayModes();
-        } catch (LWJGLException e) {
-            e.printStackTrace();
-        }
-
-        for (int i=0;i<modes.length;i++) {
-            DisplayMode current = modes[i];
-            System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
-                    current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
-        }
-
         try {
             Display.setDisplayMode(new DisplayMode(800, 600));
             Display.create();
+
             Display.setTitle("OTD game");
         } catch (LWJGLException e) {
             e.printStackTrace();
         }
+
+        renderer.init();
+        level.generateBasicLevel();
+
+        int frames = 0;
+        long lastTime = System.nanoTime();
+
+        while (!Display.isCloseRequested()) {
+            renderer.draw(level);
+
+
+            frames ++;
+            if (System.nanoTime()-lastTime > 1000000000) {
+                System.out.println(frames);
+                frames = 0;
+                lastTime = System.nanoTime();
+            }
+            //Display.sync(20);
+            //Display.setVSyncEnabled(true);
+        }
+        Display.destroy();
+        System.exit(0);
 
         /* PREPARATIONS FOR GAMELOOP
 

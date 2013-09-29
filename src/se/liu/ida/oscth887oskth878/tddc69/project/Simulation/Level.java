@@ -20,15 +20,14 @@ public class Level {
 
     // should not be shipped with release version
     // just for development
-    public static Level generateBasicLevel() {
-        Dimension dim = new Dimension(41, 20);
-        Level level = new Level(dim.x, dim.y);
-        for (int x = 0; x < dim.x; x++) {
-            for (int y = 0; y < dim.y; y++) {
-                level.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS));
+    public void generateBasicLevel() {
+        for (int x = 0; x < dimensions.x; x++) {
+            for (int y = 0; y < dimensions.y; y++) {
+                this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS));
             }
         }
-        return level;
+
+        //this.setTile(1, 0, new Tile(Tile.UnitMobility.AIR_ONLY, true, Tile.Type.TOWER));
     }
 
     public Tile getTile(int x, int y) {
@@ -40,7 +39,7 @@ public class Level {
     }
 
     public void setTile(int x, int y, Tile tile) {
-
+        tileGrid[x][y] = tile;
     }
 
     public Dimension getDimensions() {

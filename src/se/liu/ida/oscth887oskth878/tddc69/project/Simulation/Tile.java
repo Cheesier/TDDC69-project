@@ -12,7 +12,7 @@ public class Tile {
         NONE, ALL, GROUND_ONLY, AIR_ONLY
     }
 
-    static enum Type {
+    public static enum Type {
         GRASS, SPECIAL, TOWER
     }
 
