@@ -27,7 +27,7 @@ public class GLBegin implements Renderer {
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, this.width, this.height, 0, 1, -1);
+        GL11.glOrtho(0, this.width, 0, this.height, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);

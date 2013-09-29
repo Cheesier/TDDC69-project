@@ -27,7 +27,7 @@ public class Level {
             }
         }
 
-        getTile(0, 0).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+        getTile(10, 10).buildTower(TowerFactory.TowerType.BASIC_TOWER);
     }
 
     public Tile getTile(int x, int y) {
