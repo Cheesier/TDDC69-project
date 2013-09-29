@@ -13,12 +13,18 @@ public abstract class Tower extends Tile {
     private int damage;
     private DamageType damageType;
     private int range;
+    private TowerFactory.TowerType towerType;
 
-    protected Tower(UnitMobility unitMobility, DamageType damageType, int damage, int range) {
+    protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, DamageType damageType, int damage, int range) {
         super(unitMobility, false, Type.TOWER);
+        this.towerType = type;
         this.damageType = damageType;
         this.damage = damage;
         this.range = range;
+    }
+
+    public TowerFactory.TowerType getTowerType() {
+        return this.towerType;
     }
 
     public int getRange() {

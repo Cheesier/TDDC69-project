@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -18,8 +19,6 @@ public class GLBegin implements Renderer {
 
     @Override
     public void init(int width, int height, int size) {
-        ResourceManager.init();
-
         this.width = width;
         this.height = height;
         this.size = size;
@@ -47,7 +46,7 @@ public class GLBegin implements Renderer {
 
     @Override
     public void draw(Level level) {
-        // Clear the screen and depth buffer
+        // Clear the screen
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
         int baseX = 0;
@@ -69,6 +68,22 @@ public class GLBegin implements Renderer {
                         GL11.glVertex2f(baseX,      baseY+size);
                         GL11.glTexCoord2f(0,0);
                     GL11.glEnd();
+
+                    Tower tower = level.getTile(x, y).getTower();
+                    if (tower != null) {
+                        ResourceManager.bindTower(tower.getTowerType());
+
+                        GL11.glBegin(GL11.GL_QUADS);
+                        GL11.glVertex2f(baseX,      baseY);
+                        GL11.glTexCoord2f(1,0);
+                        GL11.glVertex2f(baseX+size, baseY);
+                        GL11.glTexCoord2f(1,1);
+                        GL11.glVertex2f(baseX+size, baseY+size);
+                        GL11.glTexCoord2f(0,1);
+                        GL11.glVertex2f(baseX,      baseY+size);
+                        GL11.glTexCoord2f(0,0);
+                        GL11.glEnd();
+                    }
 
                     baseY += size;
                 }

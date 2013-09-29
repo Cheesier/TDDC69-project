@@ -27,7 +27,7 @@ public class Level {
             }
         }
 
-        this.setTile(10, 10, new Tile(Tile.UnitMobility.AIR_ONLY, true, Tile.Type.TOWER));
+        getTile(0, 0).buildTower(TowerFactory.TowerType.BASIC_TOWER);
     }
 
     public Tile getTile(int x, int y) {

@@ -33,8 +33,12 @@ public class Tile {
         this.owner = owner;
     }
 
+    public Tower getTower() {
+        return tower;
+    }
+
     public boolean isBuildable() {
-        return (tower != null || buildable); // can only build on if no current tower is placed on tile
+        return (tower == null && buildable); // can only build on if no current tower is placed on tile
     }
 
     protected void setBuildable(boolean buildable) {
@@ -59,5 +63,17 @@ public class Tile {
 
     public Type getType() {
         return type;
+    }
+
+    public boolean buildTower(TowerFactory.TowerType type) {
+        if (!isBuildable())
+            return false;
+
+        tower = TowerFactory.getTower(type);
+        return true;
+    }
+
+    public void removeTower() {
+        tower = null;
     }
 }

@@ -4,6 +4,7 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tile;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
 
 import java.io.IOException;
 import java.util.EnumMap;
@@ -16,11 +17,12 @@ import java.util.EnumMap;
  */
 public class ResourceManager {
     private static EnumMap<Tile.Type, Texture> textures = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
+    private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
 
-    public static void init() {
+    static {
         textures.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
-        textures.put(Tile.Type.TOWER, load("res/tiles/tower.png"));
 
+        towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
     }
 
     private static Texture load(String path) {
@@ -34,6 +36,9 @@ public class ResourceManager {
 
     public static void bindTexture(Tile.Type type) {
         textures.get(type).bind();
-        //GL11.glBindTexture(GL11.GL_TEXTURE_2D, textures.get(type).getTextureID());
+    }
+
+    public static void bindTower(TowerFactory.TowerType type) {
+        towers.get(type).bind();
     }
 }

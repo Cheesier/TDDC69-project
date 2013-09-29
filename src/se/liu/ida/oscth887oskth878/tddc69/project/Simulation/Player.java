@@ -17,5 +17,5 @@ public class Player {
     public Player(Team team, String name) {
         this.team = team;
         this.name = name;
-}
+    }
 }

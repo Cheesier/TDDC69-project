@@ -1,6 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Towers;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
 
 /**
  * @version 1.0
@@ -9,12 +10,13 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
  * @since: 24/09/2013
  */
 public class BasicTower extends Tower{
-    public static final UnitMobility unitMobility = UnitMobility.AIR_ONLY;
-    public static final DamageType damageType = DamageType.PHYSICAL;
-    public static final int damage = 5;
-    public static final int range = 2;
+    public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.BASIC_TOWER;
+    public static final UnitMobility UNIT_MOBILITY = UnitMobility.AIR_ONLY;
+    public static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
+    public static final int DAMAGE = 5;
+    public static final int RANGE = 2;
 
-    protected BasicTower() {
-        super(unitMobility, damageType, damage, range);
+    public BasicTower() {
+        super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE);
     }
 }
