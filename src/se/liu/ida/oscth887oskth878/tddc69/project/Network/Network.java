@@ -2,7 +2,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Network;
 
 import com.esotericsoftware.kryo.Kryo;
 import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Packet;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.*;
+import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.InitPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.ProtocolPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.TerminatePacket;
 
 /**
  * Created with IntelliJ IDEA.

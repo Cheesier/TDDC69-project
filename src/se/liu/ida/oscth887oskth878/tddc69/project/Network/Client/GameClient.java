@@ -1,9 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Network.Client;
 
 import com.esotericsoftware.kryonet.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.Network.Network;
 import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.InitPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.TerminatePacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Network;
 
 import java.io.IOException;
 

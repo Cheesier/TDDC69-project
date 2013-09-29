@@ -2,11 +2,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-import org.newdawn.slick.Color;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tile;
-
-import java.io.IOException;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -38,8 +34,13 @@ public class GLBegin implements Renderer {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glDisable(GL11.GL_DEPTH);
 
-        GL11.glHint(GL11.GL_PERSPECTIVE_CORRECTION_HINT, GL11.GL_NICEST);
-        GL11.glHint(GL11.GL_LINE_SMOOTH_HINT, GL11.GL_NICEST);
+        GL11.glHint(GL11.GL_PERSPECTIVE_CORRECTION_HINT, GL11.GL_NEAREST);
+        GL11.glHint(GL11.GL_LINE_SMOOTH_HINT, GL11.GL_NEAREST);
+
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL11.GL_CLAMP);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL11.GL_CLAMP);
 
         System.out.println("OpenGL version: " + GL11.glGetString(GL11.GL_VERSION));
     }
@@ -59,14 +60,14 @@ public class GLBegin implements Renderer {
                     ResourceManager.bindTexture(level.getTile(x, y).getType());
 
                     GL11.glBegin(GL11.GL_QUADS);
-                    GL11.glVertex2f(baseX,      baseY);
-                    GL11.glTexCoord2f(0,0);
-                    GL11.glVertex2f(baseX+size, baseY);
-                    GL11.glTexCoord2f(0,1);
-                    GL11.glVertex2f(baseX+size, baseY+size);
-                    GL11.glTexCoord2f(1,1);
-                    GL11.glVertex2f(baseX,      baseY+size);
-                    GL11.glTexCoord2f(1,0);
+                        GL11.glVertex2f(baseX,      baseY);
+                        GL11.glTexCoord2f(1,0);
+                        GL11.glVertex2f(baseX+size, baseY);
+                        GL11.glTexCoord2f(1,1);
+                        GL11.glVertex2f(baseX+size, baseY+size);
+                        GL11.glTexCoord2f(0,1);
+                        GL11.glVertex2f(baseX,      baseY+size);
+                        GL11.glTexCoord2f(0,0);
                     GL11.glEnd();
 
                     baseY += size;

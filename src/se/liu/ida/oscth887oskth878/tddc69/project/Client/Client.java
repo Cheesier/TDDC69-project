@@ -55,7 +55,7 @@ public class Client {
                 lastTime = System.nanoTime();
             }
             Display.update();
-            Display.sync(1);
+            Display.sync(20);
 
             //Display.setVSyncEnabled(true);
         }

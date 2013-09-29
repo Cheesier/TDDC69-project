@@ -1,6 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
 
-import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
@@ -19,7 +18,7 @@ public class ResourceManager {
     private static EnumMap<Tile.Type, Texture> textures = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
 
     public static void init() {
-        textures.put(Tile.Type.GRASS, load("res/tiles/grass.png"));
+        textures.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
         textures.put(Tile.Type.TOWER, load("res/tiles/tower.png"));
 
     }
