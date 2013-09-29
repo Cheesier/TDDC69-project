@@ -27,7 +27,7 @@ public class Level {
             }
         }
 
-        //this.setTile(1, 0, new Tile(Tile.UnitMobility.AIR_ONLY, true, Tile.Type.TOWER));
+        this.setTile(10, 10, new Tile(Tile.UnitMobility.AIR_ONLY, true, Tile.Type.TOWER));
     }
 
     public Tile getTile(int x, int y) {

@@ -43,18 +43,11 @@ public class GLBegin implements Renderer {
         int baseX = 0;
         int baseY = 0;
 
-        //ResourceManager.bindTexture(Tile.Type.TOWER);
-
-
             for (int x = 0; x < level.getDimensions().x; x++) {
                 for (int y = 0; y < level.getDimensions().y; y++) {
 
-                    if (y % 2 == 1) {
-                        ResourceManager.bindTexture(Tile.Type.TOWER);
-                    }
-                    else {
-                        ResourceManager.bindTexture(Tile.Type.GRASS);
-                    }
+
+                    ResourceManager.bindTexture(level.getTile(x, y).getType());
 
                     GL11.glBegin(GL11.GL_QUADS);
                     GL11.glVertex2f(baseX,      baseY);
