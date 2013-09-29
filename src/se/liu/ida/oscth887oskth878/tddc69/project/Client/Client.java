@@ -9,6 +9,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 
 
 public class Client {
+    public static final int SIZE = 32;
+
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
         Level level = new Level(43, 20);
@@ -23,7 +25,7 @@ public class Client {
         */
 
         try {
-            Display.setDisplayMode(new DisplayMode(800, 600));
+            Display.setDisplayMode(new DisplayMode(43* SIZE, 20* SIZE));
             Display.create();
 
             Display.setTitle("OTD game");
@@ -31,13 +33,18 @@ public class Client {
             e.printStackTrace();
         }
 
-        renderer.init();
+        renderer.init(43*SIZE, 20*SIZE, SIZE);
         level.generateBasicLevel();
 
         int frames = 0;
         long lastTime = System.nanoTime();
 
         while (!Display.isCloseRequested()) {
+            try {
+                Display.swapBuffers();
+            } catch (LWJGLException e) {
+                e.printStackTrace();
+            }
             renderer.draw(level);
 
 
@@ -47,7 +54,9 @@ public class Client {
                 frames = 0;
                 lastTime = System.nanoTime();
             }
-            //Display.sync(20);
+            Display.update();
+            Display.sync(1);
+
             //Display.setVSyncEnabled(true);
         }
         Display.destroy();

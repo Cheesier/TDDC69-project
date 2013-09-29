@@ -15,14 +15,24 @@ import java.io.IOException;
  * @since 27/09/2013
  */
 public class GLBegin implements Renderer {
+    private int width;
+    private int height;
+    private int size;
+
+
     @Override
-    public void init() {
+    public void init(int width, int height, int size) {
         ResourceManager.init();
+
+        this.width = width;
+        this.height = height;
+        this.size = size;
+
 
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, 800, 600, 0, 1, -1);
+        GL11.glOrtho(0, this.width, this.height, 0, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -39,7 +49,6 @@ public class GLBegin implements Renderer {
         // Clear the screen and depth buffer
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
-        int size = 16;
         int baseX = 0;
         int baseY = 0;
 
