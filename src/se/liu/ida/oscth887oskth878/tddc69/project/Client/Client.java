@@ -61,7 +61,8 @@ public class Client {
             } catch (LWJGLException e) {
                 e.printStackTrace();
             }
-            renderer.draw(level);
+            renderer.drawLevel(level);
+            renderer.drawUI();
 
 
             frames ++;

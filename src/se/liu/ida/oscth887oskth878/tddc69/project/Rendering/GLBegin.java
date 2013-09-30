@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import se.liu.ida.oscth887oskth878.tddc69.project.Client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.GUI;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
 
@@ -46,7 +47,7 @@ public class GLBegin implements Renderer {
     }
 
     @Override
-    public void draw(Level level) {
+    public void drawLevel(Level level) {
         // Clear the screen
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
@@ -94,5 +95,27 @@ public class GLBegin implements Renderer {
 
 
         Display.update();
+    }
+
+    @Override
+    public void drawUI() {
+        int baseX = 0;
+        int baseY = 0;
+
+        for (int i = 0; i < GUI.towers.size(); i++) {
+
+            ResourceManager.bindTower(GUI.towers.get(i));
+
+            GL11.glBegin(GL11.GL_QUADS);
+                GL11.glVertex2f(baseX,                  baseY);
+                GL11.glTexCoord2f(1,0);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
+                GL11.glTexCoord2f(1,1);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,1);
+                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,0);
+            GL11.glEnd();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Placeable;
+import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
 
 import java.util.ArrayList;
 
@@ -11,11 +12,9 @@ import java.util.ArrayList;
  * @since 30/09/2013
  */
 public class GUI {
-    public static final ArrayList<Placeable> elements = new ArrayList<Placeable>();
+    public static final ArrayList<TowerFactory.TowerType> towers = new ArrayList<TowerFactory.TowerType>();
 
     static {
-        // add thingies
+        towers.add(TowerFactory.TowerType.BASIC_TOWER);
     }
-
-
 }
