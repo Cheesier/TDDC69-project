@@ -2,6 +2,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
 
@@ -50,7 +51,7 @@ public class GLBegin implements Renderer {
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
         int baseX = 0;
-        int baseY = 0;
+        int baseY = Client.UI_SIZE;
 
             for (int x = 0; x < level.getDimensions().x; x++) {
                 for (int y = 0; y < level.getDimensions().y; y++) {
@@ -87,7 +88,7 @@ public class GLBegin implements Renderer {
 
                     baseY += size;
                 }
-                baseY = 0;
+                baseY = Client.UI_SIZE;
                 baseX += size;
             }
 

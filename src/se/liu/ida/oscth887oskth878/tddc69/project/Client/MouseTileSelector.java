@@ -13,8 +13,8 @@ public class MouseTileSelector {
     static IntPoint mousePosition;
 
     public static IntPoint getTile() {
-        int x = Mouse.getX() / Client.SIZE;
-        int y = Mouse.getY() / Client.SIZE;
+        int x = Mouse.getX() / Client.PIXELS_TILE;
+        int y = Mouse.getY() / Client.PIXELS_TILE;
 
         return new IntPoint(x, y);
     }
