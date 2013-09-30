@@ -1,6 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Path;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Pointf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +9,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
  * Date: 2013-09-15
  * Time: 20:35
  */
-public abstract class Unit {
+public abstract class Unit implements Placeable {
     public enum MoveType {
         GROUND, AIR
     }
@@ -16,8 +17,8 @@ public abstract class Unit {
     private int hitpoints;
     private MoveType moveType;
     private int speed;
-    private Point location;
-    private Point[] tilesToMoveOver;
+    private Pointf location;
+    private Path path;
 
     protected Unit(int hitpoints, MoveType moveType, int speed) {
         this.hitpoints = hitpoints;
@@ -45,11 +46,16 @@ public abstract class Unit {
         return moveType;
     }
 
-    public Point getLocation() {
+    public Pointf getLocation() {
         return location;
     }
 
     public int getSpeed() {
         return speed;
+    }
+
+    @Override
+    public void onSelect() {
+        // Spawn the unit on the level, at given position
     }
 }

@@ -1,19 +1,18 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Util;
 
 /**
- * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 29/09/2013
+ * Created with IntelliJ IDEA.
+ * User: Oscar
+ * Date: 2013-09-15
+ * Time: 20:48
  */
-public class IntPoint {
-    public int x, y;
+public class Pointf {
+    public float x, y;
 
-    public IntPoint(int x, int y) {
+    public Pointf(float x, float y) {
         this.x = x;
         this.y = y;
     }
-
 
     @Override
     public String toString() {

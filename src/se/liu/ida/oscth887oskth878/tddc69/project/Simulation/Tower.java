@@ -6,7 +6,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
  * Date: 2013-09-15
  * Time: 20:27
  */
-public abstract class Tower extends Tile {
+public abstract class Tower extends Tile implements Placeable {
     public static enum DamageType {
         PHYSICAL
     }
@@ -37,5 +37,10 @@ public abstract class Tower extends Tile {
 
     public int getDamage() {
         return damage;
+    }
+
+    @Override
+    public void onSelect() {
+        // nothing changes in simulation, just for the UI
     }
 }

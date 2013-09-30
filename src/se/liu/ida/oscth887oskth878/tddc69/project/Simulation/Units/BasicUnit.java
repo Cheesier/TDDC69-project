@@ -16,4 +16,9 @@ public class BasicUnit extends Unit {
     protected BasicUnit() {
         super(hitpoints, moveType, speed);
     }
+
+    @Override
+    public void onSelect() {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

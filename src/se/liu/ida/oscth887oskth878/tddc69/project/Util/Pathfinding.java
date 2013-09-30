@@ -11,5 +11,5 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Unit;
  * To change this template use File | Settings | File Templates.
  */
 public interface Pathfinding {
-    public Point[] findPath(Unit unit, Point destination, Level level);
+    public Path findPath(Unit unit, Pointf destination, Level level);
 }

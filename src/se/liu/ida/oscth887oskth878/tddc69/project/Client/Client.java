@@ -8,16 +8,18 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.IntPoint;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
 
 
 public class Client {
-    public static final int SIZE = 32;
+    public static final int PIXELS_PER_TILE = 32;
+    public static final int WIDTH = 43;
+    public static final int HEIGHT = 20;
+    public static final int UI_SIZE = 2;
 
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
-        Level level = new Level(43, 20);
+        Level level = new Level(WIDTH, HEIGHT);
 
         /*GameClient server = new GameClient();
 
@@ -29,7 +31,7 @@ public class Client {
         */
 
         try {
-            Display.setDisplayMode(new DisplayMode(43* SIZE, 20* SIZE));
+            Display.setDisplayMode(new DisplayMode(WIDTH* PIXELS_PER_TILE, (HEIGHT+UI_SIZE)* PIXELS_PER_TILE));
             Display.create();
 
             Display.setTitle("OTD game");
@@ -37,7 +39,7 @@ public class Client {
             e.printStackTrace();
         }
 
-        renderer.init(43*SIZE, 20*SIZE, SIZE);
+        renderer.init(WIDTH* PIXELS_PER_TILE, (HEIGHT+UI_SIZE)* PIXELS_PER_TILE, PIXELS_PER_TILE);
         level.generateBasicLevel();
 
         int frames = 0;
@@ -45,7 +47,7 @@ public class Client {
 
         while (!Display.isCloseRequested()) {
             if (Mouse.next()) {
-                IntPoint mousePosition = MouseTileSelector.getTile();
+                Point mousePosition = MouseTileSelector.getTile();
                 int x = mousePosition.x;
                 int y = mousePosition.y;
                 if (Mouse.isButtonDown(0))

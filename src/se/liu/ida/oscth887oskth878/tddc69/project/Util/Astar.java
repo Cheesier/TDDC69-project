@@ -14,12 +14,12 @@ import java.util.ArrayList;
  */
 public class Astar implements Pathfinding {
     @Override
-    public Point[] findPath(Unit unit, Point destination, Level level) {
+    public Path findPath(Unit unit, Pointf destination, Level level) {
         ArrayList<Point> open = new ArrayList<Point>();   // to be evaluated
         ArrayList<Point> closed = new ArrayList<Point>(); // has been evaluated
 
-        open.add(unit.getLocation());
+        //open.add(unit.getLocation());
 
-        return closed.toArray(new Point[closed.size()]);
+        return new Path();
     }
 }

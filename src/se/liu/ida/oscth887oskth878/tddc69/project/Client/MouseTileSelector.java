@@ -1,7 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
 import org.lwjgl.input.Mouse;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.IntPoint;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
 
 /**
  * @version 1.0
@@ -10,13 +10,13 @@ import se.liu.ida.oscth887oskth878.tddc69.project.Util.IntPoint;
  * @since: 29/09/2013
  */
 public class MouseTileSelector {
-    static IntPoint mousePosition;
+    static Point mousePosition;
 
-    public static IntPoint getTile() {
-        int x = Mouse.getX() / Client.SIZE;
-        int y = Mouse.getY() / Client.SIZE;
+    public static Point getTile() {
+        int x = Mouse.getX() / Client.PIXELS_PER_TILE;
+        int y = Mouse.getY() / Client.PIXELS_PER_TILE;
 
-        return new IntPoint(x, y);
+        return new Point(x, y);
     }
 
 
