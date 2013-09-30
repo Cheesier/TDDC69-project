@@ -31,6 +31,8 @@ public class Level {
     }
 
     public Tile getTile(int x, int y) {
+        if (x < 0 || x > dimensions.x || y < 0 || y > dimensions.y)
+            return null;
         return tileGrid[x][y];
     }
 

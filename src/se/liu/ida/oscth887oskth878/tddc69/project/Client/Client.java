@@ -50,10 +50,12 @@ public class Client {
                 Point mousePosition = MouseTileSelector.getTile();
                 int x = mousePosition.x;
                 int y = mousePosition.y - UI_SIZE/ PIXELS_PER_TILE;
-                if (Mouse.isButtonDown(0))
-                    level.getTile(x, y).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-                else if (Mouse.isButtonDown(1))
-                    level.getTile(x, y).removeTower();
+                if (level.getTile(x, y) != null) {
+                    if (Mouse.isButtonDown(0))
+                        level.getTile(x, y).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+                    else if (Mouse.isButtonDown(1))
+                        level.getTile(x, y).removeTower();
+                }
             }
 
             try {

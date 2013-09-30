@@ -35,13 +35,8 @@ public class GLBegin implements Renderer {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
         GL11.glDisable(GL11.GL_DEPTH);
 
-        GL11.glHint(GL11.GL_PERSPECTIVE_CORRECTION_HINT, GL11.GL_NEAREST);
-        GL11.glHint(GL11.GL_LINE_SMOOTH_HINT, GL11.GL_NEAREST);
-
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL11.GL_CLAMP);
-        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL11.GL_CLAMP);
+        GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
         System.out.println("OpenGL version: " + GL11.glGetString(GL11.GL_VERSION));
     }
@@ -60,6 +55,7 @@ public class GLBegin implements Renderer {
 
                     ResourceManager.bindTexture(level.getTile(x, y).getType());
 
+                    GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                     GL11.glBegin(GL11.GL_QUADS);
                         GL11.glVertex2f(baseX,      baseY);
                         GL11.glTexCoord2f(1,0);
@@ -75,6 +71,7 @@ public class GLBegin implements Renderer {
                     if (tower != null) {
                         ResourceManager.bindTower(tower.getTowerType());
 
+                        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                         GL11.glBegin(GL11.GL_QUADS);
                         GL11.glVertex2f(baseX,      baseY);
                         GL11.glTexCoord2f(1,0);
@@ -102,10 +99,9 @@ public class GLBegin implements Renderer {
         int baseX = 0;
         int baseY = 0;
 
-        for (int i = 0; i < GUI.towers.size(); i++) {
-
-            ResourceManager.bindTower(GUI.towers.get(i));
-
+        ResourceManager.bindUIElement(GUI.GUIElements.BACKGROUND);
+        for (int i = 0; i < Client.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE; i++) {
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);
                 GL11.glVertex2f(baseX,                  baseY);
                 GL11.glTexCoord2f(1,0);
@@ -116,6 +112,28 @@ public class GLBegin implements Renderer {
                 GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
                 GL11.glTexCoord2f(0,0);
             GL11.glEnd();
+            baseX += Client.UI_SIZE;
+        }
+
+        baseX = 0;
+
+        for (int i = 0; i < GUI.towers.size(); i++) {
+
+            ResourceManager.bindTower(GUI.towers.get(i));
+
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+            GL11.glBegin(GL11.GL_QUADS);
+                GL11.glVertex2f(baseX,                  baseY);
+                GL11.glTexCoord2f(1,0);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
+                GL11.glTexCoord2f(1,1);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,1);
+                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,0);
+            GL11.glEnd();
+
+            baseX += Client.UI_SIZE;
         }
     }
 }

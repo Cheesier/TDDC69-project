@@ -12,6 +12,9 @@ import java.util.ArrayList;
  * @since 30/09/2013
  */
 public class GUI {
+    public enum GUIElements {
+        BACKGROUND
+    }
     public static final ArrayList<TowerFactory.TowerType> towers = new ArrayList<TowerFactory.TowerType>();
 
     static {
