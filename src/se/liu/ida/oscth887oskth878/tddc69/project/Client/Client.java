@@ -15,7 +15,7 @@ public class Client {
     public static final int PIXELS_PER_TILE = 32;
     public static final int WIDTH = 43;
     public static final int HEIGHT = 20;
-    public static final int UI_SIZE = 2;
+    public static final int UI_SIZE = PIXELS_PER_TILE * 2;
 
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
@@ -31,7 +31,7 @@ public class Client {
         */
 
         try {
-            Display.setDisplayMode(new DisplayMode(WIDTH* PIXELS_PER_TILE, (HEIGHT+UI_SIZE)* PIXELS_PER_TILE));
+            Display.setDisplayMode(new DisplayMode(WIDTH* PIXELS_PER_TILE, HEIGHT * PIXELS_PER_TILE + UI_SIZE));
             Display.create();
 
             Display.setTitle("OTD game");
@@ -39,7 +39,7 @@ public class Client {
             e.printStackTrace();
         }
 
-        renderer.init(WIDTH* PIXELS_PER_TILE, (HEIGHT+UI_SIZE)* PIXELS_PER_TILE, PIXELS_PER_TILE);
+        renderer.init(WIDTH* PIXELS_PER_TILE, HEIGHT * PIXELS_PER_TILE + UI_SIZE, PIXELS_PER_TILE);
         level.generateBasicLevel();
 
         int frames = 0;
@@ -49,7 +49,7 @@ public class Client {
             if (Mouse.next()) {
                 Point mousePosition = MouseTileSelector.getTile();
                 int x = mousePosition.x;
-                int y = mousePosition.y;
+                int y = mousePosition.y - UI_SIZE/ PIXELS_PER_TILE;
                 if (Mouse.isButtonDown(0))
                     level.getTile(x, y).buildTower(TowerFactory.TowerType.BASIC_TOWER);
                 else if (Mouse.isButtonDown(1))
@@ -71,7 +71,7 @@ public class Client {
                 lastTime = System.nanoTime();
             }
             Display.update();
-            //Display.sync(60);
+            Display.sync(20);
 
             //Display.setVSyncEnabled(true);
         }
