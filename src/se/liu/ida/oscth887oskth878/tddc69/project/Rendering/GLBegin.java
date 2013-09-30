@@ -43,9 +43,6 @@ public class GLBegin implements Renderer {
 
     @Override
     public void drawLevel(Level level) {
-        // Clear the screen
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-
         int baseX = 0;
         int baseY = Client.UI_SIZE;
 

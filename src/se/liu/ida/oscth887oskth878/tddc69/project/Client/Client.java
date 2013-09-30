@@ -4,6 +4,7 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.GL11;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
@@ -46,6 +47,7 @@ public class Client {
         long lastTime = System.nanoTime();
 
         while (!Display.isCloseRequested()) {
+
             if (Mouse.next()) {
                 Point mousePosition = MouseTileSelector.getTile();
                 int x = mousePosition.x;
@@ -58,11 +60,8 @@ public class Client {
                 }
             }
 
-            try {
-                Display.swapBuffers();
-            } catch (LWJGLException e) {
-                e.printStackTrace();
-            }
+            try { Display.swapBuffers(); } catch (LWJGLException e) { e.printStackTrace(); }
+
             renderer.drawLevel(level);
             renderer.drawUI();
 
@@ -74,9 +73,7 @@ public class Client {
                 lastTime = System.nanoTime();
             }
             Display.update();
-            Display.sync(20);
-
-            //Display.setVSyncEnabled(true);
+            Display.sync(60);
         }
         Display.destroy();
         System.exit(0);
