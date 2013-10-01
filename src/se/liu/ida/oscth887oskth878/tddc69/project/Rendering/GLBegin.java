@@ -114,9 +114,14 @@ public class GLBegin implements Renderer {
 
         baseX = 0;
 
-        for (int i = 0; i < GUI.towers.size(); i++) {
+        for (int i = 0; i < GUI.guiTowerElements.length; i++) {
 
-            ResourceManager.bindTower(GUI.towers.get(i));
+            if (GUI.guiTowerElements[i] == null) {
+                baseX += Client.UI_SIZE;
+                continue;
+            }
+
+            ResourceManager.bindTower(GUI.guiTowerElements[i]);
 
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);

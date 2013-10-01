@@ -1,15 +1,12 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
 import org.lwjgl.LWJGLException;
-import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.MouseHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
 
 
 public class Client {
@@ -17,10 +14,10 @@ public class Client {
     public static final int WIDTH = 43;
     public static final int HEIGHT = 20;
     public static final int UI_SIZE = PIXELS_PER_TILE * 2;
+    public static final Level level = new Level(WIDTH, HEIGHT);
 
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
-        Level level = new Level(WIDTH, HEIGHT);
 
         /*GameClient server = new GameClient();
 
@@ -47,18 +44,7 @@ public class Client {
         long lastTime = System.nanoTime();
 
         while (!Display.isCloseRequested()) {
-
-            if (Mouse.next()) {
-                Point mousePosition = MouseTileSelector.getTile();
-                int x = mousePosition.x;
-                int y = mousePosition.y - UI_SIZE/ PIXELS_PER_TILE;
-                if (level.getTile(x, y) != null) {
-                    if (Mouse.isButtonDown(0))
-                        level.getTile(x, y).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-                    else if (Mouse.isButtonDown(1))
-                        level.getTile(x, y).removeTower();
-                }
-            }
+            MouseHandler.update();
 
             try { Display.swapBuffers(); } catch (LWJGLException e) { e.printStackTrace(); }
 
@@ -73,7 +59,7 @@ public class Client {
                 lastTime = System.nanoTime();
             }
             Display.update();
-            Display.sync(60);
+            Display.sync(20);
         }
         Display.destroy();
         System.exit(0);

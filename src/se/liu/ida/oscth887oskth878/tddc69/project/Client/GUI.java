@@ -1,9 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Placeable;
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.GUIClickHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.TileClickHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
-
-import java.util.ArrayList;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -15,9 +14,19 @@ public class GUI {
     public enum GUIElements {
         BACKGROUND
     }
-    public static final ArrayList<TowerFactory.TowerType> towers = new ArrayList<TowerFactory.TowerType>();
 
     static {
-        towers.add(TowerFactory.TowerType.BASIC_TOWER);
+        GUIClickHandler.init();
+        TileClickHandler.init();
     }
+
+    public static final TowerFactory.TowerType[] guiTowerElements = new TowerFactory.TowerType[] {
+            TowerFactory.TowerType.BASIC_TOWER,
+            null,
+            TowerFactory.TowerType.BASIC_TOWER
+    };
+
+    public static final GUI instance = new GUI();
+
+    public static TowerFactory.TowerType selectedTower = null;
 }

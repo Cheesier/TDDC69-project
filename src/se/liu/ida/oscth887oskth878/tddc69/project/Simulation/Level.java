@@ -1,6 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.Util.Dimension;
+import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,6 +35,10 @@ public class Level {
         if (x < 0 || x > dimensions.x || y < 0 || y > dimensions.y)
             return null;
         return tileGrid[x][y];
+    }
+
+    public Tile getTile(Point point) {
+        return getTile(point.x, point.y);
     }
 
     public boolean canPass(int x, int y, Unit unit) {
