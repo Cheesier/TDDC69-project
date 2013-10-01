@@ -55,13 +55,13 @@ public class GLBegin implements Renderer {
                     GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                     GL11.glBegin(GL11.GL_QUADS);
                         GL11.glVertex2f(baseX,      baseY);
-                        GL11.glTexCoord2f(1,0);
-                        GL11.glVertex2f(baseX+size, baseY);
                         GL11.glTexCoord2f(1,1);
+                        GL11.glVertex2f(baseX+size, baseY);
+                        GL11.glTexCoord2f(1,0);
                         GL11.glVertex2f(baseX+size, baseY+size);
-                        GL11.glTexCoord2f(0,1);
-                        GL11.glVertex2f(baseX,      baseY+size);
                         GL11.glTexCoord2f(0,0);
+                        GL11.glVertex2f(baseX,      baseY+size);
+                        GL11.glTexCoord2f(0,1);
                     GL11.glEnd();
 
                     Tower tower = level.getTile(x, y).getTower();
@@ -71,13 +71,13 @@ public class GLBegin implements Renderer {
                         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                         GL11.glBegin(GL11.GL_QUADS);
                         GL11.glVertex2f(baseX,      baseY);
-                        GL11.glTexCoord2f(1,0);
-                        GL11.glVertex2f(baseX+size, baseY);
                         GL11.glTexCoord2f(1,1);
+                        GL11.glVertex2f(baseX+size, baseY);
+                        GL11.glTexCoord2f(1,0);
                         GL11.glVertex2f(baseX+size, baseY+size);
-                        GL11.glTexCoord2f(0,1);
-                        GL11.glVertex2f(baseX,      baseY+size);
                         GL11.glTexCoord2f(0,0);
+                        GL11.glVertex2f(baseX,      baseY+size);
+                        GL11.glTexCoord2f(0,1);
                         GL11.glEnd();
                     }
 
@@ -101,13 +101,13 @@ public class GLBegin implements Renderer {
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);
                 GL11.glVertex2f(baseX,                  baseY);
-                GL11.glTexCoord2f(1,0);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
                 GL11.glTexCoord2f(1,1);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
+                GL11.glTexCoord2f(1,0);
                 GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,1);
-                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
                 GL11.glTexCoord2f(0,0);
+                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,1);
             GL11.glEnd();
             baseX += Client.UI_SIZE;
         }
@@ -126,13 +126,13 @@ public class GLBegin implements Renderer {
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);
                 GL11.glVertex2f(baseX,                  baseY);
-                GL11.glTexCoord2f(1,0);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
                 GL11.glTexCoord2f(1,1);
+                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
+                GL11.glTexCoord2f(1,0);
                 GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,1);
-                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
                 GL11.glTexCoord2f(0,0);
+                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
+                GL11.glTexCoord2f(0,1);
             GL11.glEnd();
 
             baseX += Client.UI_SIZE;
