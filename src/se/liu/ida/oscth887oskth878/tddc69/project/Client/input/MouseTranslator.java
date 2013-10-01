@@ -1,8 +1,7 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Client.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
-import org.lwjgl.input.Mouse;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.Client;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
  * @version 1.0

@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Client.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 /**
  * @author Oscar Thunberg (oscth887)

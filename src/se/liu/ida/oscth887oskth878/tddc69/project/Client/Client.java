@@ -1,12 +1,12 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Client;
+package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.MouseHandler;
-import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.GLBegin;
-import se.liu.ida.oscth887oskth878.tddc69.project.Rendering.Renderer;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.input.MouseHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.rendering.GLBegin;
+import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 
 public class Client {

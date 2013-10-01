@@ -1,11 +1,11 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
+package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.GUI;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tile;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tile;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 
 import java.io.IOException;
 import java.util.EnumMap;

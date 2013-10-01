@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Util;
+package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 /**
  * @version 1.0

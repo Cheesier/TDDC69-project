@@ -1,6 +1,6 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Units;
+package se.liu.ida.oscth887oskth878.tddc69.project.simulation.units;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
 
 /**
  * @version 1.0

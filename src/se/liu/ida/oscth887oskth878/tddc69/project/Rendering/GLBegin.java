@@ -1,11 +1,11 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
+package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.Client;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.GUI;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 
 /**
  * @author Oscar Thunberg (oscth887)

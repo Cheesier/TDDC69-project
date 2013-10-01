@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol;
+package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol;
 
 /**
  * Created with IntelliJ IDEA.

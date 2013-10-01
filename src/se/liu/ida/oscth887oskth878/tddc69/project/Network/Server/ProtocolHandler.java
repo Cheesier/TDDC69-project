@@ -1,9 +1,9 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Network.Server;
+package se.liu.ida.oscth887oskth878.tddc69.project.network.server;
 
 import com.esotericsoftware.kryonet.Connection;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.InitPacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.ProtocolPacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Protocol.TerminatePacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.InitPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 
 /**
  * Created with IntelliJ IDEA.

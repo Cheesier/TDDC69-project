@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Network.Packet.Game;
+package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
 /**
  * Created with IntelliJ IDEA.

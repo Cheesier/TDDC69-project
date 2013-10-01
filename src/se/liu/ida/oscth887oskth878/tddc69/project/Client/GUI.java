@@ -1,8 +1,8 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Client;
+package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.GUIClickHandler;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.input.TileClickHandler;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.input.GUIClickHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.input.TileClickHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 
 /**
  * @author Oscar Thunberg (oscth887)

@@ -1,7 +1,7 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Network.Server;
+package se.liu.ida.oscth887oskth878.tddc69.project.network.server;
 
 import com.esotericsoftware.kryonet.Server;
-import se.liu.ida.oscth887oskth878.tddc69.project.Network.Network;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
 
 import java.io.IOException;
 

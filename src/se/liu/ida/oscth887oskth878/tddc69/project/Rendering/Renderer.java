@@ -1,6 +1,6 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Rendering;
+package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**
  * @author Oscar Thunberg (oscth887)

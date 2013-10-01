@@ -1,8 +1,6 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Client.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 import org.lwjgl.input.Mouse;
-import se.liu.ida.oscth887oskth878.tddc69.project.Client.Client;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Point;
 
 import java.util.ArrayList;
 import java.util.Iterator;

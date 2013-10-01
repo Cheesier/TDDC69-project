@@ -1,7 +1,7 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Util;
+package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.Simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
 
 import java.util.ArrayList;
 

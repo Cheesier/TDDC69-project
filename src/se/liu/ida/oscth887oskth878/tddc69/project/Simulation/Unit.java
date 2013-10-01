@@ -1,7 +1,7 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
+package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Path;
-import se.liu.ida.oscth887oskth878.tddc69.project.Util.Pointf;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Path;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
  * Created with IntelliJ IDEA.

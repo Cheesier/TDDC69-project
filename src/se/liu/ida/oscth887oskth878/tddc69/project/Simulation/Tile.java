@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.Simulation;
+package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
 /**
  * Created with IntelliJ IDEA.
