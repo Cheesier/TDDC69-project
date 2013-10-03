@@ -9,9 +9,25 @@ import java.util.LinkedList;
  * @since 30/09/2013
  */
 public class Path {
-    private LinkedList<Point> path = new LinkedList<Point>();
+    private LinkedList<Pointf> path = new LinkedList<Pointf>();
 
-    public Point next() {
-        return path.remove();
+    public void addPoint(int x, int y) {
+        path.add(new Pointf(x + 0.5f, y + 0.5f)); // add .5 to location to get center of tile
+    }
+
+    public Pointf next() {
+        return path.peek();
+    }
+
+    public void removeLast() {
+        path.remove();
+    }
+
+    public boolean hasNext() {
+        return path.size() > 0;
+    }
+
+    public int length() {
+        return path.size();
     }
 }

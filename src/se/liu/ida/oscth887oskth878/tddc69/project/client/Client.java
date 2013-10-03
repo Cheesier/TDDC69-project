@@ -46,7 +46,9 @@ public class Client {
         while (!Display.isCloseRequested()) {
             MouseHandler.update();
 
-            try { Display.swapBuffers(); } catch (LWJGLException e) { e.printStackTrace(); }
+            //try { Display.swapBuffers(); } catch (LWJGLException e) { e.printStackTrace(); }
+
+            level.tick();
 
             renderer.drawLevel(level);
             renderer.drawUI();

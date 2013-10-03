@@ -14,6 +14,10 @@ public class Pointf {
         this.y = y;
     }
 
+    public Point toPoint() {
+        return new Point((int)x, (int)y);
+    }
+
     @Override
     public String toString() {
         return "{" + x + ", " + y + "}";

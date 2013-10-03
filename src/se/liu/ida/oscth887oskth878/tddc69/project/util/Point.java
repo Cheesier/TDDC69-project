@@ -1,10 +1,10 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 /**
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 29/09/2013
+ * @since 29/09/2013
  */
 public class Point {
     public int x, y;
@@ -14,6 +14,16 @@ public class Point {
         this.y = y;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Point)
+            return equals((Point) obj);
+        return super.equals(obj);
+    }
+
+    public boolean equals(Point obj) {
+        return x == obj.x && y == obj.y;
+    }
 
     @Override
     public String toString() {

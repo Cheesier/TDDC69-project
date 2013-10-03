@@ -1,7 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.util.Path;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,21 +8,76 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * Date: 2013-09-15
  * Time: 20:35
  */
-public abstract class Unit implements Placeable {
+public abstract class Unit {
+    public static Pathfinding pathfinding = new Astar();
     public enum MoveType {
         GROUND, AIR
     }
 
     private int hitpoints;
     private MoveType moveType;
-    private int speed;
-    private Pointf location;
+    private float speed; // tiles per tick
+    private Pointf position;
     private Path path;
+    private Player.Team owner;
 
-    protected Unit(int hitpoints, MoveType moveType, int speed) {
+    protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed) {
+        this.position = position;
+        this.owner = owner;
         this.hitpoints = hitpoints;
         this.moveType = moveType;
         this.speed = speed;
+    }
+
+    public void tick() {
+        move();
+    }
+
+    // returns false if at end of path
+    private boolean move() {
+        float movePool = speed;
+
+        while (path.hasNext() && movePool > 0) {
+            Pointf next = path.next();
+            if (position.x != next.x) { // move in x axis
+                float distance = Math.abs(position.x - next.x);
+                if (movePool > distance) {
+                    position.x = next.x;
+                    movePool -= distance;
+                    continue;
+                }
+                else {
+                    position.x -= ((position.x - next.x)/distance) * movePool;
+                    break;
+                }
+            }
+            else if (position.y != next.y) { // move in y axis
+                float distance = Math.abs(position.y - next.y);
+                if (movePool > distance) {
+                    position.y = next.y;
+                    movePool -= distance;
+                    continue;
+                }
+                else {
+                    position.y -= ((position.y - next.y)/distance) * movePool;
+                    break;
+                }
+            }
+            else { // right on top of center of tile
+                path.removeLast();
+                if (!path.hasNext()) {
+                    // damage team
+                    // remove self
+                    return false;
+                }
+                continue;
+            }
+        }
+        return true; // can still move
+    }
+
+    public void generatePath(Point portal, Level level) {
+        path = pathfinding.findPath(this, new Pointf(0, 0), level);
     }
 
     /**
@@ -47,15 +101,10 @@ public abstract class Unit implements Placeable {
     }
 
     public Pointf getLocation() {
-        return location;
+        return position;
     }
 
-    public int getSpeed() {
+    public float getSpeed() {
         return speed;
-    }
-
-    @Override
-    public void onSelect() {
-        // Spawn the unit on the level, at given position
     }
 }

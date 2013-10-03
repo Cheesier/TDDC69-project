@@ -2,8 +2,15 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.AStar;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.GoalNode;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.ISearchNode;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.SearchNode;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.PriorityQueue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +22,22 @@ import java.util.ArrayList;
 public class Astar implements Pathfinding {
     @Override
     public Path findPath(Unit unit, Pointf destination, Level level) {
-        ArrayList<Point> open = new ArrayList<Point>();   // to be evaluated
-        ArrayList<Point> closed = new ArrayList<Point>(); // has been evaluated
 
-        //open.add(unit.getLocation());
+        // Using: https://github.com/jonasnick/A-star
 
-        return new Path();
+        GoalNode goalNode = new GoalNode(12, 10);
+        SearchNode initialNode = new SearchNode((int)unit.getLocation().x, (int)unit.getLocation().y, null, goalNode);
+        ArrayList<ISearchNode> path = new AStar(level, unit).shortestPath(initialNode, goalNode);
+
+        Iterator<ISearchNode> itr = path.iterator();
+
+        Path result = new Path();
+
+        while (itr.hasNext()) {
+            SearchNode node = (SearchNode)itr.next();
+            result.addPoint(node.getX(), node.getY());
+        }
+
+        return result;
     }
 }

@@ -3,6 +3,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Dimension;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Oscar
@@ -11,12 +14,21 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  */
 public class Level {
     private Tile[][] tileGrid;
+    private ArrayList<Unit> units = new ArrayList<Unit>();
 
     private Dimension dimensions;
 
     public Level(int x, int y) {
         tileGrid = new Tile[x][y];
         dimensions = new Dimension(x, y);
+    }
+
+    public void tick() {
+        Iterator<Unit> itr = units.iterator();
+
+        while (itr.hasNext()) {
+            itr.next().tick();
+        }
     }
 
     // should not be shipped with release version
@@ -28,7 +40,13 @@ public class Level {
             }
         }
 
-        getTile(10, 10).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+
+        getTile(11, 10).buildTower(TowerFactory.TowerType.BASIC_TOWER); // TODO: Remove debug code
+        getTile(11, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+        getTile(11, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+        getTile(12, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+        getTile(12, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
+        spawnUnit(Player.Team.BLUE);
     }
 
     public Tile getTile(int x, int y) {
@@ -51,5 +69,15 @@ public class Level {
 
     public Dimension getDimensions() {
         return dimensions;
+    }
+
+    public void spawnUnit(Player.Team team) {
+        Unit unit = UnitFactory.getUnit(UnitFactory.UnitType.BASIC_UNIT, team);
+        unit.generatePath(new Point(0, 0), this);
+        units.add(unit);
+    }
+
+    public Iterator<Unit> getUnitIterator() {
+        return units.iterator();
     }
 }

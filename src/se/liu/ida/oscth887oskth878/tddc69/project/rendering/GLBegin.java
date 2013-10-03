@@ -6,6 +6,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
+
+import java.util.Iterator;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -46,49 +50,48 @@ public class GLBegin implements Renderer {
         int baseX = 0;
         int baseY = Client.UI_SIZE;
 
-            for (int x = 0; x < level.getDimensions().x; x++) {
-                for (int y = 0; y < level.getDimensions().y; y++) {
+        for (int x = 0; x < level.getDimensions().x; x++) {
+            for (int y = 0; y < level.getDimensions().y; y++) {
 
 
-                    ResourceManager.bindTexture(level.getTile(x, y).getType());
+                ResourceManager.bindTexture(level.getTile(x, y).getType());
+
+                GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+                GL11.glBegin(GL11.GL_QUADS);
+                    GL11.glVertex2f(baseX,      baseY);
+                    GL11.glTexCoord2f(1,1);
+                    GL11.glVertex2f(baseX+size, baseY);
+                    GL11.glTexCoord2f(1,0);
+                    GL11.glVertex2f(baseX+size, baseY+size);
+                    GL11.glTexCoord2f(0,0);
+                    GL11.glVertex2f(baseX,      baseY+size);
+                    GL11.glTexCoord2f(0,1);
+                GL11.glEnd();
+
+                Tower tower = level.getTile(x, y).getTower();
+                if (tower != null) {
+                    ResourceManager.bindTower(tower.getTowerType());
 
                     GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                     GL11.glBegin(GL11.GL_QUADS);
-                        GL11.glVertex2f(baseX,      baseY);
-                        GL11.glTexCoord2f(1,1);
-                        GL11.glVertex2f(baseX+size, baseY);
-                        GL11.glTexCoord2f(1,0);
-                        GL11.glVertex2f(baseX+size, baseY+size);
-                        GL11.glTexCoord2f(0,0);
-                        GL11.glVertex2f(baseX,      baseY+size);
-                        GL11.glTexCoord2f(0,1);
+                    GL11.glVertex2f(baseX,      baseY);
+                    GL11.glTexCoord2f(1,1);
+                    GL11.glVertex2f(baseX+size, baseY);
+                    GL11.glTexCoord2f(1,0);
+                    GL11.glVertex2f(baseX+size, baseY+size);
+                    GL11.glTexCoord2f(0,0);
+                    GL11.glVertex2f(baseX,      baseY+size);
+                    GL11.glTexCoord2f(0,1);
                     GL11.glEnd();
-
-                    Tower tower = level.getTile(x, y).getTower();
-                    if (tower != null) {
-                        ResourceManager.bindTower(tower.getTowerType());
-
-                        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-                        GL11.glBegin(GL11.GL_QUADS);
-                        GL11.glVertex2f(baseX,      baseY);
-                        GL11.glTexCoord2f(1,1);
-                        GL11.glVertex2f(baseX+size, baseY);
-                        GL11.glTexCoord2f(1,0);
-                        GL11.glVertex2f(baseX+size, baseY+size);
-                        GL11.glTexCoord2f(0,0);
-                        GL11.glVertex2f(baseX,      baseY+size);
-                        GL11.glTexCoord2f(0,1);
-                        GL11.glEnd();
-                    }
-
-                    baseY += size;
                 }
-                baseY = Client.UI_SIZE;
-                baseX += size;
+
+                baseY += size;
             }
+            baseY = Client.UI_SIZE;
+            baseX += size;
+        }
 
-
-        Display.update();
+        drawUnits(level);
     }
 
     @Override
@@ -136,6 +139,33 @@ public class GLBegin implements Renderer {
             GL11.glEnd();
 
             baseX += Client.UI_SIZE;
+        }
+    }
+
+    private void drawUnits(Level level) {
+        Iterator<Unit> units = level.getUnitIterator();
+
+        int displacement = Client.PIXELS_PER_TILE / 2;
+
+        while (units.hasNext()) {
+            Unit unit = units.next();
+
+            float baseX = (unit.getLocation().x * Client.PIXELS_PER_TILE) - displacement;
+            float baseY = Client.UI_SIZE + (unit.getLocation().y * Client.PIXELS_PER_TILE) - displacement;
+
+            ResourceManager.bindUnit(UnitFactory.UnitType.BASIC_UNIT); // test code
+
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+            GL11.glBegin(GL11.GL_QUADS);
+                GL11.glVertex2f(baseX,                          baseY);
+                GL11.glTexCoord2f(1,1);
+                GL11.glVertex2f(baseX+Client.PIXELS_PER_TILE,   baseY);
+                GL11.glTexCoord2f(1,0);
+                GL11.glVertex2f(baseX+Client.PIXELS_PER_TILE,   baseY+Client.PIXELS_PER_TILE);
+                GL11.glTexCoord2f(0,0);
+                GL11.glVertex2f(baseX,                          baseY+Client.PIXELS_PER_TILE);
+                GL11.glTexCoord2f(0,1);
+            GL11.glEnd();
         }
     }
 }

@@ -6,6 +6,7 @@ import org.newdawn.slick.util.ResourceLoader;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tile;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 import java.io.IOException;
 import java.util.EnumMap;
@@ -20,6 +21,7 @@ public class ResourceManager {
     private static EnumMap<Tile.Type, Texture> textures = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
     private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
     private static EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
+    private static EnumMap<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
 
     static {
         textures.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
@@ -27,6 +29,8 @@ public class ResourceManager {
         towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
 
         uiElements.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
+
+        units.put(UnitFactory.UnitType.BASIC_UNIT, load("res/units/basic_unit.png"));
     }
 
     private static Texture load(String path) {
@@ -48,5 +52,9 @@ public class ResourceManager {
 
     public static void bindUIElement(GUI.GUIElements type) {
         uiElements.get(type).bind();
+    }
+
+    public static void bindUnit(UnitFactory.UnitType type) {
+        units.get(type).bind();
     }
 }

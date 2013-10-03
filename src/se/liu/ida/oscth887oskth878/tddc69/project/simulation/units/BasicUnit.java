@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation.units;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
  * @version 1.0
@@ -11,14 +13,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
 public class BasicUnit extends Unit {
     public static final int hitpoints = 50;
     public static final MoveType moveType = MoveType.GROUND;
-    public static final int speed = 3;
+    public static final float speed = 0.1f;
 
-    protected BasicUnit() {
-        super(hitpoints, moveType, speed);
-    }
-
-    @Override
-    public void onSelect() {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public BasicUnit(Pointf position, Player.Team owner) {
+        super(position, owner, hitpoints, moveType, speed);
     }
 }
