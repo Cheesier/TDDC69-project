@@ -15,8 +15,8 @@ public abstract class Tower extends Tile {
     private int range;
     private TowerFactory.TowerType towerType;
 
-    protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, DamageType damageType, int damage, int range) {
-        super(unitMobility, false, Type.TOWER);
+    protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, DamageType damageType, int damage, int range, Player.Team owner) {
+        super(unitMobility, false, Type.TOWER, owner);
         this.towerType = type;
         this.damageType = damageType;
         this.damage = damage;

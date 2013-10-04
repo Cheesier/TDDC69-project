@@ -13,20 +13,21 @@ public class Tile {
     }
 
     public static enum Type {
-        GRASS, SPECIAL, TOWER
+        GRASS, PORTAL, SPAWN, TOWER
     }
 
     protected UnitMobility unitMobility;
     private boolean buildable = false;
     private Tower tower;
     private Type type;
-    private Player.Team owner = Player.Team.NEUTRAL;
+    private Player.Team owner;
 
 
-    protected Tile(UnitMobility mobility, boolean buildable, Type type) {
+    protected Tile(UnitMobility mobility, boolean buildable, Type type, Player.Team owner) {
         this.unitMobility = mobility;
         this.buildable = buildable;
         this.type = type;
+        this.owner = owner;
     }
 
     public void setOwner(Player.Team owner) {

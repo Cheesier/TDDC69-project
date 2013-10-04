@@ -1,5 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 
@@ -16,7 +17,7 @@ public class BasicTower extends Tower{
     public static final int DAMAGE = 5;
     public static final int RANGE = 2;
 
-    public BasicTower() {
-        super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE);
+    public BasicTower(Player.Team owner) {
+        super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE, owner);
     }
 }

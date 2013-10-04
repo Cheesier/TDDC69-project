@@ -18,19 +18,22 @@ import java.util.EnumMap;
  * @since 27/09/2013
  */
 public class ResourceManager {
-    private static EnumMap<Tile.Type, Texture> textures = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
+    private static EnumMap<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
     private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
     private static EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
     private static EnumMap<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
 
     static {
-        textures.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
+        tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
+        tiles.put(Tile.Type.PORTAL, load("res/tiles/portal.png"));
+        tiles.put(Tile.Type.SPAWN, load("res/tiles/spawn.png"));
 
         towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
 
         uiElements.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
 
         units.put(UnitFactory.UnitType.BASIC_UNIT, load("res/units/basic_unit.png"));
+
     }
 
     private static Texture load(String path) {
@@ -43,7 +46,7 @@ public class ResourceManager {
     }
 
     public static void bindTexture(Tile.Type type) {
-        textures.get(type).bind();
+        tiles.get(type).bind();
     }
 
     public static void bindTower(TowerFactory.TowerType type) {

@@ -17,7 +17,7 @@ public class TowerFactory {
     public static final EnumMap<TowerType, Tower> towers = new EnumMap<TowerType, Tower>(TowerType.class);
 
     static {
-        towers.put(TowerType.BASIC_TOWER, new BasicTower());
+        towers.put(TowerType.BASIC_TOWER, new BasicTower(Player.Team.NEUTRAL)); // team is added for debug!
     }
 
     public static Tower getTower(TowerType type) {
