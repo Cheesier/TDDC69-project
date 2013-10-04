@@ -19,8 +19,8 @@ public class AStar {
     
     public ISearchNode bestNodeAfterSearch;
 
-    public static Level level; // Ugly fix for a problem I don't want to deal with right now
-    public static Unit unit;
+    static Level level; // Ugly fix for a problem I don't want to deal with right now
+    static Unit unit;
 
     public AStar(Level level, Unit unit) {
         AStar.level = level;

@@ -25,7 +25,7 @@ public class Astar implements Pathfinding {
 
         // Using: https://github.com/jonasnick/A-star
 
-        GoalNode goalNode = new GoalNode(12, 10);
+        GoalNode goalNode = new GoalNode((int)destination.x, (int)destination.y);
         SearchNode initialNode = new SearchNode((int)unit.getLocation().x, (int)unit.getLocation().y, null, goalNode);
         ArrayList<ISearchNode> path = new AStar(level, unit).shortestPath(initialNode, goalNode);
 
