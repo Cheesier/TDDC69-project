@@ -14,6 +14,10 @@ public class Point {
         this.y = y;
     }
 
+    public Pointf toPointf() {
+        return new Pointf(x, y);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Point)

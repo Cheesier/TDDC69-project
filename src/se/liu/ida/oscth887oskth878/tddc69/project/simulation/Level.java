@@ -50,7 +50,7 @@ public class Level {
     }
 
     public Tile getTile(int x, int y) {
-        if (x < 0 || x > dimensions.x || y < 0 || y > dimensions.y)
+        if (x < 0 || x >= dimensions.x || y < 0 || y >= dimensions.y)
             return null;
         return tileGrid[x][y];
     }
@@ -73,7 +73,7 @@ public class Level {
 
     public void spawnUnit(Player.Team team) {
         Unit unit = UnitFactory.getUnit(UnitFactory.UnitType.BASIC_UNIT, team);
-        unit.generatePath(new Point(0, 0), this);
+        unit.generatePath(new Point(12, 10), this);
         units.add(unit);
     }
 
