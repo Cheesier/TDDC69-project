@@ -63,6 +63,7 @@ public class Level {
         getTile(12, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
         getTile(12, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
         spawnUnit(Player.Team.BLUE);
+        spawnUnit(Player.Team.RED);
     }
 
     public Tile getTile(int x, int y) {
@@ -88,8 +89,8 @@ public class Level {
     }
 
     public void spawnUnit(Player.Team team) {
-        Unit unit = UnitFactory.getUnit(UnitFactory.UnitType.BASIC_UNIT, team);
-        unit.generatePath(new Point(12, 10), this);
+        Unit unit = UnitFactory.getUnit(UnitFactory.UnitType.BASIC_UNIT, team, getSpawnTile(team));
+        unit.generatePath(getPortalTile(team), this);
         units.add(unit);
     }
 
@@ -98,14 +99,19 @@ public class Level {
     }
 
     public Pointf getSpawnTile(Player.Team owner) {
+        Pointf spawn;
         switch (owner) {
             case BLUE:
-                return blueSpawn.toPointf();
+                spawn = blueSpawn.toPointf();
+                break;
             case RED:
-                return redSpawn.toPointf();
+                spawn = redSpawn.toPointf();
+                break;
             default:
                 throw new RuntimeException("Not a valid team");
         }
+        spawn.add(0.5f, 0.5f);
+        return spawn;
     }
 
     public Pointf getPortalTile(Player.Team owner) {

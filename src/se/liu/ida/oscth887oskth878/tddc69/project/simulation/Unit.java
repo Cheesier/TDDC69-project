@@ -76,8 +76,8 @@ public abstract class Unit {
         return true; // can still move
     }
 
-    public void generatePath(Point portal, Level level) {
-        path = pathfinding.findPath(this, portal.toPointf(), level);
+    public void generatePath(Pointf portal, Level level) {
+        path = pathfinding.findPath(this, portal, level);
         if (path == null) { // no path to portal was found, should not happen but handle it it anyway
             System.out.println("No path to " + portal + " was found");
             path = new Path();

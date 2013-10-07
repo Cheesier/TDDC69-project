@@ -14,10 +14,10 @@ public class UnitFactory {
         BASIC_UNIT
     }
 
-    public static Unit getUnit(UnitType type, Player.Team team) {
+    public static Unit getUnit(UnitType type, Player.Team team, Pointf pointf) {
         switch (type) {
             case BASIC_UNIT:
-                return new BasicUnit(new Pointf(10.5f, 10.5f), team); //TODO: change to spawn point
+                return new BasicUnit(pointf, team); //TODO: change to spawn point
         }
         throw new RuntimeException(type + " is not spawnable");
     }
