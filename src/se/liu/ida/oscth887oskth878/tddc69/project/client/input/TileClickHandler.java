@@ -2,12 +2,8 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
-<<<<<<< HEAD
 import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
-=======
->>>>>>> af3ab5e3435a93e81351c1dc7c62444c19c952c6
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
