@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
@@ -27,6 +29,12 @@ public class GUIClickHandler implements MouseListener {
                 if (pos.x < GUI.guiTowerElements.length && GUI.guiTowerElements[pos.x] != null) {
                     GUI.selectedTower = GUI.guiTowerElements[pos.x];
                     System.out.println("Selected " + GUI.selectedTower);
+                }
+                else if (pos.x >= GUI.guiTowerElements.length &&
+                         pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
+                         GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
+                    Client.level.spawnUnit(Player.Team.BLUE);
+                    System.out.println("Spawning");
                 }
             }
         }

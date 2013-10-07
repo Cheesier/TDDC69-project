@@ -140,6 +140,30 @@ public class GLBegin implements Renderer {
 
             baseX += Client.UI_SIZE;
         }
+
+        for (int i = 0; i < GUI.guiUnitElements.length; i++) {
+
+            if (GUI.guiUnitElements[i] == null) {
+                baseX += Client.UI_SIZE;
+                continue;
+            }
+
+            ResourceManager.bindUnit(GUI.guiUnitElements[i]);
+
+            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+            GL11.glBegin(GL11.GL_QUADS);
+            GL11.glVertex2f(baseX,                  baseY);
+            GL11.glTexCoord2f(1,1);
+            GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
+            GL11.glTexCoord2f(1,0);
+            GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
+            GL11.glTexCoord2f(0,0);
+            GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
+            GL11.glTexCoord2f(0,1);
+            GL11.glEnd();
+
+            baseX += Client.UI_SIZE;
+        }
     }
 
     private void drawUnits(Level level) {

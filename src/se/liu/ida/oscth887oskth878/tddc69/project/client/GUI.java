@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.input.GUIClickHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.input.TileClickHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -24,6 +25,10 @@ public class GUI {
             TowerFactory.TowerType.BASIC_TOWER,
             null,
             TowerFactory.TowerType.BASIC_TOWER
+    };
+
+    public static final UnitFactory.UnitType[] guiUnitElements = new UnitFactory.UnitType[] {
+            UnitFactory.UnitType.BASIC_UNIT
     };
 
     public static final GUI instance = new GUI();
