@@ -25,10 +25,10 @@ public class ResourceManager {
 
     static {
         tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
-        tiles.put(Tile.Type.PORTAL, load("res/tiles/portal.png"));
-        tiles.put(Tile.Type.SPAWN, load("res/tiles/spawn.png"));
 
         towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
+        towers.put(TowerFactory.TowerType.SPAWN, load("res/towers/spawn.png"));
+        towers.put(TowerFactory.TowerType.PORTAL, load("res/towers/portal.png"));
 
         uiElements.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
 

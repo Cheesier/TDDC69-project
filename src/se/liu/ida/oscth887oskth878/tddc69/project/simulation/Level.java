@@ -1,5 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.SpawnTower;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Dimension;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
@@ -51,10 +52,11 @@ public class Level {
             }
         }
 
-        setTile(redSpawn.x, redSpawn.y, new Tile(Tile.UnitMobility.ALL, false, Tile.Type.SPAWN, Player.Team.RED));
-        setTile(blueSpawn.x, blueSpawn.y, new Tile(Tile.UnitMobility.ALL, false, Tile.Type.SPAWN, Player.Team.BLUE));
-        setTile(redPortal.x, redPortal.y, new Tile(Tile.UnitMobility.ALL, false, Tile.Type.PORTAL, Player.Team.RED));
-        setTile(bluePortal.x, bluePortal.y, new Tile(Tile.UnitMobility.ALL, false, Tile.Type.PORTAL, Player.Team.BLUE));
+        getTile(redSpawn).buildTower(TowerFactory.TowerType.SPAWN);
+        getTile(redPortal).buildTower(TowerFactory.TowerType.PORTAL);
+
+        getTile(blueSpawn).buildTower(TowerFactory.TowerType.SPAWN);
+        getTile(bluePortal).buildTower(TowerFactory.TowerType.PORTAL);
 
 
         getTile(11, 10).buildTower(TowerFactory.TowerType.BASIC_TOWER); // TODO: Remove debug code
