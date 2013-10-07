@@ -14,6 +14,16 @@ public class Pointf {
         this.y = y;
     }
 
+    public void add(float x, float y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    public void mul(float x, float y) {
+        this.x *= x;
+        this.y *= y;
+    }
+
     public Point toPoint() {
         return new Point((int)x, (int)y);
     }
