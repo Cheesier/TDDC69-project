@@ -36,16 +36,16 @@ public class SearchNode extends ASearchNode {
     public ArrayList<ISearchNode> getSuccessors() {
         ArrayList<ISearchNode> successors = new ArrayList<ISearchNode>();
 
-        if (AStar.level.getTile(this.x-1, this.y) != null && AStar.level.getTile(this.x-1, this.y).canPass(AStar.unit))
+        if (AStar.level.getTileType(this.x-1, this.y) != null && AStar.level.canPass(this.x-1, this.y, AStar.unit))
             successors.add(new SearchNode(this.x-1, this.y, this, this.goal));
 
-        if (AStar.level.getTile(this.x+1, this.y) != null && AStar.level.getTile(this.x+1, this.y).canPass(AStar.unit))
+        if (AStar.level.getTileType(this.x+1, this.y) != null && AStar.level.canPass(this.x+1, this.y, AStar.unit))
             successors.add(new SearchNode(this.x+1, this.y, this, this.goal));
 
-        if (AStar.level.getTile(this.x, this.y+1) != null && AStar.level.getTile(this.x, this.y+1).canPass(AStar.unit))
+        if (AStar.level.getTileType(this.x, this.y+1) != null && AStar.level.canPass(this.x, this.y+1, AStar.unit))
             successors.add(new SearchNode(this.x, this.y+1, this, this.goal));
 
-        if (AStar.level.getTile(this.x, this.y-1) != null && AStar.level.getTile(this.x, this.y-1).canPass(AStar.unit))
+        if (AStar.level.getTileType(this.x, this.y-1) != null && AStar.level.canPass(this.x, this.y-1, AStar.unit))
             successors.add(new SearchNode(this.x, this.y-1, this, this.goal));
 
         return successors;

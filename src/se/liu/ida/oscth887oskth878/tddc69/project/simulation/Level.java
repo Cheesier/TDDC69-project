@@ -6,7 +6,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,6 +19,7 @@ import java.util.Iterator;
 public class Level {
     private Tile[][] tileGrid;
     private ArrayList<Unit> units = new ArrayList<Unit>();
+    private Hashtable<Point, Tower> towers = new Hashtable<Point, Tower>();
 
     private Dimension dimensions;
 
@@ -36,11 +39,22 @@ public class Level {
     }
 
     public void tick() {
-        Iterator<Unit> itr = units.iterator();
+        Iterator<Unit> unitItrator = units.iterator();
 
-        while (itr.hasNext()) {
-            itr.next().tick();
+        Iterator<Map.Entry<Point, Tower>> towerIterator = towers.entrySet().iterator();
+
+        while (towerIterator.hasNext()) {
+            Map.Entry<Point, Tower> entry = towerIterator.next();
+            entry.getValue().tick(entry.getKey(), units.iterator());
         }
+
+        while (unitItrator.hasNext()) {
+            Unit unit = unitItrator.next();
+            if (!unit.tick()) {
+                unitItrator.remove();
+            }
+        }
+
     }
 
     // should not be shipped with release version
@@ -68,14 +82,24 @@ public class Level {
         spawnUnit(Player.Team.RED);
     }
 
-    public Tile getTile(int x, int y) {
+    private Tile getTile(int x, int y) {
         if (x < 0 || x >= dimensions.x || y < 0 || y >= dimensions.y)
             return null;
         return tileGrid[x][y];
     }
 
-    public Tile getTile(Point point) {
+    private Tile getTile(Point point) {
         return getTile(point.x, point.y);
+    }
+
+    public Tile.Type getTileType(int x, int y) {
+        if (getTile(x, y) != null)
+            return getTile(x, y).getType();
+        return null;
+    }
+
+    public Tower getTower(int x, int y) {
+        return getTile(x, y).getTower();
     }
 
     public boolean canPass(int x, int y, Unit unit) {
@@ -88,6 +112,16 @@ public class Level {
 
     public Dimension getDimensions() {
         return dimensions;
+    }
+
+    public void buildTower(int x, int y, TowerFactory.TowerType towerType) {
+        if (towerType != null && getTile(x, y).buildTower(towerType))
+            towers.put(new Point(x, y), getTower(x, y));
+    }
+
+    public void removeTower(int x, int y) {
+        getTile(x, y).removeTower();
+        towers.remove(new Point(x, y));
     }
 
     public void spawnUnit(Player.Team team) {
@@ -112,7 +146,7 @@ public class Level {
             default:
                 throw new RuntimeException("Not a valid team");
         }
-        spawn.add(0.5f, 0.5f);
+        spawn.add(0.5f, 0.5f); // Spawn at the center of the tile
         return spawn;
     }
 

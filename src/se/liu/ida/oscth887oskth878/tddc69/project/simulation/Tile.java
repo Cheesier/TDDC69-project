@@ -34,6 +34,10 @@ public class Tile {
         this.owner = owner;
     }
 
+    public Player.Team getOwner() {
+        return owner;
+    }
+
     public Tower getTower() {
         return tower;
     }
@@ -71,6 +75,7 @@ public class Tile {
             return false;
 
         tower = TowerFactory.getTower(type);
+
         return true;
     }
 

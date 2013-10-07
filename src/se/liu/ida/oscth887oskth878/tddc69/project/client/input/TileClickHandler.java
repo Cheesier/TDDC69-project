@@ -25,7 +25,7 @@ public class TileClickHandler implements MouseListener {
         if (!event.getState()) { // released mouse button
             if (event.getLocation() == MouseClickEvent.Location.TILE) { // click was performed on a TILE
                 Point point = MouseTranslator.getTile(event.getX(), event.getY());
-                Client.level.getTile(point).buildTower(GUI.selectedTower);
+                Client.level.buildTower(point.x, point.y, GUI.selectedTower);
             }
         }
     }
@@ -35,7 +35,7 @@ public class TileClickHandler implements MouseListener {
         if (!event.getState()) { // released mouse button
             if (event.getLocation() == MouseClickEvent.Location.TILE) { // click was performed on a TILE
                 Point point = MouseTranslator.getTile(event.getX(), event.getY());
-                Client.level.getTile(point).removeTower();
+                Client.level.removeTower(point.x, point.y);
             }
         }
     }

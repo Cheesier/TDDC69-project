@@ -21,6 +21,7 @@ public abstract class Unit {
     private Path path;
     private Player.Team owner;
 
+
     protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed) {
         this.position = position;
         this.owner = owner;
@@ -29,8 +30,14 @@ public abstract class Unit {
         this.speed = speed;
     }
 
-    public void tick() {
-        move();
+    public boolean tick() {
+        if (hitpoints <= 0)
+            return false;
+
+        if (!move()) // TODO: Hurt enemy player!
+            return false;
+
+        return true;
     }
 
     // returns false if at end of path
@@ -110,5 +117,9 @@ public abstract class Unit {
 
     public float getSpeed() {
         return speed;
+    }
+
+    public Player.Team getOwner() {
+        return owner;
     }
 }

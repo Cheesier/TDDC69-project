@@ -54,7 +54,7 @@ public class GLBegin implements Renderer {
             for (int y = 0; y < level.getDimensions().y; y++) {
 
 
-                ResourceManager.bindTexture(level.getTile(x, y).getType());
+                ResourceManager.bindTexture(level.getTileType(x, y));
 
                 GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
                 GL11.glBegin(GL11.GL_QUADS);
@@ -68,7 +68,7 @@ public class GLBegin implements Renderer {
                     GL11.glTexCoord2f(0,1);
                 GL11.glEnd();
 
-                Tower tower = level.getTile(x, y).getTower();
+                Tower tower = level.getTower(x, y);
                 if (tower != null) {
                     ResourceManager.bindTower(tower.getTowerType());
 

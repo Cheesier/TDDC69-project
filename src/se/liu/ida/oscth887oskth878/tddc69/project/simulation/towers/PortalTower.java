@@ -15,9 +15,10 @@ public class PortalTower extends Tower {
     public static final UnitMobility UNIT_MOBILITY = UnitMobility.ALL;
     public static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
     public static final int DAMAGE = 0;
-    public static final int RANGE = 0;
+    public static final float RANGE = -1;
+    public static final int COOLDOWN = 0;
 
     public PortalTower(Player.Team owner) {
-        super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE, owner);
+        super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE, COOLDOWN, owner);
     }
 }
