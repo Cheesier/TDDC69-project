@@ -28,7 +28,9 @@ public class GUI {
     };
 
     public static final UnitFactory.UnitType[] guiUnitElements = new UnitFactory.UnitType[] {
-            UnitFactory.UnitType.BASIC_UNIT
+            UnitFactory.UnitType.BASIC_UNIT,
+            UnitFactory.UnitType.BASIC_FLYING
+
     };
 
     public static final GUI instance = new GUI();

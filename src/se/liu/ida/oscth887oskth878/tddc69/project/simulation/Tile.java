@@ -70,11 +70,11 @@ public class Tile {
         return type;
     }
 
-    public boolean buildTower(TowerFactory.TowerType type) {
+    public boolean buildTower(TowerFactory.TowerType type, Player.Team owner) {
         if (!isBuildable())
             return false;
 
-        tower = TowerFactory.getTower(type);
+        tower = TowerFactory.getTower(type, owner);
 
         return true;
     }

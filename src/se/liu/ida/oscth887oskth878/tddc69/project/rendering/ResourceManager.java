@@ -33,6 +33,7 @@ public class ResourceManager {
         uiElements.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
 
         units.put(UnitFactory.UnitType.BASIC_UNIT, load("res/units/basic_unit.png"));
+        units.put(UnitFactory.UnitType.BASIC_FLYING, load("res/units/basic_flying.png"));
 
     }
 

@@ -18,14 +18,16 @@ public class TowerFactory {
     }
     public static final EnumMap<TowerType, Tower> towers = new EnumMap<TowerType, Tower>(TowerType.class);
 
-    static {
-        towers.put(TowerType.BASIC_TOWER, new BasicTower(Player.Team.NEUTRAL)); // team is added for debug!
-
-        towers.put(TowerType.SPAWN, new SpawnTower(Player.Team.NEUTRAL));
-        towers.put(TowerType.PORTAL, new PortalTower(Player.Team.NEUTRAL));
-    }
-
-    public static Tower getTower(TowerType type) {
-        return towers.get(type);
+    public static Tower getTower(TowerType type, Player.Team owner) {
+        switch (type) {
+            case SPAWN:
+                return new SpawnTower(Player.Team.NEUTRAL);
+            case PORTAL:
+                return new PortalTower(Player.Team.NEUTRAL);
+            case BASIC_TOWER:
+                return new BasicTower(owner);
+            default:
+                throw new RuntimeException("Cant get a nonexisting tower: " + type);
+        }
     }
 }

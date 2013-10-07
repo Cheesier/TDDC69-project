@@ -177,7 +177,7 @@ public class GLBegin implements Renderer {
             float baseX = (unit.getLocation().x * Client.PIXELS_PER_TILE) - displacement;
             float baseY = Client.UI_SIZE + (unit.getLocation().y * Client.PIXELS_PER_TILE) - displacement;
 
-            ResourceManager.bindUnit(UnitFactory.UnitType.BASIC_UNIT); // test code
+            ResourceManager.bindUnit(unit.getUnitType()); // test code
 
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);

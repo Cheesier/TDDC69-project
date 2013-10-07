@@ -19,23 +19,27 @@ public abstract class Unit {
     private float speed; // tiles per tick
     private Pointf position;
     private Path path;
+    private UnitFactory.UnitType unitType;
     private Player.Team owner;
 
-
-    protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed) {
+    protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed, UnitFactory.UnitType unitType) {
         this.position = position;
         this.owner = owner;
         this.hitpoints = hitpoints;
         this.moveType = moveType;
         this.speed = speed;
+        this.unitType = unitType;
+
     }
 
     public boolean tick() {
         if (hitpoints <= 0)
             return false;
 
-        if (!move()) // TODO: Hurt enemy player!
+        if (!move()) {// TODO: Hurt enemy player!
+            System.out.println("A unit made it to the portal");
             return false;
+        }
 
         return true;
     }
@@ -117,6 +121,10 @@ public abstract class Unit {
 
     public float getSpeed() {
         return speed;
+    }
+
+    public UnitFactory.UnitType getUnitType() {
+        return unitType;
     }
 
     public Player.Team getOwner() {

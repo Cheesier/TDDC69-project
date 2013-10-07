@@ -33,7 +33,7 @@ public class GUIClickHandler implements MouseListener {
                 else if (pos.x >= GUI.guiTowerElements.length &&
                          pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
                          GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
-                    Client.level.spawnUnit(Player.Team.BLUE);
+                    Client.level.spawnUnit(Player.Team.RED);
                     System.out.println("Spawning");
                 }
             }

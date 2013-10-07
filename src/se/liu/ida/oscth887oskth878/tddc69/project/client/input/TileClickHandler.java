@@ -2,6 +2,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
@@ -25,7 +26,7 @@ public class TileClickHandler implements MouseListener {
         if (!event.getState()) { // released mouse button
             if (event.getLocation() == MouseClickEvent.Location.TILE) { // click was performed on a TILE
                 Point point = MouseTranslator.getTile(event.getX(), event.getY());
-                Client.level.buildTower(point.x, point.y, GUI.selectedTower);
+                Client.level.buildTower(point.x, point.y, GUI.selectedTower, Player.Team.BLUE);
             }
         }
     }

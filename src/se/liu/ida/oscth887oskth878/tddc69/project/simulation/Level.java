@@ -66,20 +66,13 @@ public class Level {
             }
         }
 
-        getTile(redSpawn).buildTower(TowerFactory.TowerType.SPAWN);
-        getTile(redPortal).buildTower(TowerFactory.TowerType.PORTAL);
+        getTile(redSpawn).buildTower(TowerFactory.TowerType.SPAWN, Player.Team.NEUTRAL);
+        getTile(redPortal).buildTower(TowerFactory.TowerType.PORTAL, Player.Team.NEUTRAL);
 
-        getTile(blueSpawn).buildTower(TowerFactory.TowerType.SPAWN);
-        getTile(bluePortal).buildTower(TowerFactory.TowerType.PORTAL);
+        getTile(blueSpawn).buildTower(TowerFactory.TowerType.SPAWN, Player.Team.NEUTRAL);
+        getTile(bluePortal).buildTower(TowerFactory.TowerType.PORTAL, Player.Team.NEUTRAL);
 
 
-        getTile(11, 10).buildTower(TowerFactory.TowerType.BASIC_TOWER); // TODO: Remove debug code
-        getTile(11, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-        getTile(11, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-        getTile(12, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-        getTile(12, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-        spawnUnit(Player.Team.BLUE);
-        spawnUnit(Player.Team.RED);
     }
 
     private Tile getTile(int x, int y) {
@@ -114,9 +107,10 @@ public class Level {
         return dimensions;
     }
 
-    public void buildTower(int x, int y, TowerFactory.TowerType towerType) {
-        if (towerType != null && getTile(x, y).buildTower(towerType))
+    public void buildTower(int x, int y, TowerFactory.TowerType towerType, Player.Team owner) {
+        if (towerType != null && getTile(x, y).buildTower(towerType, owner)) {
             towers.put(new Point(x, y), getTower(x, y));
+        }
     }
 
     public void removeTower(int x, int y) {
