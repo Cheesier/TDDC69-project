@@ -1,6 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.SpawnTower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.BasicUnit;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Dimension;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
@@ -57,12 +58,23 @@ public class Level {
 
     }
 
+    public boolean pathNotBlocked(Player.Team team) {
+        spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.getEnemy(team)); // TODO: test air units aswell
+
+        return units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
+    }
+
     // should not be shipped with release version
     // just for development
     public void generateBasicLevel() {
         for (int x = 0; x < dimensions.x; x++) {
             for (int y = 0; y < dimensions.y; y++) {
-                this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.NEUTRAL));
+                if (x < dimensions.x / 2 - 1)
+                    this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.BLUE));
+                else if (x > dimensions.x / 2 + 1)
+                    this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.RED));
+                else
+                    this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.NEUTRAL));
             }
         }
 
@@ -78,8 +90,8 @@ public class Level {
         getTile(11, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
         getTile(12, 9).buildTower(TowerFactory.TowerType.BASIC_TOWER);
         getTile(12, 11).buildTower(TowerFactory.TowerType.BASIC_TOWER);
-        spawnUnit(Player.Team.BLUE);
-        spawnUnit(Player.Team.RED);
+        spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.Team.BLUE);
+        spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.Team.RED);
     }
 
     private Tile getTile(int x, int y) {
@@ -95,6 +107,12 @@ public class Level {
     public Tile.Type getTileType(int x, int y) {
         if (getTile(x, y) != null)
             return getTile(x, y).getType();
+        return null;
+    }
+
+    public Player.Team getTileOwner(int x, int y) {
+        if (getTile(x, y) != null)
+            return getTile(x, y).getOwner();
         return null;
     }
 
@@ -124,8 +142,8 @@ public class Level {
         towers.remove(new Point(x, y));
     }
 
-    public void spawnUnit(Player.Team team) {
-        Unit unit = UnitFactory.getUnit(UnitFactory.UnitType.BASIC_UNIT, team, getSpawnTile(team));
+    public void spawnUnit(UnitFactory.UnitType type, Player.Team team) {
+        Unit unit = UnitFactory.getUnit(type, team, getSpawnTile(team));
         unit.generatePath(getPortalTile(team), this);
         units.add(unit);
     }
@@ -138,10 +156,10 @@ public class Level {
         Pointf spawn;
         switch (owner) {
             case BLUE:
-                spawn = blueSpawn.toPointf();
+                spawn = redSpawn.toPointf();
                 break;
             case RED:
-                spawn = redSpawn.toPointf();
+                spawn = blueSpawn.toPointf();
                 break;
             default:
                 throw new RuntimeException("Not a valid team");
@@ -153,9 +171,9 @@ public class Level {
     public Pointf getPortalTile(Player.Team owner) {
         switch (owner) {
             case BLUE:
-                return bluePortal.toPointf();
-            case RED:
                 return redPortal.toPointf();
+            case RED:
+                return bluePortal.toPointf();
             default:
                 throw new RuntimeException("Not a valid team");
         }

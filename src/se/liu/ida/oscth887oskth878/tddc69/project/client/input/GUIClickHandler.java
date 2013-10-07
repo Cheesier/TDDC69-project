@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
@@ -33,7 +34,7 @@ public class GUIClickHandler implements MouseListener {
                 else if (pos.x >= GUI.guiTowerElements.length &&
                          pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
                          GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
-                    Client.level.spawnUnit(Player.Team.BLUE);
+                    Client.level.spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.Team.BLUE);
                     System.out.println("Spawning");
                 }
             }

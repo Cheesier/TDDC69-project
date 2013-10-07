@@ -14,6 +14,7 @@ public class TowerPlacedEvent {
     private TowerFactory.TowerType type;
     private Point position;
     private Player.Team owner;
+    private boolean canceled = false;
 
     public TowerPlacedEvent(TowerFactory.TowerType type, Point position, Player.Team owner) {
         this.type = type;
@@ -31,5 +32,13 @@ public class TowerPlacedEvent {
 
     public Player.Team getOwner() {
         return owner;
+    }
+
+    public boolean isCanceled() {
+        return canceled;
+    }
+
+    public void setCanceled(boolean canceled) {
+        this.canceled = canceled;
     }
 }

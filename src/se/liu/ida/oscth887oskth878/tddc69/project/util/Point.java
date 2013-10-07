@@ -14,14 +14,16 @@ public class Point {
         this.y = y;
     }
 
-    public void add(int x, float y) {
+    public Point add(int x, float y) {
         this.x += x;
         this.y += y;
+        return this;
     }
 
-    public void mul(float x, float y) {
+    public Point mul(float x, float y) {
         this.x *= x;
         this.y *= y;
+        return this;
     }
 
     public Pointf toPointf() {
@@ -37,6 +39,12 @@ public class Point {
 
     public boolean equals(Point obj) {
         return x == obj.x && y == obj.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return 17 * 31 // two randomly chosen prime numbers
+                * (x*x + y);
     }
 
     @Override

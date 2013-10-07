@@ -4,9 +4,11 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.input.MouseHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 
 public class Client {
@@ -15,6 +17,7 @@ public class Client {
     public static final int HEIGHT = 20;
     public static final int UI_SIZE = PIXELS_PER_TILE * 2;
     public static final Level level = new Level(WIDTH, HEIGHT);
+    public static final Player player = new Player(Player.Team.RED, "Ost");
 
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
@@ -42,6 +45,8 @@ public class Client {
 
         int frames = 0;
         long lastTime = System.nanoTime();
+
+        InputManager.addListener(new EventHandler());
 
         while (!Display.isCloseRequested()) {
             MouseHandler.update();

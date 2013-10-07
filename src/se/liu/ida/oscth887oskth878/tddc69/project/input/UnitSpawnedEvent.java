@@ -10,6 +10,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
  */
 public class UnitSpawnedEvent {
     private Unit unit;
+    private boolean canceled = false;
 
     public UnitSpawnedEvent(Unit unit) {
         this.unit = unit;
@@ -17,5 +18,13 @@ public class UnitSpawnedEvent {
 
     public Unit getUnit() {
         return unit;
+    }
+
+    public boolean isCanceled() {
+        return canceled;
+    }
+
+    public void setCanceled(boolean canceled) {
+        this.canceled = canceled;
     }
 }

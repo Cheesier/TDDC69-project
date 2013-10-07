@@ -18,4 +18,15 @@ public class Player {
         this.team = team;
         this.name = name;
     }
+
+    public static Team getEnemy(Team team) {
+        switch (team) {
+            case BLUE:
+                return Team.RED;
+            case RED:
+                return Team.BLUE;
+            default:
+                throw new RuntimeException(team + " does not have an enemy");
+        }
+    }
 }

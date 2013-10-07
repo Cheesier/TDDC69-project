@@ -14,14 +14,16 @@ public class Pointf {
         this.y = y;
     }
 
-    public void add(float x, float y) {
+    public Pointf add(float x, float y) {
         this.x += x;
         this.y += y;
+        return this;
     }
 
-    public void mul(float x, float y) {
+    public Pointf mul(float x, float y) {
         this.x *= x;
         this.y *= y;
+        return this;
     }
     public double distance(Pointf other) {
         return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
