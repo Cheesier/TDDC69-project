@@ -1,6 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
@@ -64,7 +63,6 @@ public abstract class Tower extends Tile {
                     if (center.distance(unit.getLocation()) <= this.range) {
                         unit.hurt(this.damage, this.damageType);
                         this.cooldownLeft = this.cooldown;
-                        System.out.println("Tower at " + center + " fired!");
                         break;
                     }
 

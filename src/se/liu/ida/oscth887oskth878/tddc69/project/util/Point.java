@@ -43,8 +43,7 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return 17 * 31 // two randomly chosen prime numbers
-                * (x*x + y);
+        return 101 * x*x + y;
     }
 
     @Override
