@@ -27,9 +27,11 @@ public class InputManager {
         }
 
         if (!event.isCanceled()) {
-            Client.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType());
+            Client.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getOwner());
             if (!Client.level.pathNotBlocked(event.getOwner()))
                 Client.level.removeTower(event.getPosition().x, event.getPosition().y);
+            else
+                Client.level.updateAllPaths();
         }
     }
 

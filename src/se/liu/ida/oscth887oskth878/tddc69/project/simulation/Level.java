@@ -33,8 +33,8 @@ public class Level {
         tileGrid = new Tile[x][y];
         dimensions = new Dimension(x, y);
 
-        redSpawn = new Point(dimensions.x/2, dimensions.y/2);
-        blueSpawn = new Point(dimensions.x/2 + 1, dimensions.y/2);
+        redSpawn = new Point(dimensions.x/2+1, dimensions.y/2);
+        blueSpawn = new Point(dimensions.x/2, dimensions.y/2);
         redPortal = new Point(0, dimensions.y/2);
         bluePortal = new Point(dimensions.x - 1, dimensions.y/2);
     }
@@ -59,9 +59,24 @@ public class Level {
     }
 
     public boolean pathNotBlocked(Player.Team team) {
-        spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.getEnemy(team)); // TODO: test air units aswell
+        spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.getEnemy(team));
+        boolean ground = units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
+        units.remove(units.size()-1);
 
-        return units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
+        spawnUnit(UnitFactory.UnitType.BASIC_FLYING, Player.getEnemy(team));
+        boolean air = units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
+        units.remove(units.size()-1);
+
+        return ground && air;
+    }
+
+    public void updateAllPaths() {
+        Iterator<Unit> unitIterator = units.iterator();
+
+        while (unitIterator.hasNext()) {
+            Unit unit = unitIterator.next();
+            unit.generatePath(getPortalTile(unit.getOwner()), this);
+        }
     }
 
     // should not be shipped with release version
@@ -69,9 +84,9 @@ public class Level {
     public void generateBasicLevel() {
         for (int x = 0; x < dimensions.x; x++) {
             for (int y = 0; y < dimensions.y; y++) {
-                if (x < dimensions.x / 2 - 1)
+                if (x > dimensions.x / 2 + 1)
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.BLUE));
-                else if (x > dimensions.x / 2 + 1)
+                else if (x < dimensions.x / 2 - 1)
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.RED));
                 else
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.NEUTRAL));

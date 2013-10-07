@@ -36,6 +36,9 @@ public class Astar implements Pathfinding {
 
         Path result = new Path();
 
+        if (itr.hasNext())
+            itr.next();
+
         while (itr.hasNext()) {
             SearchNode node = (SearchNode)itr.next();
             result.addPoint(node.getX(), node.getY());
