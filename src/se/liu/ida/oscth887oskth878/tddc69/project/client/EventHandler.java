@@ -2,7 +2,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.input.InputListener;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -15,6 +17,13 @@ public class EventHandler implements InputListener {
     public void onTowerPlaced(TowerPlacedEvent event) {
         if (Client.level.getTileOwner(event.getPosition().x, event.getPosition().y) != Client.player.team) {
                 event.setCanceled(true);
+        }
+    }
+
+    @Override
+    public void onTowerRemoved(TowerRemovedEvent event) {
+        if (Client.level.getTileOwner(event.getPosition().x, event.getPosition().y) != Client.player.team) {
+            event.setCanceled(true);
         }
     }
 

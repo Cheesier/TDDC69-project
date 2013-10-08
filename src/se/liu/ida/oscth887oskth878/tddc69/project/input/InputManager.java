@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 import java.util.ArrayList;
 
@@ -35,13 +37,30 @@ public class InputManager {
         }
     }
 
-    public static void spawnUnit(UnitSpawnedEvent event) {
+    public static void removeTower(TowerRemovedEvent event) {
+        if (event.getType() == null)
+            return;
+
+        for (InputListener listener : listeners) {
+            listener.onTowerRemoved(event);
+        }
+
+        if (!event.isCanceled()) {
+            Client.level.removeTower(event.getPosition().x, event.getPosition().y);
+            Client.level.updateAllPaths();
+        }
+    }
+
+    public static void spawnUnit(UnitFactory.UnitType unitType, Player.Team owner) {
+        Client.level.spawnUnit(unitType, owner);
+        UnitSpawnedEvent event = new UnitSpawnedEvent(Client.level.getLastSpawnedUnit());
+
         for (InputListener listener : listeners) {
             listener.onUnitSpawned(event);
         }
 
-        if (!event.isCanceled()) {
-
+        if (event.isCanceled()) {
+            Client.level.killLastSpawnedUnit();
         }
     }
 

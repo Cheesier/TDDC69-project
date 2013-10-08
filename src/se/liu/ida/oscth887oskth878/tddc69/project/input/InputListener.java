@@ -8,5 +8,6 @@ package se.liu.ida.oscth887oskth878.tddc69.project.input;
  */
 public interface InputListener {
     public void onTowerPlaced(TowerPlacedEvent event);
+    public void onTowerRemoved(TowerRemovedEvent event);
     public void onUnitSpawned(UnitSpawnedEvent event);
 }
