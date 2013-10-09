@@ -2,16 +2,15 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network;
 
 import com.esotericsoftware.kryo.Kryo;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.StartGamePacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.*;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ConnectionEstablishedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.InitPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.*;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.BasicTower;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -34,9 +33,12 @@ public class Network {
         kryo.register(StartGamePacket.class);
         kryo.register(TowerPacket.class);
         kryo.register(TowerPlacedPacket.class);
+        kryo.register(TowerRemovedPacket.class);
 
         kryo.register(Level.class);
         kryo.register(Tile.class);
+        kryo.register(Point.class);
+        kryo.register(Pointf.class);
         kryo.register(Tower.class);
         kryo.register(TowerFactory.TowerType.class);
         kryo.register(Unit.class);

@@ -18,9 +18,14 @@ public class TowerPacket extends GamePacket {
 
     protected TowerPacket(Player player, Point position) {
         this.player = player;
+        this.position = position;
     }
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Point getPosition() {
+        return position;
     }
 }

@@ -19,6 +19,7 @@ public class Game {
     public static void init() {
         level.generateBasicLevel();
         InputManager.addListener(new EventHandler());
+        InputManager.addListener(new ServerHandler());
     }
 
     public static void tick() {

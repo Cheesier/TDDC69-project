@@ -3,10 +3,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.server;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -19,6 +18,9 @@ public class PacketHandler extends Listener {
         NetworkConnection connection = (NetworkConnection)c;
         if (packet instanceof ProtocolPacket) {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);
+        }
+        else if (packet instanceof GamePacket) {
+            GameHandler.handle(connection, (GamePacket)packet);
         }
     }
 

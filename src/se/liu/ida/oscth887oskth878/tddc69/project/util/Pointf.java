@@ -9,6 +9,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util;
 public class Pointf {
     public float x, y;
 
+    public Pointf() {
+    }
+
     public Pointf(float x, float y) {
         this.x = x;
         this.y = y;

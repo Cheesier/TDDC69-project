@@ -4,6 +4,7 @@ import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Server;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
 
 import java.io.IOException;
 
@@ -49,5 +50,9 @@ public class GameServer {
 
     public void close() {
         server.close();
+    }
+
+    public void sendToAllExcept(int id, Packet packet) {
+        server.sendToAllExceptTCP(id, packet);
     }
 }

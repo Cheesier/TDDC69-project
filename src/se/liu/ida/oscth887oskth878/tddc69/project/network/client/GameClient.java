@@ -2,6 +2,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 
 import com.esotericsoftware.kryonet.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.InitPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 
@@ -35,6 +36,10 @@ public class GameClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void send(Packet packet) {
+        client.sendTCP(packet);
     }
 
     public void close(String reason) {

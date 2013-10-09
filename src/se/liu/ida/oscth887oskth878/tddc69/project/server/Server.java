@@ -11,9 +11,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  */
 public class Server {
     public static Player[] players = new Player[2];
+    private static GameServer server;
 
     public static void main(String[] args) {
-        GameServer server;
         if (args.length == 1) {
             server = new GameServer(Integer.parseInt(args[0]));
         }
@@ -37,5 +37,9 @@ public class Server {
         else {
             return null;
         }
+    }
+
+    public static GameServer getServer() {
+        return server;
     }
 }
