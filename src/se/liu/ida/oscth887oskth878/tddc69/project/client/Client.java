@@ -15,7 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @since 15/09/2013
  */
 public class Client {
-    public static final int PIXELS_PER_TILE = 48;
+    public static final int PIXELS_PER_TILE = 32;
     public static final int UI_SIZE = PIXELS_PER_TILE * 2;
     public static Player player = new Player();
 
