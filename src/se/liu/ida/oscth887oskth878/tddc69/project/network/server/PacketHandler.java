@@ -31,6 +31,9 @@ public class PacketHandler extends Listener {
             System.out.println("\"" + connection.getPlayer().getName() + "\" disconnected.");
 
         for (int i = 0; i < Server.players.length; i++) {
+            if (Server.players[i] == null)
+                continue;
+
             if (Server.players[i].equals(connection.getPlayer())) {
                 Server.players[i] = null;
                 break;

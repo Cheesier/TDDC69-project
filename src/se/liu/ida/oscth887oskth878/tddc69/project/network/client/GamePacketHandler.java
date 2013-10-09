@@ -5,6 +5,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemovedPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawnedPacket;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -21,6 +22,10 @@ public class GamePacketHandler {
         else if (incomingPacket instanceof TowerRemovedPacket) {
             TowerRemovedPacket packet = (TowerRemovedPacket)incomingPacket;
             InputManager.removeTower(packet.getPlayer(), packet.getPosition());
+        }
+        else if (incomingPacket instanceof UnitSpawnedPacket) {
+            UnitSpawnedPacket packet = (UnitSpawnedPacket) incomingPacket;
+            InputManager.spawnUnit(packet.getUnitType(), packet.getTeam());
         }
     }
 }

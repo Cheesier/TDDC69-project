@@ -34,6 +34,7 @@ public class Network {
         kryo.register(TowerPacket.class);
         kryo.register(TowerPlacedPacket.class);
         kryo.register(TowerRemovedPacket.class);
+        kryo.register(UnitSpawnedPacket.class);
 
         kryo.register(Level.class);
         kryo.register(Tile.class);

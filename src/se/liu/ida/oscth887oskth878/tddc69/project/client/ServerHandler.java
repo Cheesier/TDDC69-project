@@ -6,6 +6,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemovedPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawnedPacket;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -30,6 +31,8 @@ public class ServerHandler implements InputListener {
 
     @Override
     public void onUnitSpawned(UnitSpawnedEvent event) {
-
+        if (event.getUnit().getOwner() == Client.player.getTeam()) {
+            Client.server.send(new UnitSpawnedPacket(event.getUnit().getUnitType(), event.getUnit().getOwner()));
+        }
     }
 }
