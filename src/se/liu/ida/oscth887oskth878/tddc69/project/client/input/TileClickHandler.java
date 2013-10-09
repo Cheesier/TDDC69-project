@@ -28,7 +28,7 @@ public class TileClickHandler implements MouseListener {
         if (!event.getState()) { // released mouse button
             if (event.getLocation() == MouseClickEvent.Location.TILE) { // click was performed on a TILE
                 Point point = MouseTranslator.getTile(event.getX(), event.getY());
-                InputManager.placeTower(new TowerPlacedEvent(GUI.selectedTower, point, Client.player.team));
+                InputManager.placeTower(Client.player, GUI.selectedTower, point);
             }
         }
     }
@@ -39,7 +39,7 @@ public class TileClickHandler implements MouseListener {
             if (event.getLocation() == MouseClickEvent.Location.TILE) { // click was performed on a TILE
                 Point point = MouseTranslator.getTile(event.getX(), event.getY());
                 if (Client.level.getTower(point.x, point.y) != null)
-                    InputManager.removeTower(new TowerRemovedEvent(Client.level.getTower(point.x, point.y).getTowerType(), point, Client.player.team));
+                    InputManager.removeTower(Client.player, point);
             }
         }
     }

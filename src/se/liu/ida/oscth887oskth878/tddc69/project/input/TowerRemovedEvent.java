@@ -10,16 +10,15 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  * @version 1.0
  * @since 08/10/2013
  */
-public class TowerRemovedEvent {
+public class TowerRemovedEvent extends PlayerEvent {
     private TowerFactory.TowerType type;
     private Point position;
-    private Player.Team owner;
     private boolean canceled = false;
 
-    public TowerRemovedEvent(TowerFactory.TowerType type, Point position, Player.Team owner) {
+    public TowerRemovedEvent(Player player, TowerFactory.TowerType type, Point position) {
+        super(player);
         this.type = type;
         this.position = position;
-        this.owner = owner;
     }
 
     public TowerFactory.TowerType getType() {
@@ -28,10 +27,6 @@ public class TowerRemovedEvent {
 
     public Point getPosition() {
         return position;
-    }
-
-    public Player.Team getOwner() {
-        return owner;
     }
 
     public boolean isCanceled() {

@@ -8,7 +8,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
  * @version 1.0
  * @since 04/10/2013
  */
-public class UnitSpawnedEvent {
+public class UnitSpawnedEvent extends Event {
     private Unit unit;
     private boolean canceled = false;
 

@@ -2,7 +2,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 import java.util.ArrayList;
 
@@ -23,21 +25,23 @@ public class InputManager {
         listeners.remove(listener);
     }
 
-    public static void placeTower(TowerPlacedEvent event) {
+    public static void placeTower(Player player, TowerFactory.TowerType type, Point position) {
+        TowerPlacedEvent event = new TowerPlacedEvent(player, type, position);
         for (InputListener listener : listeners) {
             listener.onTowerPlaced(event);
         }
 
         if (!event.isCanceled()) {
-            Client.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getOwner());
-            if (!Client.level.pathNotBlocked(event.getOwner()))
+            Client.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getPlayer().team);
+            if (!Client.level.pathNotBlocked(event.getPlayer().team))
                 Client.level.removeTower(event.getPosition().x, event.getPosition().y);
             else
                 Client.level.updateAllPaths();
         }
     }
 
-    public static void removeTower(TowerRemovedEvent event) {
+    public static void removeTower(Player player, Point position) {
+        TowerRemovedEvent event = new TowerRemovedEvent(player, Client.level.getTower(position.x, position.y).getTowerType(), position);
         if (event.getType() == null)
             return;
 
