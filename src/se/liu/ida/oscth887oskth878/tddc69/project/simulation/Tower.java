@@ -6,10 +6,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 import java.util.Iterator;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Oscar
- * Date: 2013-09-15
- * Time: 20:27
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 15/09/2013
  */
 public abstract class Tower extends Tile {
     public static enum DamageType {

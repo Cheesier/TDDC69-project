@@ -6,11 +6,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
 import java.io.IOException;
 
 /**
- * Created with IntelliJ IDEA.
- * User: ostenip
- * Date: 9/13/13
- * Time: 7:20 PM
- * To change this template use File | Settings | File Templates.
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 13/09/2013
  */
 public class GameServer {
     public final int LISTERNER_PORT;

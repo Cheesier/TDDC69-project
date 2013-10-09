@@ -4,10 +4,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 29/09/2013
+ * @since 29/09/2013
  */
 public class MouseTranslator {
     static Point mousePosition;

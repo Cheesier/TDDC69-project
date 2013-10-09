@@ -1,11 +1,10 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol;
 
 /**
- * Created with IntelliJ IDEA.
- * User: ostenip
- * Date: 9/17/13
- * Time: 2:28 AM
- * To change this template use File | Settings | File Templates.
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 17/09/2013
  */
 public abstract class ProtocolPacket {
 }

@@ -5,11 +5,10 @@ import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 
 /**
- * Created with IntelliJ IDEA.
- * User: ostenip
- * Date: 9/17/13
- * Time: 2:42 AM
- * To change this template use File | Settings | File Templates.
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
     public void received (Connection connection, Object packet) {

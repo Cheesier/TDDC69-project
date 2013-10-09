@@ -4,7 +4,6 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.InputListener;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 /**
  * @author Oscar Thunberg (oscth887)

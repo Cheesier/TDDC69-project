@@ -5,10 +5,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 
 /**
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 24/09/2013
+ * @since 24/09/2013
  */
 public class BasicTower extends Tower{
     public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.BASIC_TOWER;

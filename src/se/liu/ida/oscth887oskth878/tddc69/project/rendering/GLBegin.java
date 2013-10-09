@@ -1,13 +1,11 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 
-import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 import java.util.Iterator;
 

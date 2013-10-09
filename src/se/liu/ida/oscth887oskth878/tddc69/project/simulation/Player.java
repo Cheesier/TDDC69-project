@@ -1,10 +1,10 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
 /**
- * @author: Oskar Therén
- * @author: Oscar Thunberg
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @since: 24/09/2013
+ * @since 24/09/2013
  */
 public class Player {
     public static enum Team {

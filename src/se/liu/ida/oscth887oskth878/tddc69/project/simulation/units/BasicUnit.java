@@ -6,10 +6,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 24/09/2013
+ * @since 24/09/2013
  */
 public class BasicUnit extends Unit {
     public static final int hitpoints = 50;

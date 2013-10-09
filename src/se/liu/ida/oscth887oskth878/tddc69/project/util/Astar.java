@@ -8,16 +8,13 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.ISearchNode;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.SearchNode;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.PriorityQueue;
 
 /**
- * Created with IntelliJ IDEA.
- * User: ostenip
- * Date: 9/16/13
- * Time: 3:03 PM
- * To change this template use File | Settings | File Templates.
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 16/09/2013
  */
 public class Astar implements Pathfinding {
     @Override

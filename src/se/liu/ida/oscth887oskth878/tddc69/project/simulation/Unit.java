@@ -1,12 +1,15 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.util.*;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Astar;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Path;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Pathfinding;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Oscar
- * Date: 2013-09-15
- * Time: 20:35
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 15/09/2013
  */
 public abstract class Unit {
     public static Pathfinding pathfinding = new Astar();

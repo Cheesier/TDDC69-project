@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * @author Oskar Therén
+ * @author Oscar Thunberg
  * @version 1.0
- * @author: Oskar Therén
- * @author: Oscar Thunberg
- * @since: 29/09/2013
+ * @since 29/09/2013
  */
 public class MouseHandler {
     private static ArrayList<MouseListener> listeners = new ArrayList<MouseListener>();

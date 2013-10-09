@@ -10,7 +10,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
-
+/**
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 15/09/2013
+ */
 public class Client {
     public static final int PIXELS_PER_TILE = 32;
     public static final int WIDTH = 43;

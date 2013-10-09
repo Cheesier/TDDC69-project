@@ -1,7 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.SpawnTower;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.BasicUnit;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Dimension;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
@@ -12,10 +10,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Oscar
- * Date: 2013-09-15
- * Time: 20:47
+ * @author Oscar Thunberg (oscth887)
+ * @author Oskar Therén   (oskth878)
+ * @version 1.0
+ * @since 15/09/2013
  */
 public class Level {
     private Tile[][] tileGrid;

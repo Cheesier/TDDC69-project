@@ -1,7 +1,11 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util.AStar;
+
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
 /**
  * Uses the A* Algorithm to find the shortest path from 
  * an initial to a goal node.Nodes have to implement the
