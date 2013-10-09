@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 import org.lwjgl.opengl.GL11;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Game;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
@@ -98,7 +99,7 @@ public class GLBegin implements Renderer {
         int baseY = 0;
 
         ResourceManager.bindUIElement(GUI.GUIElements.BACKGROUND);
-        for (int i = 0; i < Client.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE; i++) {
+        for (int i = 0; i < Game.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE; i++) {
             GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
             GL11.glBegin(GL11.GL_QUADS);
                 GL11.glVertex2f(baseX,                  baseY);

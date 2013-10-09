@@ -11,8 +11,11 @@ public class Player {
         RED, BLUE, NEUTRAL
     }
 
-    public final Team team;
-    public final String name;
+    private Team team;
+    private String name;
+
+    public Player() {
+    }
 
     public Player(Team team, String name) {
         this.team = team;
@@ -28,5 +31,20 @@ public class Player {
             default:
                 throw new RuntimeException(team + " does not have an enemy");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Player)
+            return name.equals(((Player) obj).name) && team == ((Player) obj).team;
+        return false;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public String getName() {
+        return name;
     }
 }

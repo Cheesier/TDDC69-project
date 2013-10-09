@@ -14,14 +14,14 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
 public class EventHandler implements InputListener {
     @Override
     public void onTowerPlaced(TowerPlacedEvent event) {
-        if (Client.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().team) {
+        if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
                 event.setCanceled(true);
         }
     }
 
     @Override
     public void onTowerRemoved(TowerRemovedEvent event) {
-        if (Client.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().team) {
+        if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
             event.setCanceled(true);
         }
     }

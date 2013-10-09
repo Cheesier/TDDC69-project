@@ -1,6 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.input;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Game;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
@@ -32,16 +32,20 @@ public class InputManager {
         }
 
         if (!event.isCanceled()) {
-            Client.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getPlayer().team);
-            if (!Client.level.pathNotBlocked(event.getPlayer().team))
-                Client.level.removeTower(event.getPosition().x, event.getPosition().y);
+            Game.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getPlayer().getTeam());
+            if (!Game.level.pathNotBlocked(event.getPlayer().getTeam()))
+                Game.level.removeTower(event.getPosition().x, event.getPosition().y);
             else
-                Client.level.updateAllPaths();
+                Game.level.updateAllPaths();
         }
     }
 
     public static void removeTower(Player player, Point position) {
-        TowerRemovedEvent event = new TowerRemovedEvent(player, Client.level.getTower(position.x, position.y).getTowerType(), position);
+        if (Game.level.getTower(position.x, position.y) == null)
+            return;
+
+        TowerRemovedEvent event = new TowerRemovedEvent(player, Game.level.getTower(position.x, position.y).getTowerType(), position);
+
         if (event.getType() == null)
             return;
 
@@ -50,21 +54,21 @@ public class InputManager {
         }
 
         if (!event.isCanceled()) {
-            Client.level.removeTower(event.getPosition().x, event.getPosition().y);
-            Client.level.updateAllPaths();
+            Game.level.removeTower(event.getPosition().x, event.getPosition().y);
+            Game.level.updateAllPaths();
         }
     }
 
     public static void spawnUnit(UnitFactory.UnitType unitType, Player.Team owner) {
-        Client.level.spawnUnit(unitType, owner);
-        UnitSpawnedEvent event = new UnitSpawnedEvent(Client.level.getLastSpawnedUnit());
+        Game.level.spawnUnit(unitType, owner);
+        UnitSpawnedEvent event = new UnitSpawnedEvent(Game.level.getLastSpawnedUnit());
 
         for (InputListener listener : listeners) {
             listener.onUnitSpawned(event);
         }
 
         if (event.isCanceled()) {
-            Client.level.killLastSpawnedUnit();
+            Game.level.killLastSpawnedUnit();
         }
     }
 

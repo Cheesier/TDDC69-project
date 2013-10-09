@@ -33,7 +33,7 @@ public class GUIClickHandler implements MouseListener {
                 else if (pos.x >= GUI.guiTowerElements.length &&
                          pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
                          GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
-                    InputManager.spawnUnit(GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length], Client.player.team);
+                    InputManager.spawnUnit(GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length], Client.player.getTeam());
                 }
             }
         }

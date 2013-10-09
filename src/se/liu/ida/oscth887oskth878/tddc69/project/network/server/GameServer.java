@@ -1,7 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.server;
 
+import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Server;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
 
 import java.io.IOException;
 
@@ -12,40 +14,40 @@ import java.io.IOException;
  * @since 13/09/2013
  */
 public class GameServer {
-    public final int LISTERNER_PORT;
-
-    public static void main(String[] args) {
-        if (args.length == 1) {
-            new GameServer(Integer.parseInt(args[0]));
-        }
-        else if (args.length > 1) {
-            System.out.println("Too many arguments, ignoring that.");
-        }
-        else {
-            new GameServer();
-        }
-    }
+    public final int LISTENER_PORT;
+    private Server server;
 
     public GameServer() {
         this(Network.DEFAULT_PORT);
     }
 
     public GameServer(int port) {
-        LISTERNER_PORT = port;
+        LISTENER_PORT = port;
 
-        Server server = new Server();
+        server = new Server() {
+            protected Connection newConnection () {
+                // By providing our own connection implementation, we can store per
+                // connection state without a connection ID to state look up.
+                return new NetworkConnection();
+            }
+        };
+
         try {
             Network.registerClasses(server.getKryo());
             server.start();
-            server.bind(LISTERNER_PORT);
+            server.bind(LISTENER_PORT);
 
-            System.out.println("Started server on port " + LISTERNER_PORT);
+            System.out.println("Started server on port " + LISTENER_PORT);
 
             server.addListener(new PacketHandler());
         } catch (IOException e) {
-            System.err.println("Could not bind to port: " + LISTERNER_PORT);
+            System.err.println("Could not bind to port: " + LISTENER_PORT);
             e.printStackTrace();
             System.exit(0);
         }
+    }
+
+    public void close() {
+        server.close();
     }
 }

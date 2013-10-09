@@ -1,7 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 
+import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 
 /**
@@ -11,9 +13,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.Protoc
  * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
-    public void received (NetworkConnection connection, Object packet) {
+    public void received (Connection connection, Object packet) {
         if (packet instanceof ProtocolPacket) {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);
+        }
+        if (packet instanceof GamePacket) {
+            GamePacketHandler.handle(connection, (GamePacket)packet);
         }
     }
 }
