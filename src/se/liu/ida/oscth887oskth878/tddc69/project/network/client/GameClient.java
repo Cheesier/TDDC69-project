@@ -39,8 +39,10 @@ public class GameClient {
             client.connect(5000, "localhost", port);
             client.addListener(new Listener() {
                 public void received (Connection connection, Object packet) {
-                    connectionQueue.add(connection);
-                    packetQueue.add((Packet)packet);
+                    if (packet instanceof Packet) {
+                        connectionQueue.add(connection);
+                        packetQueue.add((Packet)packet);
+                    }
                 }
             });
             System.out.println("Connected to server.");

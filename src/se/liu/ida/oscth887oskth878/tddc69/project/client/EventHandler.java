@@ -4,6 +4,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.InputListener;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -21,7 +22,11 @@ public class EventHandler implements InputListener {
 
     @Override
     public void onTowerRemoved(TowerRemovedEvent event) {
-        if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
+        Tower tower = Game.level.getTower(event.getPosition().x, event.getPosition().y);
+        if (tower == null)
+            return;
+
+        if (tower.getOwner() != event.getPlayer().getTeam()) {
             event.setCanceled(true);
         }
     }
