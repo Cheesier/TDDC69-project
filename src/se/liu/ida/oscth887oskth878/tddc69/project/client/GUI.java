@@ -24,11 +24,13 @@ public class GUI {
     public static final TowerFactory.TowerType[] guiTowerElements = new TowerFactory.TowerType[] {
             TowerFactory.TowerType.BASIC_TOWER,
             null,
-            TowerFactory.TowerType.BASIC_TOWER
+            null
     };
 
     public static final UnitFactory.UnitType[] guiUnitElements = new UnitFactory.UnitType[] {
             UnitFactory.UnitType.BASIC_UNIT,
+            UnitFactory.UnitType.GOOMBA_UNIT,
+            UnitFactory.UnitType.ADVANCED_UNIT,
             UnitFactory.UnitType.BASIC_FLYING
 
     };
