@@ -76,7 +76,7 @@ public class GLBegin implements Renderer {
         int baseY = 0;
 
         ResourceManager.bindUIElement(GUI.GUIElements.BACKGROUND);
-        for (int i = 0; i < Game.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE; i++) {
+        for (int i = 0; i < Game.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE + 1; i++) {
             drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
             baseX += Client.UI_SIZE;
