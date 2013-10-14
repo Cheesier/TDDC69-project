@@ -13,7 +13,7 @@ public class Tile {
     }
 
     public static enum Type {
-        GRASS, PORTAL, SPAWN, TOWER
+        GRASS, TOWER
     }
 
     protected UnitMobility unitMobility;

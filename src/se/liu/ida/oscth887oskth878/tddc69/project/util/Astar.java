@@ -33,7 +33,7 @@ public class Astar implements Pathfinding {
 
         Path result = new Path();
 
-        if (itr.hasNext())
+        if (itr.hasNext()) // pop off the first element (the one the unit is already standing on)
             itr.next();
 
         while (itr.hasNext()) {
