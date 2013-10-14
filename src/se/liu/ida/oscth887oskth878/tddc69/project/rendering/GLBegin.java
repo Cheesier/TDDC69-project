@@ -52,36 +52,13 @@ public class GLBegin implements Renderer {
         for (int x = 0; x < level.getDimensions().x; x++) {
             for (int y = 0; y < level.getDimensions().y; y++) {
 
-
                 ResourceManager.bindTexture(level.getTileType(x, y));
-
-                GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-                GL11.glBegin(GL11.GL_QUADS);
-                    GL11.glVertex2f(baseX,      baseY);
-                    GL11.glTexCoord2f(1,1);
-                    GL11.glVertex2f(baseX+size, baseY);
-                    GL11.glTexCoord2f(1,0);
-                    GL11.glVertex2f(baseX+size, baseY+size);
-                    GL11.glTexCoord2f(0,0);
-                    GL11.glVertex2f(baseX,      baseY+size);
-                    GL11.glTexCoord2f(0,1);
-                GL11.glEnd();
+                drawSprite(baseX, baseY, size, size);
 
                 Tower tower = level.getTower(x, y);
                 if (tower != null) {
                     ResourceManager.bindTower(tower.getTowerType());
-
-                    GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-                    GL11.glBegin(GL11.GL_QUADS);
-                    GL11.glVertex2f(baseX,      baseY);
-                    GL11.glTexCoord2f(1,1);
-                    GL11.glVertex2f(baseX+size, baseY);
-                    GL11.glTexCoord2f(1,0);
-                    GL11.glVertex2f(baseX+size, baseY+size);
-                    GL11.glTexCoord2f(0,0);
-                    GL11.glVertex2f(baseX,      baseY+size);
-                    GL11.glTexCoord2f(0,1);
-                    GL11.glEnd();
+                    drawSprite(baseX, baseY, size, size);
                 }
 
                 baseY += size;
@@ -100,17 +77,8 @@ public class GLBegin implements Renderer {
 
         ResourceManager.bindUIElement(GUI.GUIElements.BACKGROUND);
         for (int i = 0; i < Game.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE; i++) {
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-            GL11.glBegin(GL11.GL_QUADS);
-                GL11.glVertex2f(baseX,                  baseY);
-                GL11.glTexCoord2f(1,1);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
-                GL11.glTexCoord2f(1,0);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,0);
-                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,1);
-            GL11.glEnd();
+            drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
+
             baseX += Client.UI_SIZE;
         }
 
@@ -124,18 +92,7 @@ public class GLBegin implements Renderer {
             }
 
             ResourceManager.bindTower(GUI.guiTowerElements[i]);
-
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-            GL11.glBegin(GL11.GL_QUADS);
-                GL11.glVertex2f(baseX,                  baseY);
-                GL11.glTexCoord2f(1,1);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
-                GL11.glTexCoord2f(1,0);
-                GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,0);
-                GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
-                GL11.glTexCoord2f(0,1);
-            GL11.glEnd();
+            drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
             baseX += Client.UI_SIZE;
         }
@@ -148,18 +105,7 @@ public class GLBegin implements Renderer {
             }
 
             ResourceManager.bindUnit(GUI.guiUnitElements[i]);
-
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-            GL11.glBegin(GL11.GL_QUADS);
-            GL11.glVertex2f(baseX,                  baseY);
-            GL11.glTexCoord2f(1,1);
-            GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY);
-            GL11.glTexCoord2f(1,0);
-            GL11.glVertex2f(baseX+Client.UI_SIZE,   baseY+Client.UI_SIZE);
-            GL11.glTexCoord2f(0,0);
-            GL11.glVertex2f(baseX,                  baseY+Client.UI_SIZE);
-            GL11.glTexCoord2f(0,1);
-            GL11.glEnd();
+            drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
             baseX += Client.UI_SIZE;
         }
@@ -176,19 +122,22 @@ public class GLBegin implements Renderer {
             float baseX = (unit.getLocation().x * Client.PIXELS_PER_TILE) - displacement;
             float baseY = Client.UI_SIZE + (unit.getLocation().y * Client.PIXELS_PER_TILE) - displacement;
 
-            ResourceManager.bindUnit(unit.getUnitType()); // test code
-
-            GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
-            GL11.glBegin(GL11.GL_QUADS);
-                GL11.glVertex2f(baseX,                          baseY);
-                GL11.glTexCoord2f(1,1);
-                GL11.glVertex2f(baseX+Client.PIXELS_PER_TILE,   baseY);
-                GL11.glTexCoord2f(1,0);
-                GL11.glVertex2f(baseX+Client.PIXELS_PER_TILE,   baseY+Client.PIXELS_PER_TILE);
-                GL11.glTexCoord2f(0,0);
-                GL11.glVertex2f(baseX,                          baseY+Client.PIXELS_PER_TILE);
-                GL11.glTexCoord2f(0,1);
-            GL11.glEnd();
+            ResourceManager.bindUnit(unit.getUnitType());
+            drawSprite(baseX, baseY, Client.PIXELS_PER_TILE, Client.PIXELS_PER_TILE);
         }
+    }
+
+    private void drawSprite(float x, float y, float width, float height) {
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+        GL11.glBegin(GL11.GL_QUADS);
+            GL11.glVertex2f(x, y);
+            GL11.glTexCoord2f(1,1);
+            GL11.glVertex2f(x+width, y);
+            GL11.glTexCoord2f(1,0);
+            GL11.glVertex2f(x+width, y+height);
+            GL11.glTexCoord2f(0,0);
+            GL11.glVertex2f(x, y+height);
+            GL11.glTexCoord2f(0,1);
+        GL11.glEnd();
     }
 }
