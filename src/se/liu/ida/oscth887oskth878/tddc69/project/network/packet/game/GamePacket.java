@@ -1,7 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
  * @author Oscar Thunberg (oscth887)

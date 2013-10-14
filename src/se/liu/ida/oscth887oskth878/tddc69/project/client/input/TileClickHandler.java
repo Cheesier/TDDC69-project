@@ -2,7 +2,6 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
-import se.liu.ida.oscth887oskth878.tddc69.project.client.Game;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 

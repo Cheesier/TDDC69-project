@@ -10,7 +10,6 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  * @since 29/09/2013
  */
 public class MouseTranslator {
-    static Point mousePosition;
 
     public static Point getTile(int x, int y) {
         return new Point(x / Client.PIXELS_PER_TILE, (y - Client.UI_SIZE) / Client.PIXELS_PER_TILE);

@@ -2,7 +2,6 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
  * Created with IntelliJ IDEA.
