@@ -1,12 +1,18 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 
 import com.esotericsoftware.kryonet.Client;
+import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.InitPacket;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 
 import java.io.IOException;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -16,6 +22,9 @@ import java.io.IOException;
  */
 public class GameClient {
     Client client;
+    private ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
+    private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
+    private PacketHandler packetHandler = new PacketHandler();
 
     public GameClient() {
         this(Network.DEFAULT_PORT);
@@ -28,13 +37,25 @@ public class GameClient {
         try {
             Network.registerClasses(client.getKryo());
             client.connect(5000, "localhost", port);
-            client.addListener(new PacketHandler());
+            client.addListener(new Listener() {
+                public void received (Connection connection, Object packet) {
+                    connectionQueue.add(connection);
+                    packetQueue.add((Packet)packet);
+                }
+            });
             System.out.println("Connected to server.");
 
             client.sendTCP(new InitPacket("Ost"));
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void update() {
+        Packet packet;
+        while ((packet = packetQueue.poll()) != null) {
+            packetHandler.received(connectionQueue.poll(), packet);
         }
     }
 

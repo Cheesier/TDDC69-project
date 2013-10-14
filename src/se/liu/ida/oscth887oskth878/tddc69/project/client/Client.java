@@ -4,9 +4,12 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.client.GameClient;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author Oscar Thunberg (oscth887)
@@ -43,7 +46,7 @@ public class Client {
         Game.init();
 
         while (!Display.isCloseRequested()) {
-
+            server.update();
             Game.tick();
 
             renderer.drawLevel(Game.level);
