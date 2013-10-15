@@ -32,19 +32,19 @@ public class InputManager {
         }
 
         if (!event.isCanceled()) {
-            Game.level.buildTower(event.getPosition().x, event.getPosition().y, event.getType(), event.getPlayer().getTeam());
+            Game.level.buildTower(event.getPosition(), event.getType(), event.getPlayer().getTeam());
             if (!Game.level.pathNotBlocked(event.getPlayer().getTeam()))
-                Game.level.removeTower(event.getPosition().x, event.getPosition().y);
+                Game.level.removeTower(event.getPosition());
             else
                 Game.level.updateAllPaths();
         }
     }
 
     public static void removeTower(Player player, Point position) {
-        if (Game.level.getTower(position.x, position.y) == null)
+        if (Game.level.getTower(position) == null)
             return;
 
-        TowerRemovedEvent event = new TowerRemovedEvent(player, Game.level.getTower(position.x, position.y).getTowerType(), position);
+        TowerRemovedEvent event = new TowerRemovedEvent(player, Game.level.getTower(position).getTowerType(), position);
 
         if (event.getType() == null)
             return;

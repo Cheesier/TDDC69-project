@@ -39,7 +39,7 @@ public abstract class Unit {
         if (hitpoints <= 0)
             return false;
 
-        if (!move()) {// TODO: Hurt enemy player!
+        if (!move()) {
             System.out.println("A unit made it to the portal");
             return false;
         }
@@ -47,7 +47,11 @@ public abstract class Unit {
         return true;
     }
 
-    // returns false if at end of path
+    /**
+     * Try to move the unit one step forward, with length based on his speed
+     *
+     * @return <code>true</code> if the unit has a next position
+     */
     private boolean move() {
         float movePool = speed;
 
@@ -90,6 +94,13 @@ public abstract class Unit {
         return true; // can still move
     }
 
+    /**
+     * Give the unit a new path to the enemy endpoint
+     *
+     * @param portal endpoint to be reached
+     * @param level the level the endpoint is located at
+     * @return <code>false</code> if the endpoint is unreachable
+     */
     public boolean generatePath(Pointf portal, Level level) {
         path = pathfinding.findPath(this, portal, level);
         if (path == null) { // no path to portal was found

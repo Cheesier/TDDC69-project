@@ -22,7 +22,7 @@ public class EventHandler implements InputListener {
 
     @Override
     public void onTowerRemoved(TowerRemovedEvent event) {
-        Tower tower = Game.level.getTower(event.getPosition().x, event.getPosition().y);
+        Tower tower = Game.level.getTower(event.getPosition());
         if (tower == null)
             return;
 
