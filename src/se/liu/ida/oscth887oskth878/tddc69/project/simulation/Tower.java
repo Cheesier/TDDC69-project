@@ -48,17 +48,21 @@ public abstract class Tower extends Tile {
         return damage;
     }
 
-    public void tick(Point point, Iterator<Unit> untis) {
+    public void tick(Point point, Iterator<Unit> units) {
         if (this.range < 0) { // Spawn and Portal
             return;
         }
 
+        hurtEnemies(point, units);
+    }
+
+    public void hurtEnemies(Point point, Iterator<Unit> units) {
         if (cooldownLeft == 0) {
             Pointf center = point.toPointf();
             center.add(0.5f, 0.5f); // Center location
 
-            while (untis.hasNext()) {
-                Unit unit = untis.next();
+            while (units.hasNext()) {
+                Unit unit = units.next();
                 if (unit.getOwner() != this.getOwner()){
                     if (center.distance(unit.getLocation()) <= this.range) {
                         unit.hurt(this.damage, this.damageType);

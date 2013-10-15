@@ -56,6 +56,12 @@ public class Level {
 
     }
 
+    /**
+     * Check to see whether or not the teams path has been blocked
+     *
+     * @param team the team that the path should be checked for
+     * @return <code>true</code> if a path to the endpoint exists
+     */
     public boolean pathNotBlocked(Player.Team team) {
         spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.getEnemy(team));
         boolean ground = units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
@@ -120,26 +126,46 @@ public class Level {
         return null;
     }
 
+    public Tower getTower(Point point) {
+        return getTower(point.x, point.y);
+    }
+
     public Tower getTower(int x, int y) {
         return getTile(x, y).getTower();
+    }
+
+    public boolean canPass(Point point, Unit unit) {
+        return canPass(point.x, point.y, unit);
     }
 
     public boolean canPass(int x, int y, Unit unit) {
         return getTile(x, y).canPass(unit);
     }
 
-    public void setTile(int x, int y, Tile tile) {
-        tileGrid[x][y] = tile;
+    public void setTile(Point point, Tile tileType) {
+        setTile(point.x, point.y, tileType);
+    }
+
+    public void setTile(int x, int y, Tile tileType) {
+        tileGrid[x][y] = tileType;
     }
 
     public Dimension getDimensions() {
         return dimensions;
     }
 
+    public void buildTower(Point point, TowerFactory.TowerType towerType, Player.Team owner) {
+        buildTower(point.x, point.y, towerType, owner);
+    }
+
     public void buildTower(int x, int y, TowerFactory.TowerType towerType, Player.Team owner) {
         if (towerType != null && getTile(x, y).buildTower(towerType, owner)) {
             towers.put(new Point(x, y), getTower(x, y));
         }
+    }
+
+    public void removeTower(Point point) {
+        removeTower(point.x, point.y);
     }
 
     public void removeTower(int x, int y) {
