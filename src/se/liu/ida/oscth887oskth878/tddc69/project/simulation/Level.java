@@ -31,8 +31,8 @@ public class Level {
         tileGrid = new Tile[x][y];
         dimensions = new Dimension(x, y);
 
-        redSpawn = new Point(dimensions.x/2, dimensions.y/2);
-        blueSpawn = new Point(dimensions.x/2+1, dimensions.y/2);
+        redSpawn = new Point(dimensions.x/2-1, dimensions.y/2);
+        blueSpawn = new Point(dimensions.x/2, dimensions.y/2);
         redPortal = new Point(0, dimensions.y/2);
         bluePortal = new Point(dimensions.x - 1, dimensions.y/2);
     }
@@ -82,9 +82,9 @@ public class Level {
     public void generateBasicLevel() {
         for (int x = 0; x < dimensions.x; x++) {
             for (int y = 0; y < dimensions.y; y++) {
-                if (x > dimensions.x / 2 + 1)
+                if (x > dimensions.x / 2)
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.BLUE));
-                else if (x < dimensions.x / 2)
+                else if (x < dimensions.x / 2 - 1)
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.RED));
                 else
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.NEUTRAL));

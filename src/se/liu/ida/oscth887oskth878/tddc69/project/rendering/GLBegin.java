@@ -93,8 +93,6 @@ public class GLBegin implements Renderer {
             baseX += Client.UI_SIZE;
         }
 
-        baseX = screenWidth/2 + Client.UI_SIZE; //Puts the units on the right part of the GUI
-
         for (int i = 0; i < GUI.guiUnitElements.length; i++) {
 
             if (GUI.guiUnitElements[i] == null) {

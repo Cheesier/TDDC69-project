@@ -23,8 +23,15 @@ public class GUI {
 
     public static final TowerFactory.TowerType[] guiTowerElements = new TowerFactory.TowerType[] {
             TowerFactory.TowerType.BASIC_TOWER,
+            TowerFactory.TowerType.ADVANCED_TOWER,
             null,
-            null
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null                                    //Add spaces to separate towers and units
     };
 
     public static final UnitFactory.UnitType[] guiUnitElements = new UnitFactory.UnitType[] {

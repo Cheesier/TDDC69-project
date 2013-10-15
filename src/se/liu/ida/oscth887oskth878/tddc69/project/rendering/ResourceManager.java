@@ -27,6 +27,7 @@ public class ResourceManager {
         tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
 
         towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
+        towers.put(TowerFactory.TowerType.ADVANCED_TOWER, load("res/towers/advanced_tower.png"));
         towers.put(TowerFactory.TowerType.SPAWN, load("res/towers/spawn.png"));
         towers.put(TowerFactory.TowerType.PORTAL, load("res/towers/portal.png"));
 

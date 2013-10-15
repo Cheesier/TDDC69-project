@@ -1,5 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.AdvancedTower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.BasicTower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.PortalTower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.SpawnTower;
@@ -14,7 +15,7 @@ import java.util.EnumMap;
  */
 public class TowerFactory {
     public static enum TowerType {
-        BASIC_TOWER, SPAWN, PORTAL
+        BASIC_TOWER, ADVANCED_TOWER, SPAWN, PORTAL
     }
     public static final EnumMap<TowerType, Tower> towers = new EnumMap<TowerType, Tower>(TowerType.class);
 
@@ -26,6 +27,8 @@ public class TowerFactory {
                 return new PortalTower(Player.Team.NEUTRAL);
             case BASIC_TOWER:
                 return new BasicTower(owner);
+            case ADVANCED_TOWER:
+                return new AdvancedTower(owner);
             default:
                 throw new RuntimeException("Cant get a nonexisting tower: " + type);
         }
