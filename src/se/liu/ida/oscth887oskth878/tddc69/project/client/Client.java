@@ -35,7 +35,7 @@ public class Client {
             e.printStackTrace();
         }
 
-        renderer.init(Game.WIDTH* PIXELS_PER_TILE, Game.HEIGHT * PIXELS_PER_TILE + UI_SIZE, PIXELS_PER_TILE);
+        renderer.init(Game.WIDTH* PIXELS_PER_TILE, Game.HEIGHT * PIXELS_PER_TILE + UI_SIZE);
 
         int frames = 0;
         long lastTime = System.nanoTime();

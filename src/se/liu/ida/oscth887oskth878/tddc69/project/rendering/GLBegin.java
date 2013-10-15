@@ -17,22 +17,18 @@ import java.util.Iterator;
  * @since 27/09/2013
  */
 public class GLBegin implements Renderer {
-    private int width;
-    private int height;
-    private int size;
-
+    private int screenWidth;
+    private int screenHeight;
 
     @Override
-    public void init(int width, int height, int size) {
-        this.width = width;
-        this.height = height;
-        this.size = size;
-
+    public void init(int width, int height) {
+        this.screenWidth = width;
+        this.screenHeight = height;
 
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, this.width, 0, this.height, 1, -1);
+        GL11.glOrtho(0, this.screenWidth, 0, this.screenHeight, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);
@@ -53,18 +49,18 @@ public class GLBegin implements Renderer {
             for (int y = 0; y < level.getDimensions().y; y++) {
 
                 ResourceManager.bindTexture(level.getTileType(x, y));
-                drawSprite(baseX, baseY, size, size);
+                drawSprite(baseX, baseY, Client.PIXELS_PER_TILE, Client.PIXELS_PER_TILE);
 
                 Tower tower = level.getTower(x, y);
                 if (tower != null) {
                     ResourceManager.bindTower(tower.getTowerType());
-                    drawSprite(baseX, baseY, size, size);
+                    drawSprite(baseX, baseY, Client.PIXELS_PER_TILE, Client.PIXELS_PER_TILE);
                 }
 
-                baseY += size;
+                baseY += Client.PIXELS_PER_TILE;
             }
             baseY = Client.UI_SIZE;
-            baseX += size;
+            baseX += Client.PIXELS_PER_TILE;
         }
 
         drawUnits(level);
@@ -76,7 +72,7 @@ public class GLBegin implements Renderer {
         int baseY = 0;
 
         ResourceManager.bindUIElement(GUI.GUIElements.BACKGROUND);
-        for (int i = 0; i < Game.WIDTH*Client.PIXELS_PER_TILE / Client.UI_SIZE + 1; i++) {
+        for (int i = 0; i < screenWidth / Client.UI_SIZE; i++) {
             drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
             baseX += Client.UI_SIZE;
@@ -97,6 +93,8 @@ public class GLBegin implements Renderer {
             baseX += Client.UI_SIZE;
         }
 
+        baseX = screenWidth/2 + Client.UI_SIZE; //Puts the units on the right part of the GUI
+
         for (int i = 0; i < GUI.guiUnitElements.length; i++) {
 
             if (GUI.guiUnitElements[i] == null) {
@@ -114,12 +112,12 @@ public class GLBegin implements Renderer {
     private void drawUnits(Level level) {
         Iterator<Unit> units = level.getUnitIterator();
 
-        int displacement = Client.PIXELS_PER_TILE / 2;
+        int displacement = Client.PIXELS_PER_TILE / 2; //places the unit in the middle of the tile
 
         while (units.hasNext()) {
             Unit unit = units.next();
 
-            float baseX = (unit.getLocation().x * Client.PIXELS_PER_TILE) - displacement;
+            float baseX =                  (unit.getLocation().x * Client.PIXELS_PER_TILE) - displacement;
             float baseY = Client.UI_SIZE + (unit.getLocation().y * Client.PIXELS_PER_TILE) - displacement;
 
             ResourceManager.bindUnit(unit.getUnitType());
@@ -129,6 +127,7 @@ public class GLBegin implements Renderer {
 
     private void drawSprite(float x, float y, float width, float height) {
         GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
+
         GL11.glBegin(GL11.GL_QUADS);
             GL11.glVertex2f(x, y);
             GL11.glTexCoord2f(1,1);

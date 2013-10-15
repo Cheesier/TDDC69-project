@@ -11,8 +11,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
  * @since 07/10/2013
  */
 public class Game {
-    public static final int WIDTH = 43;
-    public static final int HEIGHT = 20;
+    public static final int WIDTH = 40;
+    public static final int HEIGHT = 18;
     public static final Level level = new Level(WIDTH, HEIGHT);
 
 
