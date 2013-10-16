@@ -50,7 +50,7 @@ public class Level {
         while (unitItrator.hasNext()) {
             Unit unit = unitItrator.next();
             if (!unit.tick()) {
-                unitItrator.remove();
+                unitAtPortal(unitItrator);
             }
         }
 
@@ -79,8 +79,18 @@ public class Level {
 
         while (unitIterator.hasNext()) {
             Unit unit = unitIterator.next();
-            unit.generatePath(getPortalTile(unit.getOwner()), this);
+
+            if (!unit.generatePath(getPortalTile(unit.getOwner()), this)) {
+                System.out.println("A unit had no path");
+                unitAtPortal(unitIterator);
+            }
+
         }
+    }
+
+    private void unitAtPortal(Iterator<Unit> unitItrator) {
+        unitItrator.remove();
+        System.out.println("A unit made it to the portal");
     }
 
     // should not be shipped with release version

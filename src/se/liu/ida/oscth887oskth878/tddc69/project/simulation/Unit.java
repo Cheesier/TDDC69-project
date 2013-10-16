@@ -39,10 +39,8 @@ public abstract class Unit {
         if (hitpoints <= 0)
             return false;
 
-        if (!move()) {
-            System.out.println("A unit made it to the portal");
+        if (!move())
             return false;
-        }
 
         return true;
     }
@@ -103,7 +101,7 @@ public abstract class Unit {
      */
     public boolean generatePath(Pointf portal, Level level) {
         path = pathfinding.findPath(this, portal, level);
-        if (path == null) { // no path to portal was found
+        if (path == null || path.length() < 1) { // no path to portal was found
             path = new Path();
             return false;
         }
