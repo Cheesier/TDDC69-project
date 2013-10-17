@@ -1,7 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation.units;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 

@@ -1,7 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util.AStar;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Unit;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 
 import java.util.ArrayList;
 import java.util.Collections;

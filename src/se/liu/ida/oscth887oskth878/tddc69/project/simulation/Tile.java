@@ -1,5 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
+
 /**
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)

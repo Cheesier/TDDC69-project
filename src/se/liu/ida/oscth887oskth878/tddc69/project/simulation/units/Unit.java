@@ -1,5 +1,9 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
+package se.liu.ida.oscth887oskth878.tddc69.project.simulation.units;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Astar;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Path;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pathfinding;

@@ -1,9 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.AdvancedTower;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.BasicTower;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.PortalTower;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.SpawnTower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.*;
 
 import java.util.EnumMap;
 

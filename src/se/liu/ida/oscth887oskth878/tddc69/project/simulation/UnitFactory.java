@@ -1,9 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.AdvancedUnit;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.BasicFlying;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.BasicUnit;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.GoombaUnit;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.*;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**

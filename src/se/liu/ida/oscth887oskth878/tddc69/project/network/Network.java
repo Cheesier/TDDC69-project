@@ -8,6 +8,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.InitPa
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.*;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 

@@ -33,7 +33,7 @@ public class GameClient {
 
         try {
             Network.registerClasses(client.getKryo());
-            client.connect(5000, "localhost", port);
+            client.connect(5000, "130.236.134.12", port);
             client.addListener(new Listener() {
                 public void received (Connection connection, Object packet) {
                     if (packet instanceof Packet) {

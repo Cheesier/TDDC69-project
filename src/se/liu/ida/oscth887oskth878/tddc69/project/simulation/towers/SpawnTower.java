@@ -1,7 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 
 /**

@@ -1,5 +1,9 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
+package se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tile;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
