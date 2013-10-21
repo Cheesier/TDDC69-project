@@ -5,6 +5,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.*;
 import java.util.EnumMap;
 
 /**
+ * A simple Factory for Towers
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

@@ -9,6 +9,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemov
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawnedPacket;
 
 /**
+ * Send every action the client does to the server.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

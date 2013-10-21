@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * Manages the mouse clicks and those who are listening to events.
+ *
  * @author Oskar Therén
  * @author Oscar Thunberg
  * @version 1.0

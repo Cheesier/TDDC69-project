@@ -8,6 +8,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemov
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawnedPacket;
 
 /**
+ * Handles all the game specific packets.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

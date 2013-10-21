@@ -3,6 +3,9 @@ package se.liu.ida.oscth887oskth878.tddc69.project.input;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
+ * Base for every player based event,
+ * Example: placing and removing towers.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

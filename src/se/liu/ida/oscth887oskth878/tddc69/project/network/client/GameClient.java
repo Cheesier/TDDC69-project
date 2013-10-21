@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
+ * The game client itself, starts a new connection to the server and maintains all network traffic.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

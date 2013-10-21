@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
 
 /**
+ * Represents a single player.
+ *
  * @author Oskar Therén
  * @author Oscar Thunberg
  * @version 1.0

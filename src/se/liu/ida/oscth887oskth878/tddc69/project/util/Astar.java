@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * Implementation for the A* Pathfinding algorithm used to help a <code>Unit</code> find his way to a given point.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

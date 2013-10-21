@@ -9,6 +9,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
+ * The local client settings and initialization of the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

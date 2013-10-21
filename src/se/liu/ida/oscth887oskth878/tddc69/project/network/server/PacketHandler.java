@@ -8,6 +8,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.Protoc
 import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
 
 /**
+ * Splits all the incoming packets up to simplify handling.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

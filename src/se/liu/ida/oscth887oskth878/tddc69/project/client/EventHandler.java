@@ -7,6 +7,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
 
 /**
+ * Main handler for client interaction, prevent placement of towers on enemy territory.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

@@ -6,6 +6,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
+ * Handle all clicks performed on GUI elements.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

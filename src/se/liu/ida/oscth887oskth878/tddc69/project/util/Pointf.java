@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 /**
+ * Represents a float Point in 2d space.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

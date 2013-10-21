@@ -14,6 +14,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
 /**
+ * Initializes the Kryo Serialization framework with the classes that needs to be serialized.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

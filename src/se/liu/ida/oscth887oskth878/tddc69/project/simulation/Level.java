@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * Saves all the Tiles and Units, contains all the methods to modify the gameboard.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0
@@ -32,11 +34,6 @@ public class Level {
     public Level(int x, int y) {
         tileGrid = new Tile[x][y];
         dimensions = new Dimension(x, y);
-
-        redSpawn = new Point(dimensions.x/2-1, dimensions.y/2);
-        blueSpawn = new Point(dimensions.x/2, dimensions.y/2);
-        redPortal = new Point(0, dimensions.y/2);
-        bluePortal = new Point(dimensions.x - 1, dimensions.y/2);
     }
 
     public void tick() {
@@ -108,6 +105,11 @@ public class Level {
                     this.setTile(x, y, new Tile(Tile.UnitMobility.ALL, true, Tile.Type.GRASS, Player.Team.NEUTRAL));
             }
         }
+
+        redSpawn = new Point(dimensions.x/2-1, dimensions.y/2);
+        blueSpawn = new Point(dimensions.x/2, dimensions.y/2);
+        redPortal = new Point(0, dimensions.y/2);
+        bluePortal = new Point(dimensions.x - 1, dimensions.y/2);
 
         getTile(redSpawn).buildTower(TowerFactory.TowerType.SPAWN, Player.Team.NEUTRAL);
         getTile(redPortal).buildTower(TowerFactory.TowerType.PORTAL, Player.Team.NEUTRAL);

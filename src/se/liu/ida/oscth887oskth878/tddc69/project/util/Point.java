@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 /**
+ * Represents an interger Point in 2d space.
+ *
  * @author Oskar Therén
  * @author Oscar Thunberg
  * @version 1.0

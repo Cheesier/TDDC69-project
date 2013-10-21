@@ -5,6 +5,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**
+ * Manages the game and gameplay logic, rather than just the level.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

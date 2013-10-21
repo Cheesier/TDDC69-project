@@ -4,6 +4,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
+ * Translates pixel coordinates to a <code>Tile</code> or <code>GUI</code> coordinate.
+ *
  * @author Oskar Therén
  * @author Oscar Thunberg
  * @version 1.0

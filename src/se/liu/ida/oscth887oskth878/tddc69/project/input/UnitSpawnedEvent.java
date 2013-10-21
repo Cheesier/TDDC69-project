@@ -3,6 +3,8 @@ package se.liu.ida.oscth887oskth878.tddc69.project.input;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 
 /**
+ * Event for when a <code>Unit</code> spawns.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

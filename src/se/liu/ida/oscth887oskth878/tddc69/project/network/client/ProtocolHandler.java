@@ -7,6 +7,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.Protoc
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.TerminatePacket;
 
 /**
+ * Handle all the different <code>ProtocolPacket</code>s used in the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

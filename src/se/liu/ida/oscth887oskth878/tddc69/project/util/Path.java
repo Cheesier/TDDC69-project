@@ -3,6 +3,8 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util;
 import java.util.LinkedList;
 
 /**
+ * Contains the entire path for a <code>Unit</code> to get to the endpoint
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

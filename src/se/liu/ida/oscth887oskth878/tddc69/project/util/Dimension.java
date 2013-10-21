@@ -1,6 +1,8 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 /**
+ * Stores the dimension of a 2d object. In our case the <code>Level</code>
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

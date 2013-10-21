@@ -4,6 +4,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.server.GameServer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
+ * The primary server software that simply starts a new network server (GameServer).
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

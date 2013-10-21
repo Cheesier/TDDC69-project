@@ -4,6 +4,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 /**
+ * Notify other clients that a <code>Unit</code> should spawn.
+ *
  * Created with IntelliJ IDEA.
  * User: Oscar
  * Date: 2013-10-09

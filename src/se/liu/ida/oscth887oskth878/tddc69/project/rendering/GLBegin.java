@@ -10,6 +10,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 import java.util.Iterator;
 
 /**
+ * Implementation of the relatively simple OpenGL glBegin to render sprites.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

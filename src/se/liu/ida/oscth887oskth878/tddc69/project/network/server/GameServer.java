@@ -9,6 +9,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
 import java.io.IOException;
 
 /**
+ * Handles all the network activity from client, different packets are handled by different handlers.
+ * GamePackets are handled in <code>GameHandler</code>, ProtocolPackets are handled in <code>ProtocolHandler</code>.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

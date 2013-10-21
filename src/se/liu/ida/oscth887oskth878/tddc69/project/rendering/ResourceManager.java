@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.EnumMap;
 
 /**
+ * Manages all the textures in the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

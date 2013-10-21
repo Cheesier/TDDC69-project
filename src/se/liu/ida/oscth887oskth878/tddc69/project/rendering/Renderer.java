@@ -3,6 +3,8 @@ package se.liu.ida.oscth887oskth878.tddc69.project.rendering;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**
+ * Interface to implement all the different ways of rendering the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

@@ -5,6 +5,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
+ * Event for when a player places a <code>Tower</code>.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

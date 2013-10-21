@@ -3,6 +3,8 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 
 /**
+ * Event to pass to listeners.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

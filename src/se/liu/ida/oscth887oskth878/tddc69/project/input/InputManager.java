@@ -9,6 +9,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import java.util.ArrayList;
 
 /**
+ * All clients way of modifying the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

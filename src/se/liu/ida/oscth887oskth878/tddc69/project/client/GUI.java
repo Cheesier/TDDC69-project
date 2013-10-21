@@ -6,6 +6,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 /**
+ * Holds the way the GUI should look.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

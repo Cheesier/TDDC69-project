@@ -4,6 +4,8 @@ import com.esotericsoftware.kryonet.Connection;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
+ * Every socket to a client should save who the client is, referenced to the game.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

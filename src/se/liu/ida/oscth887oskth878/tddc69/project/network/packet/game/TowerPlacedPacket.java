@@ -5,6 +5,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
+ * Notify other clients that a <code>Tower</code> should be placed.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0

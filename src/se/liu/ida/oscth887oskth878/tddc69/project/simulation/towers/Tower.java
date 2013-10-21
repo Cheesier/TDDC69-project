@@ -10,6 +10,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 import java.util.Iterator;
 
 /**
+ * The base for all towers, extends <code>Tile</code> for the benefit of collision.
+ *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
  * @version 1.0
