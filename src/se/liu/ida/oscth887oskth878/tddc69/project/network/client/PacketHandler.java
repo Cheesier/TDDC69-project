@@ -27,5 +27,6 @@ public class PacketHandler extends Listener {
     public void disconnected(Connection connection) {
         super.disconnected(connection);
         System.out.println("Connection ended suddenly");
+        System.exit(1);
     }
 }
