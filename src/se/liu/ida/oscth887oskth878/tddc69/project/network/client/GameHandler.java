@@ -15,7 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawne
  * @version 1.0
  * @since 09/10/2013
  */
-public class GamePacketHandler {
+public class GameHandler {
     public static void handle(Connection connection, GamePacket incomingPacket) {
         if (incomingPacket instanceof TowerPlacedPacket) {
             TowerPlacedPacket packet = (TowerPlacedPacket)incomingPacket;

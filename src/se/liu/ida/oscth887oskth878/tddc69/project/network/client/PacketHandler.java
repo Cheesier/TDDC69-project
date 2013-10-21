@@ -19,7 +19,7 @@ public class PacketHandler extends Listener {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);
         }
         if (packet instanceof GamePacket) {
-            GamePacketHandler.handle(connection, (GamePacket)packet);
+            GameHandler.handle(connection, (GamePacket) packet);
         }
     }
 }

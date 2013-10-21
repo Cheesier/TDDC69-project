@@ -1,6 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.client.input.MouseHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
@@ -25,8 +24,6 @@ public class Game {
     }
 
     public static void tick() {
-        MouseHandler.update();
-
         level.tick();
     }
 }

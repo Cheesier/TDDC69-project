@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.input.MouseHandler;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.client.GameClient;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
@@ -46,18 +47,23 @@ public class Client {
 
         while (!Display.isCloseRequested()) {
             server.update();
+            MouseHandler.update();
             Game.tick();
 
             renderer.drawLevel(Game.level);
             renderer.drawUI();
 
 
+            // simple, relatively accurate fps counter
+            /*
             frames ++;
             if (System.nanoTime()-lastTime > 1000000000) {
-                //System.out.println(frames);
+                System.out.println(frames);
                 frames = 0;
                 lastTime = System.nanoTime();
             }
+            */
+
             Display.update();
             Display.sync(20);
         }
