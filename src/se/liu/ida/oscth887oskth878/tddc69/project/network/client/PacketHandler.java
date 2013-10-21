@@ -22,4 +22,10 @@ public class PacketHandler extends Listener {
             GameHandler.handle(connection, (GamePacket) packet);
         }
     }
+
+    @Override
+    public void disconnected(Connection connection) {
+        super.disconnected(connection);
+        System.out.println("Connection ended suddenly");
+    }
 }

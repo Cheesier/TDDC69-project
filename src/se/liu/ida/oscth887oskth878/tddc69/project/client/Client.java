@@ -4,10 +4,13 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.input.MouseHandler;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.Network;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.client.GameClient;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.GLBegin;
 import se.liu.ida.oscth887oskth878.tddc69.project.rendering.Renderer;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
+
+import javax.swing.*;
 
 /**
  * The local client settings and initialization of the game.
@@ -26,14 +29,23 @@ public class Client {
     public static void main(String[] args) {
         Renderer renderer = new GLBegin();
 
-        server = new GameClient();
+        String name = JOptionPane.showInputDialog("Player name: ");
+        String address = JOptionPane.showInputDialog("Server IP: ", "localhost:"+ Network.DEFAULT_PORT);
+
+        if (name.length() == 0)
+            name = "Newbie";
+
+        int port = Integer.parseInt(address.substring(address.indexOf(':')+1, address.length()));
+
+        server = new GameClient(address.substring(0, address.indexOf(':')), port);
+        server.handshake(name);
 
 
         try {
             Display.setDisplayMode(new DisplayMode(Game.WIDTH* PIXELS_PER_TILE, Game.HEIGHT * PIXELS_PER_TILE + UI_SIZE));
             Display.create();
 
-            Display.setTitle("OTD game");
+            Display.setTitle("OTD game (" + name + ")");
         } catch (LWJGLException e) {
             e.printStackTrace();
         }

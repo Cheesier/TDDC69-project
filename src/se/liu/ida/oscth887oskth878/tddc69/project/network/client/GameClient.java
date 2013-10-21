@@ -25,32 +25,34 @@ public class GameClient {
     private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
     private PacketHandler packetHandler = new PacketHandler();
 
-    public GameClient() {
-        this(Network.DEFAULT_PORT);
+    public GameClient(String address) {
+        this(address, Network.DEFAULT_PORT);
     }
 
-    public GameClient(int port) {
+    public GameClient(String address, int port) {
         client = new Client();
         client.start();
 
         try {
             Network.registerClasses(client.getKryo());
-            client.connect(5000, "localhost", port);
+            client.connect(5000, address, port);
             client.addListener(new Listener() {
-                public void received (Connection connection, Object packet) {
+                public void received(Connection connection, Object packet) {
                     if (packet instanceof Packet) {
                         connectionQueue.add(connection);
-                        packetQueue.add((Packet)packet);
+                        packetQueue.add((Packet) packet);
                     }
                 }
             });
             System.out.println("Connected to server.");
 
-            client.sendTCP(new InitPacket("Ost"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void handshake(String name) {
+        client.sendTCP(new InitPacket(name));
     }
 
     public void update() {
