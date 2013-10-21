@@ -22,6 +22,9 @@ public abstract class Unit {
     public enum MoveType {
         GROUND, AIR
     }
+    public static enum LifeState {
+        ALIVE, KILLED, PORTAL
+    }
 
     private int hitpoints;
     private MoveType moveType;
@@ -30,6 +33,7 @@ public abstract class Unit {
     private Path path;
     private UnitFactory.UnitType unitType;
     private Player.Team owner;
+    private LifeState lifeState = LifeState.ALIVE;
 
     protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed, UnitFactory.UnitType unitType) {
         this.position = position;
@@ -41,14 +45,15 @@ public abstract class Unit {
 
     }
 
-    public boolean tick() {
+    public LifeState getLifeState() {
+        return lifeState;
+    }
+
+    public void tick() {
         if (hitpoints <= 0)
-            return false;
-
-        if (!move())
-            return false;
-
-        return true;
+            lifeState = LifeState.KILLED;
+        else if (!move())
+            lifeState = LifeState.PORTAL;
     }
 
     /**

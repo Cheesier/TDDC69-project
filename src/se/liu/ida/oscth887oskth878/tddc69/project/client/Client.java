@@ -72,7 +72,7 @@ public class Client {
             if (System.nanoTime()-lastTime > 1000000000) {
                 System.out.println(frames);
                 frames = 0;
-                lastTime = System.nanoTime();
+                lastTime =   System.nanoTime();
             }
             */
 

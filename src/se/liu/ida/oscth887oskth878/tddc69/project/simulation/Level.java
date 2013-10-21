@@ -48,11 +48,13 @@ public class Level {
 
         while (unitItrator.hasNext()) {
             Unit unit = unitItrator.next();
-            if (!unit.tick()) {
-                unitAtPortal(unitItrator);
-            }
-        }
+            unit.tick();
 
+            if (unit.getLifeState() == Unit.LifeState.PORTAL)
+                unitAtPortal(unitItrator);
+            else if (unit.getLifeState() == Unit.LifeState.KILLED)
+                unitKilled(unitItrator);
+        }
     }
 
     /**
@@ -90,6 +92,11 @@ public class Level {
     private void unitAtPortal(Iterator<Unit> unitItrator) {
         unitItrator.remove();
         System.out.println("A unit made it to the portal");
+    }
+
+    private void unitKilled(Iterator<Unit> unitItrator) {
+        unitItrator.remove();
+        System.out.println("A unit was killed");
     }
 
     // should not be shipped with release version
