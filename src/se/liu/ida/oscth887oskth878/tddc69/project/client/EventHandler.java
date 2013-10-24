@@ -15,6 +15,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
  * @since 07/10/2013
  */
 public class EventHandler implements InputListener {
+    private static EventHandler instance = new EventHandler(); // use this class as a singleton
+
+    private EventHandler() {}
+
     @Override
     public void onTowerPlaced(TowerPlacedEvent event) {
         if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
@@ -36,5 +40,9 @@ public class EventHandler implements InputListener {
     @Override
     public void onUnitSpawned(UnitSpawnedEvent event) {
 
+    }
+
+    public static EventHandler getInstance() {
+        return instance;
     }
 }

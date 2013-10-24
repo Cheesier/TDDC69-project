@@ -17,6 +17,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawne
  * @since 09/10/2013
  */
 public class ServerHandler implements InputListener {
+    private static final ServerHandler instance = new ServerHandler(); // use this class as a singleton
+
+    private ServerHandler() {}
+
     @Override
     public void onTowerPlaced(TowerPlacedEvent event) {
         if (event.getPlayer().equals(Client.player)) {
@@ -36,5 +40,9 @@ public class ServerHandler implements InputListener {
         if (event.getUnit().getOwner() == Client.player.getTeam()) {
             Client.server.send(new UnitSpawnedPacket(event.getUnit().getUnitType(), event.getUnit().getOwner()));
         }
+    }
+
+    public static ServerHandler getInstance() {
+        return instance;
     }
 }
