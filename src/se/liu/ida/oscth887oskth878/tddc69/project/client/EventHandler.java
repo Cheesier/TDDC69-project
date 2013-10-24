@@ -15,7 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
  * @since 07/10/2013
  */
 public class EventHandler implements InputListener {
-    private static EventHandler instance = new EventHandler(); // use this class as a singleton
+    private static final EventHandler instance = new EventHandler(); // use this class as a singleton
 
     private EventHandler() {}
 
