@@ -20,7 +20,8 @@ public class InputManager {
     private static final ArrayList<InputListener> listeners = new ArrayList<InputListener>();
 
     public static void addListener(InputListener listener) {
-        listeners.add(listener);
+        if (!listeners.contains(listener))
+            listeners.add(listener);
     }
 
     public static void removeListener(InputListener listener) {
