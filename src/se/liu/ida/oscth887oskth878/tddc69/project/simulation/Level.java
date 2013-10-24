@@ -37,7 +37,7 @@ public class Level {
     }
 
     public void tick() {
-        Iterator<Unit> unitItrator = units.iterator();
+        Iterator<Unit> unitIterator = units.iterator();
 
         Iterator<Map.Entry<Point, Tower>> towerIterator = towers.entrySet().iterator();
 
@@ -46,14 +46,14 @@ public class Level {
             entry.getValue().tick(entry.getKey(), units.iterator());
         }
 
-        while (unitItrator.hasNext()) {
-            Unit unit = unitItrator.next();
+        while (unitIterator.hasNext()) {
+            Unit unit = unitIterator.next();
             unit.tick();
 
             if (unit.getLifeState() == Unit.LifeState.PORTAL)
-                unitAtPortal(unitItrator);
+                unitAtPortal(unitIterator);
             else if (unit.getLifeState() == Unit.LifeState.KILLED)
-                unitKilled(unitItrator);
+                unitKilled(unitIterator);
         }
     }
 
@@ -89,13 +89,13 @@ public class Level {
         }
     }
 
-    private void unitAtPortal(Iterator<Unit> unitItrator) {
-        unitItrator.remove();
+    private void unitAtPortal(Iterator<Unit> unitIterator) {
+        unitIterator.remove();
         System.out.println("A unit made it to the portal");
     }
 
-    private void unitKilled(Iterator<Unit> unitItrator) {
-        unitItrator.remove();
+    private void unitKilled(Iterator<Unit> unitIterator) {
+        unitIterator.remove();
         System.out.println("A unit was killed");
     }
 
