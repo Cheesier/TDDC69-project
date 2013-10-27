@@ -2,7 +2,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
 import se.liu.ida.oscth887oskth878.tddc69.project.client.GUI;
-import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.input.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 /**
@@ -35,7 +35,7 @@ public class GUIClickHandler implements MouseListener {
                 else if (pos.x >= GUI.guiTowerElements.length &&
                          pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
                          GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
-                    InputManager.spawnUnit(GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length], Client.player.getTeam());
+                    EventManager.spawnUnit(GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length], Client.player.getTeam());
                 }
             }
         }

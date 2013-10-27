@@ -1,6 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.input.InputManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.input.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**
@@ -19,8 +19,8 @@ public class Game {
 
     public static void init() {
         level.generateBasicLevel();
-        InputManager.addListener(EventHandler.getInstance());
-        InputManager.addListener(ServerHandler.getInstance());
+        EventManager.addListener(EventHandler.getInstance(), EventManager.EventPriority.NORMAL);
+        EventManager.addListener(ServerHandler.getInstance(), EventManager.EventPriority.MONITOR);
     }
 
     public static void tick() {

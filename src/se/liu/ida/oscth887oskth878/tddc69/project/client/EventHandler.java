@@ -1,6 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.input.InputListener;
+import se.liu.ida.oscth887oskth878.tddc69.project.input.EventListener;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
@@ -14,13 +14,16 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
  * @version 1.0
  * @since 07/10/2013
  */
-public class EventHandler implements InputListener {
+public class EventHandler implements EventListener {
     private static final EventHandler instance = new EventHandler(); // use this class as a singleton
 
     private EventHandler() {}
 
     @Override
     public void onTowerPlaced(TowerPlacedEvent event) {
+        if (event.isCanceled())
+            return;
+
         if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
                 event.setCanceled(true);
         }
@@ -28,6 +31,9 @@ public class EventHandler implements InputListener {
 
     @Override
     public void onTowerRemoved(TowerRemovedEvent event) {
+        if (event.isCanceled())
+            return;
+
         Tower tower = Game.level.getTower(event.getPosition());
         if (tower == null)
             return;
