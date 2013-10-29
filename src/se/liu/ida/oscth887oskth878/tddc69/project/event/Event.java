@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.event;
 
 /**
  * Base for all events that are triggered upon building/removing towers, units and more.

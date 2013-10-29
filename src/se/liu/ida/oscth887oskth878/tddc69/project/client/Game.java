@@ -1,6 +1,6 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.input.EventManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**

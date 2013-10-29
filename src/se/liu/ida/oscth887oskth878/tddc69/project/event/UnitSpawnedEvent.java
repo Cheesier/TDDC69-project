@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.event;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 

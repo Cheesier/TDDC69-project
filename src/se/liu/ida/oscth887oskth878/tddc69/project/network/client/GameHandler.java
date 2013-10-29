@@ -1,7 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 
 import com.esotericsoftware.kryonet.Connection;
-import se.liu.ida.oscth887oskth878.tddc69.project.input.EventManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemovedPacket;

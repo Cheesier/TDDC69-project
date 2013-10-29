@@ -1,9 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.client;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.input.EventListener;
-import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerPlacedEvent;
-import se.liu.ida.oscth887oskth878.tddc69.project.input.TowerRemovedEvent;
-import se.liu.ida.oscth887oskth878.tddc69.project.input.UnitSpawnedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.EventListener;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.TowerPlacedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.TowerRemovedEvent;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.UnitSpawnedEvent;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerRemovedPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawnedPacket;

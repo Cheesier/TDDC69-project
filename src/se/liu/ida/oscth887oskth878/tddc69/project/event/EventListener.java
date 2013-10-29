@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.input;
+package se.liu.ida.oscth887oskth878.tddc69.project.event;
 
 /**
  * Interface to implement for anyone that is interested in listening to changes made in the game.
