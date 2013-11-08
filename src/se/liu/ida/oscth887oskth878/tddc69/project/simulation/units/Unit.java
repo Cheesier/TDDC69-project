@@ -71,7 +71,6 @@ public abstract class Unit {
                 if (movePool > distance) {
                     position.x = next.x;
                     movePool -= distance;
-                    continue;
                 }
                 else {
                     position.x -= ((position.x - next.x)/distance) * movePool;
@@ -83,7 +82,6 @@ public abstract class Unit {
                 if (movePool > distance) {
                     position.y = next.y;
                     movePool -= distance;
-                    continue;
                 }
                 else {
                     position.y -= ((position.y - next.y)/distance) * movePool;
@@ -97,7 +95,6 @@ public abstract class Unit {
                     // remove self
                     return false;
                 }
-                continue;
             }
         }
         return true; // can still move

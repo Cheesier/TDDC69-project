@@ -52,9 +52,6 @@ public class Client {
 
         renderer.init(Game.WIDTH* PIXELS_PER_TILE, Game.HEIGHT * PIXELS_PER_TILE + UI_SIZE);
 
-        int frames = 0;
-        long lastTime = System.nanoTime();
-
         Game.init();
 
         while (!Display.isCloseRequested()) {
@@ -64,17 +61,6 @@ public class Client {
 
             renderer.drawLevel(Game.level);
             renderer.drawUI();
-
-
-            // simple, relatively accurate fps counter
-            /*
-            frames ++;
-            if (System.nanoTime()-lastTime > 1000000000) {
-                System.out.println(frames);
-                frames = 0;
-                lastTime =   System.nanoTime();
-            }
-            */
 
             Display.update();
             Display.sync(20);

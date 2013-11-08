@@ -43,19 +43,13 @@ public class MouseHandler {
     }
 
     private static void notifyLeftListener(MouseClickEvent event) {
-        Iterator<MouseListener> itr = listeners.iterator();
-
-        while (itr.hasNext()) {
-            itr.next().onLeftClick(event);
-        }
+        for (MouseListener listener : listeners)
+            listener.onLeftClick(event);
     }
 
     private static void notifyRightListener(MouseClickEvent event) {
-        Iterator<MouseListener> itr = listeners.iterator();
-
-        while (itr.hasNext()) {
-            itr.next().onRightClick(event);
-        }
+        for (MouseListener listener : listeners)
+            listener.onRightClick(event);
     }
 
 }

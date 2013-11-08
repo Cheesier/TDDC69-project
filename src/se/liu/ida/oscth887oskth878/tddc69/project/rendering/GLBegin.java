@@ -19,17 +19,15 @@ import java.util.Iterator;
  */
 public class GLBegin implements Renderer {
     private int screenWidth;
-    private int screenHeight;
 
     @Override
     public void init(int width, int height) {
         this.screenWidth = width;
-        this.screenHeight = height;
 
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        GL11.glOrtho(0, this.screenWidth, 0, this.screenHeight, 1, -1);
+        GL11.glOrtho(0, this.screenWidth, 0, height, 1, -1);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
 
         GL11.glEnable(GL11.GL_TEXTURE_2D);

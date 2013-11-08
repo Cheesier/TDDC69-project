@@ -37,9 +37,7 @@ public class Player {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Player)
-            return name.equals(((Player) obj).name) && team == ((Player) obj).team;
-        return false;
+        return obj instanceof Player && name.equals(((Player) obj).name) && team == ((Player) obj).team;
     }
 
     public Team getTeam() {
