@@ -20,7 +20,4 @@ public class StartGamePacket extends GamePacket {
         this.level = level;
     }
 
-    public Level getLevel() {
-        return level;
-    }
 }

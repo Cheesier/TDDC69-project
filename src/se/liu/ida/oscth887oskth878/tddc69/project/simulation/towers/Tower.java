@@ -42,17 +42,6 @@ public abstract class Tower extends Tile {
         return this.towerType;
     }
 
-    public float getRange() {
-        return range;
-    }
-
-    public DamageType getDamageType() {
-        return damageType;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
 
     public void tick(Point point, Iterator<Unit> units) {
         if (this.range < 0) { // Spawn and Portal

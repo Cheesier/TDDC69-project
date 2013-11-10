@@ -52,10 +52,6 @@ public class GameServer {
         }
     }
 
-    public void close() {
-        server.close();
-    }
-
     public void sendToAllExcept(int id, Packet packet) {
         server.sendToAllExceptTCP(id, packet);
     }

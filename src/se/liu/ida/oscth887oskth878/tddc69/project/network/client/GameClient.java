@@ -25,10 +25,6 @@ public class GameClient {
     private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
     private PacketHandler packetHandler = new PacketHandler();
 
-    public GameClient(String address) {
-        this(address, Network.DEFAULT_PORT);
-    }
-
     public GameClient(String address, int port) {
         client = new Client();
         client.start();
