@@ -12,7 +12,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @since 09/10/2013
  */
 public class Server {
-    public static Player[] players = new Player[2];
+    public static final Player[] players = new Player[2];
     private static GameServer server;
 
     public static void main(String[] args) {

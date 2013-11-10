@@ -20,10 +20,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @since 17/09/2013
  */
 public class GameClient {
-    private Client client;
-    private ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
-    private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
-    private PacketHandler packetHandler = new PacketHandler();
+    private final Client client;
+    private final ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
+    private final ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
+    private final PacketHandler packetHandler = new PacketHandler();
 
     public GameClient(String address, int port) {
         client = new Client();

@@ -18,7 +18,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @since 15/09/2013
  */
 public abstract class Unit {
-    private static Pathfinding pathfinding = new Astar();
+    private static final Pathfinding pathfinding = new Astar();
     public enum MoveType {
         GROUND, AIR
     }
@@ -27,12 +27,12 @@ public abstract class Unit {
     }
 
     private int hitpoints;
-    private MoveType moveType;
-    private float speed; // tiles per tick
-    private Pointf position;
+    private final MoveType moveType;
+    private final float speed; // tiles per tick
+    private final Pointf position;
     private Path path;
-    private UnitFactory.UnitType unitType;
-    private Player.Team owner;
+    private final UnitFactory.UnitType unitType;
+    private final Player.Team owner;
     private LifeState lifeState = LifeState.ALIVE;
 
     protected Unit(Pointf position, Player.Team owner, int hitpoints, MoveType moveType, float speed, UnitFactory.UnitType unitType) {
@@ -121,10 +121,9 @@ public abstract class Unit {
      * Attempt to hurt a unit
      * @param damage an integer specifying how much hitpoints should be taken from the unit
      *               (before any resistance or )
-     * @return boolean unit alive status
      */
-    //Might need type in future, if towers have different effects etc
-    public void hurt(int damage, @SuppressWarnings("UnusedParameters") Tower.DamageType type) {
+    //Might need type in future, if towers have different effects etc.
+    public void hurt(int damage, Tower.DamageType type) {
         this.hitpoints -= damage;
     }
 

@@ -13,8 +13,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  * @since 04/10/2013
  */
 public class TowerPlacedEvent extends PlayerEvent {
-    private TowerFactory.TowerType type;
-    private Point position;
+    private final TowerFactory.TowerType type;
+    private final Point position;
     private boolean canceled = false;
 
     public TowerPlacedEvent(Player player, TowerFactory.TowerType type, Point position) {

@@ -17,7 +17,7 @@ public class TileClickHandler implements MouseListener {
 
     public static void init() {} // just to trigger the initialization of "instance"
 
-    public static TileClickHandler instance = new TileClickHandler();
+    public static TileClickHandler instance = new TileClickHandler(); // need this instance to listen to mouse events to tiles
 
     // private makes no sense here
     public TileClickHandler() {

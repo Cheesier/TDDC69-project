@@ -20,7 +20,7 @@ import java.io.IOException;
 @SuppressWarnings("FieldCanBeLocal")
 public class GameServer {
     private final int LISTENER_PORT;
-    private Server server;
+    private final Server server;
 
     public GameServer() {
         this(Network.DEFAULT_PORT);

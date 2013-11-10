@@ -17,7 +17,7 @@ public class GUIClickHandler implements MouseListener {
 
     public static void init() {} // just to trigger the initialization of "instance"
 
-    public static GUIClickHandler instance = new GUIClickHandler();
+    public static GUIClickHandler instance = new GUIClickHandler(); // need this instance to listen to mouse events
 
     private GUIClickHandler() {
         MouseHandler.addTileListener(this);

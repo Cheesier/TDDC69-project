@@ -20,11 +20,11 @@ import java.util.Map;
  * @since 15/09/2013
  */
 public class Level {
-    private Tile[][] tileGrid;
-    private ArrayList<Unit> units = new ArrayList<Unit>();
-    private Hashtable<Point, Tower> towers = new Hashtable<Point, Tower>();
+    private final Tile[][] tileGrid;
+    private final ArrayList<Unit> units = new ArrayList<Unit>();
+    private final Hashtable<Point, Tower> towers = new Hashtable<Point, Tower>();
 
-    private Dimension dimensions;
+    private final Dimension dimensions;
 
     private Point redSpawn;
     private Point blueSpawn;
@@ -159,6 +159,7 @@ public class Level {
         return getTile(x, y).canPass(unit);
     }
 
+    // package local makes no sense here
     public void setTile(int x, int y, Tile tileType) {
         tileGrid[x][y] = tileType;
     }
@@ -171,7 +172,7 @@ public class Level {
         buildTower(point.x, point.y, towerType, owner);
     }
 
-    // private makes no sense here
+    // package local makes no sense here
     public void buildTower(int x, int y, TowerFactory.TowerType towerType, Player.Team owner) {
         if (towerType != null && getTile(x, y).buildTower(towerType, owner)) {
             towers.put(new Point(x, y), getTower(x, y));
@@ -210,7 +211,7 @@ public class Level {
         return units.iterator();
     }
 
-    // private makes no sense here
+    // package local makes no sense here
     public Pointf getSpawnTile(Player.Team owner) {
         Pointf spawn;
         switch (owner) {
@@ -227,7 +228,7 @@ public class Level {
         return spawn;
     }
 
-    // private makes no sense here
+    // package local makes no sense here
     public Pointf getPortalTile(Player.Team owner) {
         switch (owner) {
             case BLUE:

@@ -20,10 +20,10 @@ import java.util.EnumMap;
  * @since 27/09/2013
  */
 class ResourceManager {
-    private static EnumMap<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
-    private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
-    private static EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
-    private static EnumMap<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
+    private static final EnumMap<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
+    private static final EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
+    private static final EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
+    private static final EnumMap<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
 
     static {
         tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));

@@ -11,13 +11,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
  * @since 09/10/2013
  */
 public class StartGamePacket extends GamePacket {
-    private Level level;
 
     public StartGamePacket() {
-    }
-
-    public StartGamePacket(Level level) {
-        this.level = level;
     }
 
 }

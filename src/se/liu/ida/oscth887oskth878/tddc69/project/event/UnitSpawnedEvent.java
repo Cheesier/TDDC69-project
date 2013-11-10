@@ -11,7 +11,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
  * @since 04/10/2013
  */
 public class UnitSpawnedEvent extends Event {
-    private Unit unit;
+    private final Unit unit;
     private boolean canceled = false;
 
     public UnitSpawnedEvent(Unit unit) {
@@ -26,7 +26,7 @@ public class UnitSpawnedEvent extends Event {
         return canceled;
     }
 
-
+    // Only logic to set this to true, setting it to false would ignore what a listener has to say
     public void setCanceled(boolean canceled) {
         this.canceled = canceled;
     }

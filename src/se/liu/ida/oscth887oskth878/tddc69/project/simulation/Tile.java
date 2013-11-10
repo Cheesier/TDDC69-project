@@ -21,11 +21,11 @@ public class Tile {
         GRASS, TOWER
     }
 
-    private UnitMobility unitMobility;
+    private final UnitMobility unitMobility;
     private boolean buildable = false;
     private Tower tower;
-    private Type type;
-    private Player.Team owner;
+    private final Type type;
+    private final Player.Team owner;
 
 
     protected Tile(UnitMobility mobility, boolean buildable, Type type, Player.Team owner) {

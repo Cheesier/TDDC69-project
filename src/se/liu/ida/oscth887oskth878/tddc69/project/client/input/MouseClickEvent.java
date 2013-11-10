@@ -15,10 +15,10 @@ public class MouseClickEvent {
         GUI, TILE
     }
 
-    private boolean state;
-    private int x;
-    private int y;
-    private Location location;
+    private final boolean state;
+    private final int x;
+    private final int y;
+    private final Location location;
 
     public MouseClickEvent(boolean state, int x, int y) {
         this.state = state;

@@ -21,12 +21,12 @@ public abstract class Tower extends Tile {
     public static enum DamageType {
         PHYSICAL
     }
-    private int damage;
-    private DamageType damageType;
-    private float range;
-    private int cooldown;
+    private final int damage;
+    private final DamageType damageType;
+    private final float range;
+    private final int cooldown;
     private int cooldownLeft;
-    private TowerFactory.TowerType towerType;
+    private final TowerFactory.TowerType towerType;
 
     protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, DamageType damageType, int damage, float range, int cooldown, Player.Team owner) {
         super(unitMobility, false, Type.TOWER, owner);

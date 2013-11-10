@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * @since 30/09/2013
  */
 public class Path {
-    private LinkedList<Pointf> path = new LinkedList<Pointf>();
+    private final LinkedList<Pointf> path = new LinkedList<Pointf>();
 
     public void addPoint(int x, int y) {
         path.add(new Pointf(x + 0.5f, y + 0.5f)); // add .5 to location to get center of tile

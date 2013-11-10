@@ -22,7 +22,7 @@ public class EventManager {
         LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
     }
 
-    private static EnumMap<EventPriority, ArrayList<EventListener>> priorityListeners;
+    private static final EnumMap<EventPriority, ArrayList<EventListener>> priorityListeners;
 
     static {
         priorityListeners = new EnumMap<EventPriority, ArrayList<EventListener>>(EventPriority.class);
@@ -37,13 +37,6 @@ public class EventManager {
         ArrayList<EventListener> listeners = priorityListeners.get(eventPriority);
         if (!listeners.contains(listener))
             listeners.add(listener);
-    }
-
-    public static void removeListener(EventListener listener) {
-        for (EventPriority priority : EventPriority.values()) {
-            ArrayList<EventListener> listeners = priorityListeners.get(priority);
-            listeners.remove(listener);
-        }
     }
 
     public static void placeTower(Player player, TowerFactory.TowerType type, Point position) {

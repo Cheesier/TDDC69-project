@@ -14,7 +14,7 @@ import java.util.Iterator;
  * @since 29/09/2013
  */
 public class MouseHandler {
-    private static ArrayList<MouseListener> listeners = new ArrayList<MouseListener>();
+    private static final ArrayList<MouseListener> listeners = new ArrayList<MouseListener>();
 
     public static void update() {
         Mouse.updateCursor();
