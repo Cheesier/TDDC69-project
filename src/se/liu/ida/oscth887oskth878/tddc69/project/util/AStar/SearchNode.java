@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * @version 1.0
  * @since 04/10/2013
  */
+@SuppressWarnings("ALL")
 public class SearchNode extends ASearchNode {
     private int x;
     private int y;

@@ -31,6 +31,7 @@ public class Level {
     private Point redPortal;
     private Point bluePortal;
 
+    // Always the same x and y, this is due to hardcoded size of game field
     public Level(int x, int y) {
         tileGrid = new Tile[x][y];
         dimensions = new Dimension(x, y);
@@ -166,6 +167,7 @@ public class Level {
         setTile(point.x, point.y, tileType);
     }
 
+    // private makes no sense here
     public void setTile(int x, int y, Tile tileType) {
         tileGrid[x][y] = tileType;
     }
@@ -178,6 +180,7 @@ public class Level {
         buildTower(point.x, point.y, towerType, owner);
     }
 
+    // private makes no sense here
     public void buildTower(int x, int y, TowerFactory.TowerType towerType, Player.Team owner) {
         if (towerType != null && getTile(x, y).buildTower(towerType, owner)) {
             towers.put(new Point(x, y), getTower(x, y));
@@ -216,6 +219,7 @@ public class Level {
         return units.iterator();
     }
 
+    // private makes no sense here
     public Pointf getSpawnTile(Player.Team owner) {
         Pointf spawn;
         switch (owner) {
@@ -232,6 +236,7 @@ public class Level {
         return spawn;
     }
 
+    // private makes no sense here
     public Pointf getPortalTile(Player.Team owner) {
         switch (owner) {
             case BLUE:

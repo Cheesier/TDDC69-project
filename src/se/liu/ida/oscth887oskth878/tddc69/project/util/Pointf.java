@@ -19,6 +19,7 @@ public class Pointf {
         this.y = y;
     }
 
+    // parameters are always 0.5, for now we only use it to get the center of a tile
     public Pointf add(float x, float y) {
         this.x += x;
         this.y += y;

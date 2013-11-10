@@ -42,6 +42,7 @@ public class Point {
         return super.equals(obj);
     }
 
+    // package local makes no sense here
     public boolean equals(Point obj) {
         return x == obj.x && y == obj.y;
     }

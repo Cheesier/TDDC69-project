@@ -35,6 +35,7 @@ public class TowerRemovedEvent extends PlayerEvent {
         return canceled;
     }
 
+    // Only logic to set this to true, setting it to false would ignore what a listener has to say
     public void setCanceled(boolean canceled) {
         this.canceled = canceled;
     }

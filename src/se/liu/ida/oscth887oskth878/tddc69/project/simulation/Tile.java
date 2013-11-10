@@ -21,7 +21,7 @@ public class Tile {
         GRASS, TOWER
     }
 
-    protected UnitMobility unitMobility;
+    private UnitMobility unitMobility;
     private boolean buildable = false;
     private Tower tower;
     private Type type;
@@ -47,8 +47,10 @@ public class Tile {
         return tower;
     }
 
+    // Warning that it is inverted is a false positive
+    // package local makes no sense here
     public boolean isBuildable() {
-        return (tower == null && buildable); // can only build on if no current tower is placed on tile
+        return tower == null && buildable; // can only build on if no current tower is placed on tile
     }
 
     protected void setBuildable(boolean buildable) {

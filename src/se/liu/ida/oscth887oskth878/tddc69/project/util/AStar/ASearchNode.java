@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util.AStar;
 /**
  * Implements trivial functions for a search node.
  */
+@SuppressWarnings("ALL")
 public abstract class ASearchNode implements ISearchNode {
     private Double g = 0.0;
     // total estimated cost of the node

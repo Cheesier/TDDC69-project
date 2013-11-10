@@ -16,7 +16,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @version 1.0
  * @since 17/09/2013
  */
-public class ProtocolHandler {
+class ProtocolHandler {
     public static void handle(NetworkConnection connection, ProtocolPacket packet) {
         if (packet instanceof InitPacket) {
             Player player = Server.addPlayer(((InitPacket) packet).getName());

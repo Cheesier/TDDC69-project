@@ -14,7 +14,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 public abstract class PlayerEvent extends Event {
     private Player player;
 
-    protected PlayerEvent(Player player) {
+    PlayerEvent(Player player) {
         this.player = player;
     }
 

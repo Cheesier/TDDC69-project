@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @since 17/09/2013
  */
 public class GameClient {
-    Client client;
+    private Client client;
     private ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
     private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
     private PacketHandler packetHandler = new PacketHandler();
@@ -66,6 +66,7 @@ public class GameClient {
         client.sendTCP(packet);
     }
 
+    // For now we only close the connection when the client closes the window
     public void close(String reason) {
         client.sendTCP(new TerminatePacket(reason));
         client.close();

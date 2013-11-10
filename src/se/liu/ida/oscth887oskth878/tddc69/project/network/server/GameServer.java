@@ -17,8 +17,9 @@ import java.io.IOException;
  * @version 1.0
  * @since 13/09/2013
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class GameServer {
-    public final int LISTENER_PORT;
+    private final int LISTENER_PORT;
     private Server server;
 
     public GameServer() {

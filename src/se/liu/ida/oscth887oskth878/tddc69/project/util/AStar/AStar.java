@@ -12,6 +12,7 @@ import java.util.PriorityQueue;
  * ISearchNode and IGoalNode interface respectively. 
  *
  */
+@SuppressWarnings("ALL")
 public class AStar {
     // Amount of debug output 0,1,2
     private int verbose = 0;

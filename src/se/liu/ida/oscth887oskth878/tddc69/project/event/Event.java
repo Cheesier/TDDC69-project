@@ -8,6 +8,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.event;
  * @version 1.0
  * @since 09/10/2013
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class Event {
 
 }

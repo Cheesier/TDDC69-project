@@ -21,9 +21,9 @@ public class TowerFactory {
     public static Tower getTower(TowerType type, Player.Team owner) {
         switch (type) {
             case SPAWN:
-                return new SpawnTower(Player.Team.NEUTRAL);
+                return new SpawnTower();
             case PORTAL:
-                return new PortalTower(Player.Team.NEUTRAL);
+                return new PortalTower();
             case BASIC_TOWER:
                 return new BasicTower(owner);
             case ADVANCED_TOWER:

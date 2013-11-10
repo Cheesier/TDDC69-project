@@ -18,7 +18,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @since 15/09/2013
  */
 public abstract class Unit {
-    public static Pathfinding pathfinding = new Astar();
+    private static Pathfinding pathfinding = new Astar();
     public enum MoveType {
         GROUND, AIR
     }
@@ -52,7 +52,7 @@ public abstract class Unit {
     public void tick() {
         if (hitpoints <= 0)
             lifeState = LifeState.KILLED;
-        else if (!move())
+        else if (!move()) // if unit can't walk, then assume that it reached portal
             lifeState = LifeState.PORTAL;
     }
 
@@ -61,6 +61,7 @@ public abstract class Unit {
      *
      * @return <code>true</code> if the unit has a next position
      */
+    // Complains about "always inverted", but this is the way that is logical
     private boolean move() {
         float movePool = speed;
 

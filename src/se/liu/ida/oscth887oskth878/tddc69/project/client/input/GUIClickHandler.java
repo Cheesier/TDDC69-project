@@ -19,7 +19,7 @@ public class GUIClickHandler implements MouseListener {
 
     public static GUIClickHandler instance = new GUIClickHandler();
 
-    public GUIClickHandler() {
+    private GUIClickHandler() {
         MouseHandler.addTileListener(this);
     }
 

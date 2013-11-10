@@ -13,7 +13,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.Protoc
  * @version 1.0
  * @since 17/09/2013
  */
-public class PacketHandler extends Listener {
+class PacketHandler extends Listener {
     public void received (Connection connection, Object packet) {
         if (packet instanceof ProtocolPacket) {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);

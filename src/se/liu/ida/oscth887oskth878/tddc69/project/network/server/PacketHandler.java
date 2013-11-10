@@ -15,7 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
  * @version 1.0
  * @since 17/09/2013
  */
-public class PacketHandler extends Listener {
+class PacketHandler extends Listener {
     public void received (Connection c, Object packet) {
         NetworkConnection connection = (NetworkConnection)c;
         if (packet instanceof ProtocolPacket) {

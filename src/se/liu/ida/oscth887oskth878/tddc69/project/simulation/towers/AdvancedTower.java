@@ -9,6 +9,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
  * @version 1.0
  * @since 15/10/2013
  */
+@SuppressWarnings("WeakerAccess")
 public class AdvancedTower extends Tower {
     public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.ADVANCED_TOWER;
     public static final UnitMobility UNIT_MOBILITY = UnitMobility.AIR_ONLY;

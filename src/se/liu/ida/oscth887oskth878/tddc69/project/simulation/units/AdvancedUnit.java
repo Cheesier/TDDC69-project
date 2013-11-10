@@ -10,6 +10,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @version 1.0
  * @since 14/10/2013
  */
+@SuppressWarnings("WeakerAccess")
 public class AdvancedUnit extends Unit {
     public static final int hitpoints = 50;
     public static final MoveType moveType = MoveType.GROUND;

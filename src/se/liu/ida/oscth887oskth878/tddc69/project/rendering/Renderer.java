@@ -13,7 +13,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 public interface Renderer {
 
     public void init(int screenWidth, int screenHeight);
-    public void drawLevel(Level level);
+    public void drawLevel(Level level); // we only want to render one level
     public void drawUI();
 
 }

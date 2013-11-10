@@ -19,6 +19,7 @@ public class TileClickHandler implements MouseListener {
 
     public static TileClickHandler instance = new TileClickHandler();
 
+    // private makes no sense here
     public TileClickHandler() {
         MouseHandler.addTileListener(this);
     }

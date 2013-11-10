@@ -19,7 +19,7 @@ import java.util.EnumMap;
  * @version 1.0
  * @since 27/09/2013
  */
-public class ResourceManager {
+class ResourceManager {
     private static EnumMap<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
     private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
     private static EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
@@ -59,6 +59,7 @@ public class ResourceManager {
         towers.get(type).bind();
     }
 
+    // Right now, we only have 1 UI element
     public static void bindUIElement(GUI.GUIElements type) {
         uiElements.get(type).bind();
     }
