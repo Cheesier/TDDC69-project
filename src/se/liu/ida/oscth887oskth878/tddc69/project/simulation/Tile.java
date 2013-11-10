@@ -35,9 +35,6 @@ public class Tile {
         this.owner = owner;
     }
 
-    public void setOwner(Player.Team owner) {
-        this.owner = owner;
-    }
 
     public Player.Team getOwner() {
         return owner;
@@ -51,9 +48,6 @@ public class Tile {
         return (tower == null && buildable); // can only build on if no current tower is placed on tile
     }
 
-    protected void setBuildable(boolean buildable) {
-        this.buildable = buildable;
-    }
 
     public boolean canPass(Unit unit) {
         if (unitMobility == UnitMobility.NONE) return false;

@@ -26,6 +26,7 @@ public class UnitSpawnedEvent extends Event {
         return canceled;
     }
 
+
     public void setCanceled(boolean canceled) {
         this.canceled = canceled;
     }

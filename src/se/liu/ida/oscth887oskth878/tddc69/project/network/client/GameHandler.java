@@ -16,6 +16,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.UnitSpawne
  * @since 09/10/2013
  */
 public class GameHandler {
+    // Parameter connection comes from Listener in kryonet
     public static void handle(Connection connection, GamePacket incomingPacket) {
         if (incomingPacket instanceof TowerPlacedPacket) {
             TowerPlacedPacket packet = (TowerPlacedPacket)incomingPacket;

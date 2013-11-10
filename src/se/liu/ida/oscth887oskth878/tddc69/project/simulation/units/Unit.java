@@ -122,14 +122,9 @@ public abstract class Unit {
      *               (before any resistance or )
      * @return boolean unit alive status
      */
-    public boolean hurt(int damage, Tower.DamageType type) {
+    //Might need type in future, if towers have different effects etc
+    public void hurt(int damage, @SuppressWarnings("UnusedParameters") Tower.DamageType type) {
         this.hitpoints -= damage;
-
-        return this.hitpoints > 0;
-    }
-
-    public int getHitpoints() {
-        return hitpoints;
     }
 
     public MoveType getMoveType() {
@@ -138,10 +133,6 @@ public abstract class Unit {
 
     public Pointf getLocation() {
         return position;
-    }
-
-    public float getSpeed() {
-        return speed;
     }
 
     public UnitFactory.UnitType getUnitType() {
