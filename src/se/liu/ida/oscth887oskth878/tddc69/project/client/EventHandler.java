@@ -15,7 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
  * @since 07/10/2013
  */
 public class EventHandler implements EventListener {
-    private static final EventHandler instance = new EventHandler(); // use this class as a singleton
+    private static final EventHandler INSTANCE = new EventHandler(); // use this class as a singleton
 
     private EventHandler() {}
 
@@ -24,7 +24,7 @@ public class EventHandler implements EventListener {
         if (event.isCanceled())
             return;
 
-        if (Game.level.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
+        if (Game.LEVEL.getTileOwner(event.getPosition().x, event.getPosition().y) != event.getPlayer().getTeam()) {
                 event.setCanceled(true);
         }
     }
@@ -34,7 +34,7 @@ public class EventHandler implements EventListener {
         if (event.isCanceled())
             return;
 
-        Tower tower = Game.level.getTower(event.getPosition());
+        Tower tower = Game.LEVEL.getTower(event.getPosition());
         if (tower == null)
             return;
 
@@ -49,6 +49,6 @@ public class EventHandler implements EventListener {
     }
 
     public static EventHandler getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }

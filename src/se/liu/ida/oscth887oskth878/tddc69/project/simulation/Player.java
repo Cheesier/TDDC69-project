@@ -13,8 +13,8 @@ public class Player {
         RED, BLUE, NEUTRAL
     }
 
-    private Team team;
-    private String name;
+    private Team team = null;
+    private String name = null;
 
     public Player() {
     }
@@ -30,6 +30,7 @@ public class Player {
                 return Team.RED;
             case RED:
                 return Team.BLUE;
+            case NEUTRAL:
             default:
                 throw new RuntimeException(team + " does not have an enemy");
         }
@@ -42,7 +43,7 @@ public class Player {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return 1+super.hashCode();
     }
 
     public Team getTeam() {

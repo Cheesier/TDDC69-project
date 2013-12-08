@@ -1,4 +1,4 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.util.AStar;
+package se.liu.ida.oscth887oskth878.tddc69.project.util.astar;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
@@ -19,7 +19,7 @@ public class AStar {
     // The maximum number of completed nodes. After that number the algorithm returns null.
     // If negative, the search will run until the goal node is found.
     private int maxSteps = -1;
-    //number of search steps the AStar will perform after that null is returned
+    //number of search steps the astar will perform after that null is returned
     private int numSearchSteps;
     
     public ISearchNode bestNodeAfterSearch;
@@ -41,7 +41,7 @@ public class AStar {
         ISearchNode endNode = this.search(initialNode, goalNode);
         if(endNode == null) 
             return null;
-        //return shortest path according to AStar heuristics
+        //return shortest path according to astar heuristics
         return AStar.path(endNode);
     }
         
@@ -118,11 +118,11 @@ public class AStar {
 
     /**
      * returns path from the earliest ancestor to the node in the argument
-     * if the parents are set via AStar search, it will return the path found.
+     * if the parents are set via astar search, it will return the path found.
      * This is the shortest shortes path, if the heurstic h does not overestimate 
      * the true remaining costs
      * @param node node from which the parents are to be found. Parents of the node should
-     *              have been properly set in preprocessing (f.e. AStar.search)
+     *              have been properly set in preprocessing (f.e. astar.search)
      * @return path to the node in the argument
      */
     public static ArrayList<ISearchNode> path(ISearchNode node) {

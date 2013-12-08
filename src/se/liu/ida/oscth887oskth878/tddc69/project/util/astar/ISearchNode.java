@@ -1,10 +1,11 @@
-package se.liu.ida.oscth887oskth878.tddc69.project.util.AStar;
+package se.liu.ida.oscth887oskth878.tddc69.project.util.astar;
 
 import java.util.ArrayList;
 
 /**
  * Interface of a search node.
  */
+@SuppressWarnings("ALL")
 public interface ISearchNode extends Comparable<ISearchNode> {
     // total estimated cost of the node
     public double f();

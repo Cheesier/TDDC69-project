@@ -18,7 +18,7 @@ import java.io.IOException;
  * @since 13/09/2013
  */
 public class GameServer {
-    public final int LISTENER_PORT;
+    public final int listenerPort;
     private Server server;
 
     public GameServer() {
@@ -26,9 +26,10 @@ public class GameServer {
     }
 
     public GameServer(int port) {
-        LISTENER_PORT = port;
+        listenerPort = port;
 
         server = new Server() {
+            @Override
             protected Connection newConnection () {
                 // By providing our own connection implementation, we can store per
                 // connection state without a connection ID to state look up.
@@ -39,13 +40,13 @@ public class GameServer {
         try {
             Network.registerClasses(server.getKryo());
             server.start();
-            server.bind(LISTENER_PORT);
+            server.bind(listenerPort);
 
-            System.out.println("Started server on port " + LISTENER_PORT);
+            System.out.println("Started server on port " + listenerPort);
 
             server.addListener(new PacketHandler());
         } catch (IOException e) {
-            System.err.println("Could not bind to port: " + LISTENER_PORT);
+            System.err.println("Could not bind to port: " + listenerPort);
             e.printStackTrace();
             System.exit(0);
         }

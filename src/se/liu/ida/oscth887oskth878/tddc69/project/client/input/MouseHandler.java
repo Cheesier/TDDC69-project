@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.client.input;
 import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Manages the mouse clicks and those who are listening to events.
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * @since 29/09/2013
  */
 public final class MouseHandler {
-    private static ArrayList<MouseListener> listeners = new ArrayList<MouseListener>();
+    private static Collection<MouseListener> listeners = new ArrayList<MouseListener>();
 
     private MouseHandler() {
     }

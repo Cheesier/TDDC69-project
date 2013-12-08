@@ -13,7 +13,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  * @since 09/10/2013
  */
 public class TowerPlacedPacket extends TowerPacket {
-    private TowerFactory.TowerType towerType;
+    private TowerFactory.TowerType towerType = null;
 
     public TowerPlacedPacket() {
     }

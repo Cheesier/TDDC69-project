@@ -11,9 +11,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
  * Date: 2013-10-09
  * Time: 22:35
  */
-public class UnitSpawnedPacket extends GamePacket {
-    private UnitFactory.UnitType unitType;
-    private Player.Team team;
+public class UnitSpawnedPacket implements GamePacket {
+    private UnitFactory.UnitType unitType = null;
+    private Player.Team team = null;
 
     public UnitSpawnedPacket() {
     }

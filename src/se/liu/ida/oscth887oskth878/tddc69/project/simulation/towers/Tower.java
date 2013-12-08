@@ -17,21 +17,16 @@ import java.util.Iterator;
  * @version 1.0
  * @since 15/09/2013
  */
-public abstract class Tower extends Tile {
-    public enum DamageType {
-        PHYSICAL
-    }
+public class Tower extends Tile {
     private int damage;
-    private DamageType damageType;
     private float range;
     private int cooldown;
     private int cooldownLeft;
     private TowerFactory.TowerType towerType;
 
-    protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, DamageType damageType, int damage, float range, int cooldown, Player.Team owner) {
+    protected Tower(TowerFactory.TowerType type, UnitMobility unitMobility, int damage, float range, int cooldown, Player.Team owner) {
         super(unitMobility, false, Type.TOWER, owner);
         this.towerType = type;
-        this.damageType = damageType;
         this.damage = damage;
         this.range = range;
         this.cooldown = cooldown;

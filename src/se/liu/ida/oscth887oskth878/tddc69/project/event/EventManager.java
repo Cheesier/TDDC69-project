@@ -26,19 +26,19 @@ public final class EventManager {
         LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
     }
 
-    private static EnumMap<EventPriority, ArrayList<EventListener>> priorityListeners;
+    private final static EnumMap<EventPriority, ArrayList<EventListener>> PRIORITY_LISTENERS;
 
     static {
-        priorityListeners = new EnumMap<EventPriority, ArrayList<EventListener>>(EventPriority.class);
+        PRIORITY_LISTENERS = new EnumMap<EventPriority, ArrayList<EventListener>>(EventPriority.class);
         for (EventPriority o : EventPriority.values()) {
-            priorityListeners.put(o, new ArrayList<EventListener>());
+            PRIORITY_LISTENERS.put(o, new ArrayList<EventListener>());
         }
     }
 
     //private static final ArrayList<EventListener> listeners = new ArrayList<EventListener>();
 
     public static void addListener(EventListener listener, EventPriority eventPriority) {
-        Collection<EventListener> listeners = priorityListeners.get(eventPriority);
+        Collection<EventListener> listeners = PRIORITY_LISTENERS.get(eventPriority);
         if (!listeners.contains(listener))
             listeners.add(listener);
     }
@@ -49,19 +49,19 @@ public final class EventManager {
         notifyListeners(event);
 
         if (!event.isCanceled()) {
-            Game.level.buildTower(event.getPosition(), event.getType(), event.getPlayer().getTeam());
-            if (!Game.level.isPathNotBlocked(event.getPlayer().getTeam()))
-                Game.level.removeTower(event.getPosition());
+            Game.LEVEL.buildTower(event.getPosition(), event.getType(), event.getPlayer().getTeam());
+            if (!Game.LEVEL.isPathNotBlocked(event.getPlayer().getTeam()))
+                Game.LEVEL.removeTower(event.getPosition());
             else
-                Game.level.updateAllPaths();
+                Game.LEVEL.updateAllPaths();
         }
     }
 
     public static void removeTower(Player player, Point position) {
-        if (Game.level.getTower(position) == null)
+        if (Game.LEVEL.getTower(position) == null)
             return;
 
-        TowerRemovedEvent event = new TowerRemovedEvent(player, Game.level.getTower(position).getTowerType(), position);
+        TowerRemovedEvent event = new TowerRemovedEvent(player, Game.LEVEL.getTower(position).getTowerType(), position);
 
         if (event.getType() == null)
             return;
@@ -69,25 +69,25 @@ public final class EventManager {
         notifyListeners(event);
 
         if (!event.isCanceled()) {
-            Game.level.removeTower(event.getPosition().x, event.getPosition().y);
-            Game.level.updateAllPaths();
+            Game.LEVEL.removeTower(event.getPosition().x, event.getPosition().y);
+            Game.LEVEL.updateAllPaths();
         }
     }
 
     public static void spawnUnit(UnitFactory.UnitType unitType, Player.Team owner) {
-        Game.level.spawnUnit(unitType, owner);
-        UnitSpawnedEvent event = new UnitSpawnedEvent(Game.level.getLastSpawnedUnit());
+        Game.LEVEL.spawnUnit(unitType, owner);
+        UnitSpawnedEvent event = new UnitSpawnedEvent(Game.LEVEL.getLastSpawnedUnit());
 
         notifyListeners(event);
 
         if (event.isCanceled()) {
-            Game.level.killLastSpawnedUnit();
+            Game.LEVEL.killLastSpawnedUnit();
         }
     }
 
     private static void notifyListeners(Event event) {
         for (EventPriority priority : EventPriority.values()) {
-            Iterable<EventListener> listeners = priorityListeners.get(priority);
+            Iterable<EventListener> listeners = PRIORITY_LISTENERS.get(priority);
             for (EventListener listener : listeners) {
 
                 if (event instanceof TowerPlacedEvent)

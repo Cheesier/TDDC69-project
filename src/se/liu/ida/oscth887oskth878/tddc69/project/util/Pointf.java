@@ -14,14 +14,14 @@ public class Pointf {
     public Pointf() {
     }
 
-    public Pointf(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Pointf(float xVal, float yVal) {
+        this.x = xVal;
+        this.y = yVal;
     }
 
-    public void add(float x, float y) {
-        this.x += x;
-        this.y += y;
+    public void add(float xVal, float yVal) {
+        this.x += xVal;
+        this.y += yVal;
     }
 
     public double distance(Pointf other) {

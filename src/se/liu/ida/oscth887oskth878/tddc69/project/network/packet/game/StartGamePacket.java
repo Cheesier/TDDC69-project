@@ -1,7 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
-
 /**
  * Notify all the clients that the game has started, not used in alpha.
  *
@@ -10,13 +8,6 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
  * @version 1.0
  * @since 09/10/2013
  */
-public class StartGamePacket extends GamePacket {
-    private Level level;
+public class StartGamePacket implements GamePacket {
 
-    public StartGamePacket() {
-    }
-
-    public StartGamePacket(Level level) {
-        this.level = level;
-    }
 }

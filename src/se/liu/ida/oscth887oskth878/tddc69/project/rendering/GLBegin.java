@@ -22,9 +22,9 @@ public class GLBegin implements Renderer {
     private int screenHeight;
 
     @Override
-    public void init(int width, int height) {
-        this.screenWidth = width;
-        this.screenHeight = height;
+    public void init(int displayWidth, int displayHeight) {
+        this.screenWidth = displayWidth;
+        this.screenHeight = displayHeight;
 
         // init OpenGL
         GL11.glMatrixMode(GL11.GL_PROJECTION);
@@ -81,30 +81,30 @@ public class GLBegin implements Renderer {
 
         baseX = 0;
 
-        for (int i = 0; i < GUI.guiTowerElements.length; i++) {
+        for (int i = 0; i < GUI.GUI_TOWER_ELEMENTS.length; i++) {
 
-            if (GUI.guiTowerElements[i] == null) {
+            if (GUI.GUI_TOWER_ELEMENTS[i] == null) {
                 baseX += Client.UI_SIZE;
-                continue;
             }
+            else {
+                ResourceManager.bindTower(GUI.GUI_TOWER_ELEMENTS[i]);
+                drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
-            ResourceManager.bindTower(GUI.guiTowerElements[i]);
-            drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
-
-            baseX += Client.UI_SIZE;
+                baseX += Client.UI_SIZE;
+            }
         }
 
-        for (int i = 0; i < GUI.guiUnitElements.length; i++) {
+        for (int i = 0; i < GUI.GUI_UNIT_ELEMENTS.length; i++) {
 
-            if (GUI.guiUnitElements[i] == null) {
+            if (GUI.GUI_UNIT_ELEMENTS[i] == null) {
                 baseX += Client.UI_SIZE;
-                continue;
             }
+            else {
+                ResourceManager.bindUnit(GUI.GUI_UNIT_ELEMENTS[i]);
+                drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
-            ResourceManager.bindUnit(GUI.guiUnitElements[i]);
-            drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
-
-            baseX += Client.UI_SIZE;
+                baseX += Client.UI_SIZE;
+            }
         }
     }
 

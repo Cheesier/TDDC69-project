@@ -2,7 +2,6 @@ package se.liu.ida.oscth887oskth878.tddc69.project.simulation.units;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
-import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Astar;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Path;
@@ -17,7 +16,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @version 1.0
  * @since 15/09/2013
  */
-public abstract class Unit {
+public class Unit {
     public static Pathfinding pathfinding = new Astar();
     public enum MoveType {
         GROUND, AIR
@@ -30,7 +29,7 @@ public abstract class Unit {
     private MoveType moveType;
     private float speed; // tiles per tick
     private Pointf position;
-    private Path path;
+    private Path path = null;
     private UnitFactory.UnitType unitType;
     private Player.Team owner;
     private LifeState lifeState = LifeState.ALIVE;
@@ -104,7 +103,7 @@ public abstract class Unit {
      * Give the unit a new path to the enemy endpoint
      *
      * @param portal endpoint to be reached
-     * @param level the level the endpoint is located at
+     * @param level the LEVEL the endpoint is located at
      * @return <code>false</code> if the endpoint is unreachable
      */
     public boolean generatePath(Pointf portal, Level level) {

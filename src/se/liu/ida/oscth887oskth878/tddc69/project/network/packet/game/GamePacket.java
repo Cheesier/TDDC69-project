@@ -10,6 +10,6 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
  * @version 1.0
  * @since 17/09/2013
  */
-public abstract class GamePacket extends Packet {
+public interface GamePacket extends Packet {
 
 }
