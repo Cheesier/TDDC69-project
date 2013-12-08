@@ -36,10 +36,7 @@ public class Level {
     public void tick() {
         Iterator<Unit> unitIterator = units.iterator();
 
-        Iterator<Map.Entry<Point, Tower>> towerIterator = towers.entrySet().iterator();
-
-        while (towerIterator.hasNext()) {
-            Map.Entry<Point, Tower> entry = towerIterator.next();
+        for (Map.Entry<Point, Tower> entry : towers.entrySet()) {
             entry.getValue().tick(entry.getKey(), units.iterator());
         }
 
@@ -60,7 +57,7 @@ public class Level {
      * @param team the team that the path should be checked for
      * @return <code>true</code> if a path to the endpoint exists
      */
-    public boolean pathNotBlocked(Player.Team team) {
+    public boolean isPathNotBlocked(Player.Team team) {
         spawnUnit(UnitFactory.UnitType.BASIC_UNIT, Player.getEnemy(team));
         boolean ground = units.get(units.size()-1).generatePath(getPortalTile(Player.getEnemy(team)), this);
         units.remove(units.size()-1);

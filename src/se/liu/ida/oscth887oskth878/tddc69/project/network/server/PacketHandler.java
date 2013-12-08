@@ -16,8 +16,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
  * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
-    public void received (Connection c, Object packet) {
-        NetworkConnection connection = (NetworkConnection)c;
+    public void received (Connection con, Object packet) {
+        NetworkConnection connection = (NetworkConnection)con;
         if (packet instanceof ProtocolPacket) {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);
         }
@@ -27,8 +27,8 @@ public class PacketHandler extends Listener {
     }
 
     @Override
-    public void disconnected(Connection c) {
-        NetworkConnection connection = (NetworkConnection)c;
+    public void disconnected(Connection con) {
+        NetworkConnection connection = (NetworkConnection)con;
         if (connection.getPlayer() != null)
             System.out.println("\"" + connection.getPlayer().getName() + "\" disconnected.");
 

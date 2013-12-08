@@ -125,10 +125,8 @@ public abstract class Unit {
      *               (before any resistance or )
      * @return boolean unit alive status
      */
-    public boolean hurt(int damage, Tower.DamageType type) {
+    public void hurt(int damage, Tower.DamageType type) {
         this.hitpoints -= damage;
-
-        return this.hitpoints > 0;
     }
 
     public int getHitpoints() {
