@@ -64,7 +64,7 @@ public class SearchNode extends ASearchNode {
     public boolean equals(Object other) {
         if(other instanceof SearchNode) {
             SearchNode otherNode = (SearchNode) other;
-            return (this.x == otherNode.getX()) && (this.y == otherNode.getY());
+            return (this.x == otherNode.x) && (this.y == otherNode.y);
         }
         return false;
     }

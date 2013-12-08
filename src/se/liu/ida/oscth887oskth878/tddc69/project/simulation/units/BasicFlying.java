@@ -11,10 +11,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @since 07/10/2013
  */
 public class BasicFlying extends Unit {
-    public static final int hitpoints = 40;
-    public static final MoveType moveType = MoveType.AIR;
-    public static final float speed = 0.2f;
-    public static final UnitFactory.UnitType UNIT_TYPE = UnitFactory.UnitType.BASIC_FLYING;
+    private static final int hitpoints = 40;
+    private static final MoveType moveType = MoveType.AIR;
+    private static final float speed = 0.2f;
+    private static final UnitFactory.UnitType UNIT_TYPE = UnitFactory.UnitType.BASIC_FLYING;
 
     public BasicFlying(Pointf position, Player.Team owner) {
         super(position, owner, hitpoints, moveType, speed, UNIT_TYPE);

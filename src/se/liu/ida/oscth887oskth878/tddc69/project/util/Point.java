@@ -19,18 +19,6 @@ public class Point {
         this.y = y;
     }
 
-    public Point add(int x, float y) {
-        this.x += x;
-        this.y += y;
-        return this;
-    }
-
-    public Point mul(float x, float y) {
-        this.x *= x;
-        this.y *= y;
-        return this;
-    }
-
     public Pointf toPointf() {
         return new Pointf(x, y);
     }

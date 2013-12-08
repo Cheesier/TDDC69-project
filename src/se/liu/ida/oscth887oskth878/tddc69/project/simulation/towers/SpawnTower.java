@@ -10,12 +10,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
  * @since 07/10/2013
  */
 public class SpawnTower extends Tower {
-    public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.SPAWN;
-    public static final UnitMobility UNIT_MOBILITY = UnitMobility.ALL;
-    public static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
-    public static final int DAMAGE = 0;
-    public static final float RANGE = -1;
-    public static final int COOLDOWN = 0;
+    private static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.SPAWN;
+    private static final UnitMobility UNIT_MOBILITY = UnitMobility.ALL;
+    private static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
+    private static final int DAMAGE = 0;
+    private static final float RANGE = -1;
+    private static final int COOLDOWN = 0;
 
 
     public SpawnTower(Player.Team owner) {

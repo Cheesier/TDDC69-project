@@ -10,12 +10,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
  * @since 07/10/2013
  */
 public class PortalTower extends Tower {
-    public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.PORTAL;
-    public static final UnitMobility UNIT_MOBILITY = UnitMobility.ALL;
-    public static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
-    public static final int DAMAGE = 0;
-    public static final float RANGE = -1;
-    public static final int COOLDOWN = 0;
+    private static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.PORTAL;
+    private static final UnitMobility UNIT_MOBILITY = UnitMobility.ALL;
+    private static final DamageType DAMAGE_TYPE = DamageType.PHYSICAL;
+    private static final int DAMAGE = 0;
+    private static final float RANGE = -1;
+    private static final int COOLDOWN = 0;
 
     public PortalTower(Player.Team owner) {
         super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE, COOLDOWN, owner);

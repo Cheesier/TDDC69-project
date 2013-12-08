@@ -10,12 +10,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
  * @since 15/10/2013
  */
 public class AdvancedTower extends Tower {
-    public static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.ADVANCED_TOWER;
-    public static final UnitMobility UNIT_MOBILITY = UnitMobility.AIR_ONLY;
-    public static final Tower.DamageType DAMAGE_TYPE = Tower.DamageType.PHYSICAL;
-    public static final int DAMAGE = 15;
-    public static final float RANGE = 3;
-    public static final int COOLDOWN = 15;
+    private static final TowerFactory.TowerType TOWER_TYPE = TowerFactory.TowerType.ADVANCED_TOWER;
+    private static final UnitMobility UNIT_MOBILITY = UnitMobility.AIR_ONLY;
+    private static final Tower.DamageType DAMAGE_TYPE = Tower.DamageType.PHYSICAL;
+    private static final int DAMAGE = 15;
+    private static final float RANGE = 3;
+    private static final int COOLDOWN = 15;
 
     public AdvancedTower(Player.Team owner) {
         super(TOWER_TYPE, UNIT_MOBILITY, DAMAGE_TYPE, DAMAGE, RANGE, COOLDOWN, owner);
