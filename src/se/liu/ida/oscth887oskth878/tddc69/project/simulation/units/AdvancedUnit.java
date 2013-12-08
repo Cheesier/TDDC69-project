@@ -11,10 +11,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @since 14/10/2013
  */
 public class AdvancedUnit extends Unit {
-    public static final int hitpoints = 50;
-    public static final MoveType moveType = MoveType.GROUND;
-    public static final float speed = 0.3f;
-    public static final UnitFactory.UnitType UNIT_TYPE = UnitFactory.UnitType.ADVANCED_UNIT;
+    private static final int hitpoints = 50;
+    private static final MoveType moveType = MoveType.GROUND;
+    private static final float speed = 0.3f;
+    private static final UnitFactory.UnitType UNIT_TYPE = UnitFactory.UnitType.ADVANCED_UNIT;
 
     public AdvancedUnit(Pointf position, Player.Team owner) {
         super(position, owner, hitpoints, moveType, speed, UNIT_TYPE);

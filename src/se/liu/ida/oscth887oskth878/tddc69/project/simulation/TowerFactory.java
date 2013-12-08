@@ -19,7 +19,7 @@ public final class TowerFactory {
     public static enum TowerType {
         BASIC_TOWER, ADVANCED_TOWER, SPAWN, PORTAL
     }
-    public static final EnumMap<TowerType, Tower> towers = new EnumMap<TowerType, Tower>(TowerType.class);
+    private static final EnumMap<TowerType, Tower> towers = new EnumMap<TowerType, Tower>(TowerType.class);
 
     public static Tower getTower(TowerType type, Player.Team owner) {
         switch (type) {
