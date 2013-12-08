@@ -51,7 +51,7 @@ public final class ResourceManager {
             return TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(path));
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new RuntimeException();
+            throw new RuntimeException("Something went wrong loading textures.");
         }
     }
 

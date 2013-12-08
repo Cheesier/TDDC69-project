@@ -18,7 +18,7 @@ import java.util.Iterator;
  * @since 15/09/2013
  */
 public abstract class Tower extends Tile {
-    public static enum DamageType {
+    public enum DamageType {
         PHYSICAL
     }
     private int damage;
@@ -42,18 +42,6 @@ public abstract class Tower extends Tile {
         return this.towerType;
     }
 
-    public float getRange() {
-        return range;
-    }
-
-    public DamageType getDamageType() {
-        return damageType;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
     public void tick(Point point, Iterator<Unit> units) {
         if (this.range < 0) { // Spawn and Portal
             return;
@@ -71,7 +59,7 @@ public abstract class Tower extends Tile {
                 Unit unit = units.next();
                 if (unit.getOwner() != this.getOwner()){
                     if (center.distance(unit.getLocation()) <= this.range) {
-                        unit.hurt(this.damage, this.damageType);
+                        unit.hurt(this.damage);
                         this.cooldownLeft = this.cooldown;
                         break;
                     }

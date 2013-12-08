@@ -11,7 +11,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
  * @since 30/09/2013
  */
 public class MouseClickEvent {
-    public static enum Location {
+    public enum Location {
         GUI, TILE
     }
 

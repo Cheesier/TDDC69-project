@@ -15,7 +15,7 @@ public final class UnitFactory {
     private UnitFactory() {
     }
 
-    public static enum UnitType {
+    public enum UnitType {
         BASIC_UNIT, GOOMBA_UNIT, ADVANCED_UNIT, BASIC_FLYING
     }
 

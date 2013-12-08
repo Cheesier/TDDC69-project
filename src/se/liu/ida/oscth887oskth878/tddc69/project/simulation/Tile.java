@@ -15,11 +15,11 @@ public class Tile {
     public static final float HALF_TILE = 0.5f;
 
     // who can move over this tile
-    protected static enum UnitMobility {
+    protected enum UnitMobility {
         NONE, ALL, GROUND_ONLY, AIR_ONLY
     }
 
-    public static enum Type {
+    public enum Type {
         GRASS, TOWER
     }
 
@@ -37,10 +37,6 @@ public class Tile {
         this.owner = owner;
     }
 
-    public void setOwner(Player.Team owner) {
-        this.owner = owner;
-    }
-
     public Player.Team getOwner() {
         return owner;
     }
@@ -51,10 +47,6 @@ public class Tile {
 
     public boolean isBuildable() {
         return (tower == null && buildable); // can only build on if no current tower is placed on tile
-    }
-
-    protected void setBuildable(boolean buildable) {
-        this.buildable = buildable;
     }
 
     public boolean canPass(Unit unit) {

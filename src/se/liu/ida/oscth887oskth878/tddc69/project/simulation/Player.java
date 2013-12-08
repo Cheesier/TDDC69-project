@@ -9,7 +9,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.simulation;
  * @since 24/09/2013
  */
 public class Player {
-    public static enum Team {
+    public enum Team {
         RED, BLUE, NEUTRAL
     }
 
@@ -37,9 +37,12 @@ public class Player {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Player)
-            return name.equals(((Player) obj).name) && team == ((Player) obj).team;
-        return false;
+        return obj instanceof Player && name.equals(((Player) obj).name) && team == ((Player) obj).team;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     public Team getTeam() {

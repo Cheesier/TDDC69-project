@@ -22,7 +22,7 @@ public abstract class Unit {
     public enum MoveType {
         GROUND, AIR
     }
-    public static enum LifeState {
+    public enum LifeState {
         ALIVE, KILLED, PORTAL
     }
 
@@ -71,7 +71,6 @@ public abstract class Unit {
                 if (movePool > distance) {
                     position.x = next.x;
                     movePool -= distance;
-                    continue;
                 }
                 else {
                     position.x -= ((position.x - next.x)/distance) * movePool;
@@ -83,7 +82,6 @@ public abstract class Unit {
                 if (movePool > distance) {
                     position.y = next.y;
                     movePool -= distance;
-                    continue;
                 }
                 else {
                     position.y -= ((position.y - next.y)/distance) * movePool;
@@ -97,7 +95,6 @@ public abstract class Unit {
                     // remove self
                     return false;
                 }
-                continue;
             }
         }
         return true; // can still move
@@ -123,16 +120,9 @@ public abstract class Unit {
      * Attempt to hurt a unit
      * @param damage an integer specifying how much hitpoints should be taken from the unit
      *               (before any resistance or )
-     * @return boolean unit alive status
      */
-    public boolean hurt(int damage, Tower.DamageType type) {
+    public void hurt(int damage) {
         this.hitpoints -= damage;
-
-        return this.hitpoints > 0;
-    }
-
-    public int getHitpoints() {
-        return hitpoints;
     }
 
     public MoveType getMoveType() {
@@ -141,10 +131,6 @@ public abstract class Unit {
 
     public Pointf getLocation() {
         return position;
-    }
-
-    public float getSpeed() {
-        return speed;
     }
 
     public UnitFactory.UnitType getUnitType() {

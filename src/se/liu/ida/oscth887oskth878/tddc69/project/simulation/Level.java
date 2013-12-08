@@ -152,16 +152,8 @@ public class Level {
         return getTile(x, y).getTower();
     }
 
-    public boolean canPass(Point point, Unit unit) {
-        return canPass(point.x, point.y, unit);
-    }
-
     public boolean canPass(int x, int y, Unit unit) {
         return getTile(x, y).canPass(unit);
-    }
-
-    public void setTile(Point point, Tile tileType) {
-        setTile(point.x, point.y, tileType);
     }
 
     public void setTile(int x, int y, Tile tileType) {

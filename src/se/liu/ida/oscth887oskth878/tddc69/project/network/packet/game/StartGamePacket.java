@@ -19,8 +19,4 @@ public class StartGamePacket extends GamePacket {
     public StartGamePacket(Level level) {
         this.level = level;
     }
-
-    public Level getLevel() {
-        return level;
-    }
 }

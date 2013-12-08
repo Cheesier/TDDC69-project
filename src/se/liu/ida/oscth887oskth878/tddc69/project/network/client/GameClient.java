@@ -26,10 +26,6 @@ public class GameClient {
     private PacketHandler packetHandler = new PacketHandler();
     private final int timeout = 5000;
 
-    public GameClient(String address) {
-        this(address, Network.DEFAULT_PORT);
-    }
-
     public GameClient(String address, int port) {
         client = new Client();
         client.start();
