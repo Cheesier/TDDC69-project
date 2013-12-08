@@ -65,7 +65,7 @@ public abstract class Tower extends Tile {
     public void hurtEnemies(Point point, Iterator<Unit> units) {
         if (cooldownLeft == 0) {
             Pointf center = point.toPointf();
-            center.add(0.5f, 0.5f); // Center location
+            center.add(Tile.HALF_TILE, Tile.HALF_TILE); // Center location
 
             while (units.hasNext()) {
                 Unit unit = units.next();

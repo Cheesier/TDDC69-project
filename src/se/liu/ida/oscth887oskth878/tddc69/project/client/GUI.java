@@ -13,7 +13,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
  * @version 1.0
  * @since 30/09/2013
  */
-public class GUI {
+public final class GUI {
+    private GUI() {
+    }
+
     public enum GUIElements {
         BACKGROUND
     }
@@ -44,7 +47,9 @@ public class GUI {
 
     };
 
-    public static final GUI instance = new GUI();
-
     public static TowerFactory.TowerType selectedTower = null;
+
+    public static void setSelectedTower(TowerFactory.TowerType type) {
+        selectedTower = type;
+    }
 }

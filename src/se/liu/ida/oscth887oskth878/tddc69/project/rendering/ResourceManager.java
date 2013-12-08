@@ -10,6 +10,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
 import java.io.IOException;
 import java.util.EnumMap;
+import java.util.Map;
 
 /**
  * Manages all the textures in the game.
@@ -19,11 +20,11 @@ import java.util.EnumMap;
  * @version 1.0
  * @since 27/09/2013
  */
-public class ResourceManager {
-    private static EnumMap<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
-    private static EnumMap<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
-    private static EnumMap<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
-    private static EnumMap<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
+public final class ResourceManager {
+    private static Map<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
+    private static Map<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
+    private static Map<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
+    private static Map<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
 
     static {
         tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
@@ -40,6 +41,9 @@ public class ResourceManager {
         units.put(UnitFactory.UnitType.ADVANCED_UNIT, load("res/units/advanced_unit.png"));
         units.put(UnitFactory.UnitType.BASIC_FLYING, load("res/units/basic_flying.png"));
 
+    }
+
+    private ResourceManager() {
     }
 
     private static Texture load(String path) {

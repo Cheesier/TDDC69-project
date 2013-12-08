@@ -11,9 +11,12 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @version 1.0
  * @since 09/10/2013
  */
-public class Server {
+public final class Server {
     public static Player[] players = new Player[2];
     private static GameServer server;
+
+    private Server() {
+    }
 
     public static void main(String[] args) {
         if (args.length == 1) {

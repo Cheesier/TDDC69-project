@@ -15,7 +15,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
  * @version 1.0
  * @since 09/10/2013
  */
-public class GameHandler {
+public final class GameHandler {
+    private GameHandler() {
+    }
+
     public static void handle(NetworkConnection connection, GamePacket packet) {
         if (packet instanceof TowerPlacedPacket) {
             Server.getServer().sendToAllExcept(connection.getID(), packet);

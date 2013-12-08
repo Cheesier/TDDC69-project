@@ -11,7 +11,10 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @version 1.0
  * @since 30/09/2013
  */
-public class UnitFactory {
+public final class UnitFactory {
+    private UnitFactory() {
+    }
+
     public static enum UnitType {
         BASIC_UNIT, GOOMBA_UNIT, ADVANCED_UNIT, BASIC_FLYING
     }

@@ -12,6 +12,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
  * @since 15/09/2013
  */
 public class Tile {
+    public static final float HALF_TILE = 0.5f;
+
     // who can move over this tile
     protected static enum UnitMobility {
         NONE, ALL, GROUND_ONLY, AIR_ONLY

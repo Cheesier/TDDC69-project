@@ -12,7 +12,10 @@ import java.util.EnumMap;
  * @version 1.0
  * @since 29/09/2013
  */
-public class TowerFactory {
+public final class TowerFactory {
+    private TowerFactory() {
+    }
+
     public static enum TowerType {
         BASIC_TOWER, ADVANCED_TOWER, SPAWN, PORTAL
     }

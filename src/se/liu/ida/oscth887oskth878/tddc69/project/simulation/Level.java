@@ -6,10 +6,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Dimension;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Saves all the Tiles and Units, contains all the methods to modify the gameboard.
@@ -22,7 +19,7 @@ import java.util.Map;
 public class Level {
     private Tile[][] tileGrid;
     private ArrayList<Unit> units = new ArrayList<Unit>();
-    private Hashtable<Point, Tower> towers = new Hashtable<Point, Tower>();
+    private Map<Point, Tower> towers = new HashMap<Point, Tower>();
 
     private Dimension dimensions;
 
@@ -201,7 +198,7 @@ public class Level {
     }
 
     public Unit getLastSpawnedUnit() {
-        if (units.size() > 0)
+        if (!units.isEmpty())
             return units.get(units.size()-1);
         return null;
     }
@@ -229,7 +226,7 @@ public class Level {
             default:
                 throw new RuntimeException("Not a valid team");
         }
-        spawn.add(0.5f, 0.5f); // Spawn at the center of the tile
+        spawn.add(Tile.HALF_TILE, Tile.HALF_TILE); // Spawn at the center of the tile
         return spawn;
     }
 

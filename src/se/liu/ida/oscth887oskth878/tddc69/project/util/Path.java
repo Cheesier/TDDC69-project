@@ -1,5 +1,7 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
+import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Tile;
+
 import java.util.LinkedList;
 
 /**
@@ -14,7 +16,7 @@ public class Path {
     private LinkedList<Pointf> path = new LinkedList<Pointf>();
 
     public void addPoint(int x, int y) {
-        path.add(new Pointf(x + 0.5f, y + 0.5f)); // add .5 to location to get center of tile
+        path.add(new Pointf(x + Tile.HALF_TILE, y + Tile.HALF_TILE)); // add .5 to location to get center of tile
     }
 
     public Pointf next() {
@@ -26,7 +28,7 @@ public class Path {
     }
 
     public boolean hasNext() {
-        return path.size() > 0;
+        return !path.isEmpty();
     }
 
     public int length() {

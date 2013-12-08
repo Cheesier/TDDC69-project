@@ -7,6 +7,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
 
 /**
@@ -17,7 +18,10 @@ import java.util.EnumMap;
  * @version 1.0
  * @since 07/10/2013
  */
-public class EventManager {
+public final class EventManager {
+    private EventManager() {
+    }
+
     public static enum EventPriority {
         LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
     }
@@ -34,14 +38,14 @@ public class EventManager {
     //private static final ArrayList<EventListener> listeners = new ArrayList<EventListener>();
 
     public static void addListener(EventListener listener, EventPriority eventPriority) {
-        ArrayList<EventListener> listeners = priorityListeners.get(eventPriority);
+        Collection<EventListener> listeners = priorityListeners.get(eventPriority);
         if (!listeners.contains(listener))
             listeners.add(listener);
     }
 
     public static void removeListener(EventListener listener) {
         for (EventPriority priority : EventPriority.values()) {
-            ArrayList<EventListener> listeners = priorityListeners.get(priority);
+            Collection<EventListener> listeners = priorityListeners.get(priority);
             listeners.remove(listener);
         }
     }
@@ -90,7 +94,7 @@ public class EventManager {
 
     private static void notifyListeners(Event event) {
         for (EventPriority priority : EventPriority.values()) {
-            ArrayList<EventListener> listeners = priorityListeners.get(priority);
+            Iterable<EventListener> listeners = priorityListeners.get(priority);
             for (EventListener listener : listeners) {
 
                 if (event instanceof TowerPlacedEvent)

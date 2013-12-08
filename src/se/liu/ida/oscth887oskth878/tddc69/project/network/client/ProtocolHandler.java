@@ -17,7 +17,10 @@ import javax.swing.*;
  * @version 1.0
  * @since 17/09/2013
  */
-public class ProtocolHandler {
+public final class ProtocolHandler {
+    private ProtocolHandler() {
+    }
+
     public static void handle(Connection connection, ProtocolPacket packet) {
         if (packet instanceof ConnectionEstablishedPacket) {
             ConnectionEstablishedPacket cePacket = ((ConnectionEstablishedPacket) packet);

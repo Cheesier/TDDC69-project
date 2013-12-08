@@ -29,7 +29,7 @@ public class GUIClickHandler implements MouseListener {
             if (event.getLocation() == MouseClickEvent.Location.GUI) { // click was performed on GUI
                 Point pos = MouseTranslator.getGui(event.getX(), event.getY());
                 if (pos.x < GUI.guiTowerElements.length && GUI.guiTowerElements[pos.x] != null) {
-                    GUI.selectedTower = GUI.guiTowerElements[pos.x];
+                    GUI.setSelectedTower(GUI.guiTowerElements[pos.x]);
                     System.out.println("Selected " + GUI.selectedTower);
                 }
                 else if (pos.x >= GUI.guiTowerElements.length &&
@@ -47,7 +47,7 @@ public class GUIClickHandler implements MouseListener {
         if (event.getLocation() == MouseClickEvent.Location.GUI) { // click was performed on GUI
             if (event.getState() && GUI.selectedTower != null) {
                 System.out.println("Unselected " + GUI.selectedTower);
-                GUI.selectedTower = null;
+                GUI.setSelectedTower(null);
             }
         }
     }
