@@ -15,9 +15,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  */
 public class GUIClickHandler implements MouseListener {
 
-    public static void init() {} // just to trigger the initialization of "instance"
-
-    public static GUIClickHandler instance = new GUIClickHandler();
+    public static void init() {
+        new GUIClickHandler();
+    }
 
     public GUIClickHandler() {
         MouseHandler.addTileListener(this);
@@ -25,17 +25,17 @@ public class GUIClickHandler implements MouseListener {
 
     @Override
     public void onLeftClick(MouseClickEvent event) {
-        if (event.getState()) { // pressed down
+        if (event.isButtonDown()) { // pressed down
             if (event.getLocation() == MouseClickEvent.Location.GUI) { // click was performed on GUI
                 Point pos = MouseTranslator.getGui(event.getX(), event.getY());
-                if (pos.x < GUI.guiTowerElements.length && GUI.guiTowerElements[pos.x] != null) {
-                    GUI.setSelectedTower(GUI.guiTowerElements[pos.x]);
-                    System.out.println("Selected " + GUI.selectedTower);
+                if (pos.x < GUI.GUI_TOWER_ELEMENTS.length && GUI.GUI_TOWER_ELEMENTS[pos.x] != null) {
+                    GUI.setSelectedTower(GUI.GUI_TOWER_ELEMENTS[pos.x]);
+                    System.out.println("Selected " + GUI.getSelectedTower());
                 }
-                else if (pos.x >= GUI.guiTowerElements.length &&
-                         pos.x < GUI.guiTowerElements.length + GUI.guiUnitElements.length &&
-                         GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length] != null) {
-                    EventManager.spawnUnit(GUI.guiUnitElements[pos.x - GUI.guiTowerElements.length], Client.player.getTeam());
+                else if (pos.x >= GUI.GUI_TOWER_ELEMENTS.length &&
+                         pos.x < GUI.GUI_TOWER_ELEMENTS.length + GUI.GUI_UNIT_ELEMENTS.length &&
+                         GUI.GUI_UNIT_ELEMENTS[pos.x - GUI.GUI_TOWER_ELEMENTS.length] != null) {
+                    EventManager.spawnUnit(GUI.GUI_UNIT_ELEMENTS[pos.x - GUI.GUI_TOWER_ELEMENTS.length], Client.getPlayer().getTeam());
                 }
             }
         }
@@ -45,8 +45,8 @@ public class GUIClickHandler implements MouseListener {
     @Override
     public void onRightClick(MouseClickEvent event) {
         if (event.getLocation() == MouseClickEvent.Location.GUI) { // click was performed on GUI
-            if (event.getState() && GUI.selectedTower != null) {
-                System.out.println("Unselected " + GUI.selectedTower);
+            if (event.isButtonDown() && GUI.getSelectedTower() != null) {
+                System.out.println("Unselected " + GUI.getSelectedTower());
                 GUI.setSelectedTower(null);
             }
         }

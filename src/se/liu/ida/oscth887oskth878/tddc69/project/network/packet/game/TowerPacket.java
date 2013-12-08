@@ -11,9 +11,9 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  * @version 1.0
  * @since 09/10/2013
  */
-public class TowerPacket extends GamePacket {
-    private Player player;
-    private Point position;
+public class TowerPacket implements GamePacket {
+    private Player player = null;
+    private Point position = null;
 
     public TowerPacket() {
     }

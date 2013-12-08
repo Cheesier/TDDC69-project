@@ -16,6 +16,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
  * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
+    @Override
     public void received (Connection con, Object packet) {
         NetworkConnection connection = (NetworkConnection)con;
         if (packet instanceof ProtocolPacket) {
@@ -32,12 +33,10 @@ public class PacketHandler extends Listener {
         if (connection.getPlayer() != null)
             System.out.println("\"" + connection.getPlayer().getName() + "\" disconnected.");
 
-        for (int i = 0; i < Server.players.length; i++) {
-            if (Server.players[i] == null)
-                continue;
+        for (int i = 0; i < Server.getPlayers().length; i++) {
 
-            if (Server.players[i].equals(connection.getPlayer())) {
-                Server.players[i] = null;
+            if (Server.getPlayers()[i] != null && Server.getPlayers()[i].equals(connection.getPlayer())) {
+                Server.getPlayers()[i] = null;
                 break;
             }
         }

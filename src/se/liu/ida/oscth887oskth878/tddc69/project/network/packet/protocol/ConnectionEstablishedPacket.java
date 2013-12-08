@@ -11,8 +11,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @version 1.0
  * @since 09/10/2013
  */
-public class ConnectionEstablishedPacket extends ProtocolPacket {
-    private Player player;
+public class ConnectionEstablishedPacket implements ProtocolPacket {
+    private Player player = null;
 
     public ConnectionEstablishedPacket() {
     }

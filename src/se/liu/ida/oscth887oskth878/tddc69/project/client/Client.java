@@ -23,11 +23,23 @@ import javax.swing.*;
 public final class Client {
     public static final int PIXELS_PER_TILE = 32;
     public static final int UI_SIZE = PIXELS_PER_TILE * 2;
-    public static Player player = new Player();
-    public static GameClient server;
-    private static final int framerate = 20;
+    private static Player player = new Player();
+    private static GameClient server = null;
+    private static final int FRAMERATE = 20;
 
     private Client() {
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Client.player = player;
+    }
+
+    public static GameClient getServer() {
+        return server;
     }
 
     public static void main(String[] args) {
@@ -63,11 +75,11 @@ public final class Client {
             MouseHandler.update();
             Game.tick();
 
-            renderer.drawLevel(Game.level);
+            renderer.drawLevel(Game.LEVEL);
             renderer.drawUI();
 
             Display.update();
-            Display.sync(framerate);
+            Display.sync(FRAMERATE);
         }
         server.close("Closing client");
         Display.destroy();

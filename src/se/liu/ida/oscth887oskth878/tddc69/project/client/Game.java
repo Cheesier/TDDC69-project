@@ -4,7 +4,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 
 /**
- * Manages the game and gameplay logic, rather than just the level.
+ * Manages the game and gameplay logic, rather than just the LEVEL.
  *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
@@ -14,19 +14,19 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 public final class Game {
     public static final int WIDTH = 40;
     public static final int HEIGHT = 18;
-    public static final Level level = new Level(WIDTH, HEIGHT);
+    public static final Level LEVEL = new Level(WIDTH, HEIGHT);
 
     private Game() {
     }
 
 
     public static void init() {
-        level.generateBasicLevel();
+        LEVEL.generateBasicLevel();
         EventManager.addListener(EventHandler.getInstance(), EventManager.EventPriority.NORMAL);
         EventManager.addListener(ServerHandler.getInstance(), EventManager.EventPriority.MONITOR);
     }
 
     public static void tick() {
-        level.tick();
+        LEVEL.tick();
     }
 }

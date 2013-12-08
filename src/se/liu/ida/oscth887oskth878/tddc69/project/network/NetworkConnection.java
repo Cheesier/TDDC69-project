@@ -12,7 +12,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @since 09/10/2013
  */
 public class NetworkConnection extends Connection {
-    private Player player;
+    private Player player = null;
 
     public void setPlayer(Player player) {
         this.player = player;

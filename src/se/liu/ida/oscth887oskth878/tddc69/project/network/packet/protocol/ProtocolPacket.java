@@ -10,5 +10,5 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
  * @version 1.0
  * @since 17/09/2013
  */
-public abstract class ProtocolPacket extends Packet {
+public interface ProtocolPacket extends Packet {
 }

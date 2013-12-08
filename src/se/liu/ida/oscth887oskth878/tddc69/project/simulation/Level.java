@@ -23,10 +23,10 @@ public class Level {
 
     private Dimension dimensions;
 
-    private Point redSpawn;
-    private Point blueSpawn;
-    private Point redPortal;
-    private Point bluePortal;
+    private Point redSpawn = null;
+    private Point blueSpawn = null;
+    private Point redPortal = null;
+    private Point bluePortal = null;
 
     public Level(int x, int y) {
         tileGrid = new Tile[x][y];
@@ -212,6 +212,7 @@ public class Level {
             case RED:
                 spawn = blueSpawn.toPointf();
                 break;
+            case NEUTRAL:
             default:
                 throw new RuntimeException("Not a valid team");
         }
@@ -225,6 +226,7 @@ public class Level {
                 return redPortal.toPointf();
             case RED:
                 return bluePortal.toPointf();
+            case NEUTRAL:
             default:
                 throw new RuntimeException("Not a valid team");
         }

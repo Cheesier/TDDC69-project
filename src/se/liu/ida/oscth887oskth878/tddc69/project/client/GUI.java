@@ -26,7 +26,7 @@ public final class GUI {
         TileClickHandler.init();
     }
 
-    public static final TowerFactory.TowerType[] guiTowerElements = new TowerFactory.TowerType[] {
+    public static final TowerFactory.TowerType[] GUI_TOWER_ELEMENTS = new TowerFactory.TowerType[] {
             TowerFactory.TowerType.BASIC_TOWER,
             TowerFactory.TowerType.ADVANCED_TOWER,
             null,
@@ -39,7 +39,7 @@ public final class GUI {
             null                                    //Add spaces to separate towers and units
     };
 
-    public static final UnitFactory.UnitType[] guiUnitElements = new UnitFactory.UnitType[] {
+    public static final UnitFactory.UnitType[] GUI_UNIT_ELEMENTS = new UnitFactory.UnitType[] {
             UnitFactory.UnitType.BASIC_UNIT,
             UnitFactory.UnitType.GOOMBA_UNIT,
             UnitFactory.UnitType.ADVANCED_UNIT,
@@ -47,7 +47,11 @@ public final class GUI {
 
     };
 
-    public static TowerFactory.TowerType selectedTower = null;
+    private static TowerFactory.TowerType selectedTower = null;
+
+    public static TowerFactory.TowerType getSelectedTower() {
+        return selectedTower;
+    }
 
     public static void setSelectedTower(TowerFactory.TowerType type) {
         selectedTower = type;

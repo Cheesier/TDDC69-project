@@ -9,7 +9,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol;
  * @version 1.0
  * @since 17/09/2013
  */
-public class InitPacket extends ProtocolPacket {
+public class InitPacket implements ProtocolPacket {
     private String name = "Player";
 
     public InitPacket() {

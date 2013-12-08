@@ -2,10 +2,10 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util;
 
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.AStar;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.GoalNode;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.ISearchNode;
-import se.liu.ida.oscth887oskth878.tddc69.project.util.AStar.SearchNode;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.astar.AStar;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.astar.GoalNode;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.astar.ISearchNode;
+import se.liu.ida.oscth887oskth878.tddc69.project.util.astar.SearchNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;

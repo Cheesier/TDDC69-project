@@ -26,7 +26,7 @@ public final class ProtocolHandler {
             ConnectionEstablishedPacket cePacket = ((ConnectionEstablishedPacket) packet);
             System.out.println("I am: " + cePacket.getPlayer().getTeam());
             Display.setTitle(cePacket.getPlayer().getName() + " playing on team " + cePacket.getPlayer().getTeam());
-            Client.player = ((ConnectionEstablishedPacket) packet).getPlayer();
+            Client.setPlayer(((ConnectionEstablishedPacket) packet).getPlayer());
         }
         else if (packet instanceof TerminatePacket) {
             System.out.println("Disconnecting from server, reason: " + ((TerminatePacket) packet).getReason());

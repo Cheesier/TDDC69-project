@@ -12,8 +12,8 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
  * @since 09/10/2013
  */
 public final class Server {
-    public static Player[] players = new Player[2];
-    private static GameServer server;
+    private static Player[] players = new Player[2];
+    private static GameServer server = null;
 
     private Server() {
     }
@@ -42,6 +42,10 @@ public final class Server {
         else {
             return null;
         }
+    }
+
+    public static Player[] getPlayers() {
+        return players;
     }
 
     public static GameServer getServer() {

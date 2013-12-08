@@ -24,7 +24,7 @@ public class GameClient {
     private ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
     private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
     private PacketHandler packetHandler = new PacketHandler();
-    private static final int timeout = 5000;
+    private static final int TIMEOUT = 5000;
 
     public GameClient(String address, int port) {
         client = new Client();
@@ -32,8 +32,9 @@ public class GameClient {
 
         try {
             Network.registerClasses(client.getKryo());
-            client.connect(timeout, address, port);
+            client.connect(TIMEOUT, address, port);
             client.addListener(new Listener() {
+                @Override
                 public void received(Connection connection, Object packet) {
                     if (packet instanceof Packet) {
                         connectionQueue.add(connection);

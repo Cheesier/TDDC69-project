@@ -21,25 +21,25 @@ import java.util.Map;
  * @since 27/09/2013
  */
 public final class ResourceManager {
-    private static Map<Tile.Type, Texture> tiles = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
-    private static Map<TowerFactory.TowerType, Texture> towers = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
-    private static Map<GUI.GUIElements, Texture> uiElements = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
-    private static Map<UnitFactory.UnitType, Texture> units = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
+    private final static Map<Tile.Type, Texture> TILES = new EnumMap<Tile.Type, Texture>(Tile.Type.class);
+    private final static Map<TowerFactory.TowerType, Texture> TOWERS = new EnumMap<TowerFactory.TowerType, Texture>(TowerFactory.TowerType.class);
+    private final static Map<GUI.GUIElements, Texture> UI_ELEMENTS = new EnumMap<GUI.GUIElements, Texture>(GUI.GUIElements.class);
+    private final static Map<UnitFactory.UnitType, Texture> UNITS = new EnumMap<UnitFactory.UnitType, Texture>(UnitFactory.UnitType.class);
 
     static {
-        tiles.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
+        TILES.put(Tile.Type.GRASS, load("res/tiles/grid.png"));
 
-        towers.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
-        towers.put(TowerFactory.TowerType.ADVANCED_TOWER, load("res/towers/advanced_tower.png"));
-        towers.put(TowerFactory.TowerType.SPAWN, load("res/towers/spawn.png"));
-        towers.put(TowerFactory.TowerType.PORTAL, load("res/towers/portal.png"));
+        TOWERS.put(TowerFactory.TowerType.BASIC_TOWER, load("res/towers/bt.png"));
+        TOWERS.put(TowerFactory.TowerType.ADVANCED_TOWER, load("res/towers/advanced_tower.png"));
+        TOWERS.put(TowerFactory.TowerType.SPAWN, load("res/towers/spawn.png"));
+        TOWERS.put(TowerFactory.TowerType.PORTAL, load("res/towers/portal.png"));
 
-        uiElements.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
+        UI_ELEMENTS.put(GUI.GUIElements.BACKGROUND, load("res/ui/backgound.png"));
 
-        units.put(UnitFactory.UnitType.BASIC_UNIT, load("res/units/basic_unit.png"));
-        units.put(UnitFactory.UnitType.GOOMBA_UNIT, load("res/units/goomba_unit.png"));
-        units.put(UnitFactory.UnitType.ADVANCED_UNIT, load("res/units/advanced_unit.png"));
-        units.put(UnitFactory.UnitType.BASIC_FLYING, load("res/units/basic_flying.png"));
+        UNITS.put(UnitFactory.UnitType.BASIC_UNIT, load("res/units/basic_unit.png"));
+        UNITS.put(UnitFactory.UnitType.GOOMBA_UNIT, load("res/units/goomba_unit.png"));
+        UNITS.put(UnitFactory.UnitType.ADVANCED_UNIT, load("res/units/advanced_unit.png"));
+        UNITS.put(UnitFactory.UnitType.BASIC_FLYING, load("res/units/basic_flying.png"));
 
     }
 
@@ -56,18 +56,18 @@ public final class ResourceManager {
     }
 
     public static void bindTexture(Tile.Type type) {
-        tiles.get(type).bind();
+        TILES.get(type).bind();
     }
 
     public static void bindTower(TowerFactory.TowerType type) {
-        towers.get(type).bind();
+        TOWERS.get(type).bind();
     }
 
     public static void bindUIElement(GUI.GUIElements type) {
-        uiElements.get(type).bind();
+        UI_ELEMENTS.get(type).bind();
     }
 
     public static void bindUnit(UnitFactory.UnitType type) {
-        units.get(type).bind();
+        UNITS.get(type).bind();
     }
 }

@@ -12,7 +12,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Level;
  */
 public interface Renderer {
 
-    public void init(int screenWidth, int screenHeight);
+    public void init(int displayWidth, int displayHeight);
     public void drawLevel(Level level);
     public void drawUI();
 

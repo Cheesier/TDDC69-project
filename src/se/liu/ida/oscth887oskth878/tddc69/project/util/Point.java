@@ -25,13 +25,11 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Point)
-            return equals((Point) obj);
+        if (obj instanceof Point) {
+            Point other = (Point)obj;
+            return x == other.x && y == other.y;
+        }
         return super.equals(obj);
-    }
-
-    public boolean equals(Point obj) {
-        return x == obj.x && y == obj.y;
     }
 
     @Override

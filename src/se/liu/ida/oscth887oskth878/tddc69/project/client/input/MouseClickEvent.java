@@ -15,13 +15,13 @@ public class MouseClickEvent {
         GUI, TILE
     }
 
-    private boolean state;
+    private boolean buttonDown;
     private int x;
     private int y;
     private Location location;
 
-    public MouseClickEvent(boolean state, int x, int y) {
-        this.state = state;
+    public MouseClickEvent(boolean buttonDown, int x, int y) {
+        this.buttonDown = buttonDown;
         this.x = x;
         this.y = y;
 
@@ -31,8 +31,8 @@ public class MouseClickEvent {
             this.location = Location.TILE;
     }
 
-    public boolean getState() {
-        return state;
+    public boolean isButtonDown() {
+        return buttonDown;
     }
 
     public int getX() {

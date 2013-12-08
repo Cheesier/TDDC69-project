@@ -10,7 +10,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
  * @version 1.0
  * @since 04/10/2013
  */
-public class UnitSpawnedEvent extends Event {
+public class UnitSpawnedEvent implements Event {
     private Unit unit;
     private boolean canceled = false;
 
@@ -24,9 +24,5 @@ public class UnitSpawnedEvent extends Event {
 
     public boolean isCanceled() {
         return canceled;
-    }
-
-    public void setCanceled(boolean canceled) {
-        this.canceled = canceled;
     }
 }

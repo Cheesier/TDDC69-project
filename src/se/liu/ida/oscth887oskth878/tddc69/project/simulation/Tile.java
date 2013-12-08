@@ -4,7 +4,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.simulation.towers.Tower;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.units.Unit;
 
 /**
- * Represents a tile on the level, also contains the tower placed on it and all the methods to modify them.
+ * Represents a tile on the LEVEL, also contains the tower placed on it and all the methods to modify them.
  *
  * @author Oscar Thunberg (oscth887)
  * @author Oskar Therén   (oskth878)
@@ -25,7 +25,7 @@ public class Tile {
 
     protected UnitMobility unitMobility;
     private boolean buildable = false;
-    private Tower tower;
+    private Tower tower = null;
     private Type type;
     private Player.Team owner;
 
@@ -69,11 +69,11 @@ public class Tile {
         return type;
     }
 
-    public boolean buildTower(TowerFactory.TowerType type, Player.Team owner) {
+    public boolean buildTower(TowerFactory.TowerType towerType, Player.Team towerOwner) {
         if (!isBuildable())
             return false;
 
-        tower = TowerFactory.getTower(type, owner);
+        tower = TowerFactory.getTower(towerType, towerOwner);
 
         return true;
     }

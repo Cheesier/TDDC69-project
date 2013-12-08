@@ -8,5 +8,5 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.packet;
  * @version 1.0
  * @since 15/09/2013
  */
-public abstract class Packet {
+public interface Packet {
 }
