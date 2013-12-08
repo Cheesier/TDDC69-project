@@ -24,7 +24,7 @@ public class GameClient {
     private ConcurrentLinkedQueue<Connection> connectionQueue = new ConcurrentLinkedQueue<Connection>();
     private ConcurrentLinkedQueue<Packet> packetQueue = new ConcurrentLinkedQueue<Packet>();
     private PacketHandler packetHandler = new PacketHandler();
-    private final int timeout = 5000;
+    private static final int timeout = 5000;
 
     public GameClient(String address, int port) {
         client = new Client();

@@ -50,7 +50,7 @@ public final class EventManager {
 
         if (!event.isCanceled()) {
             Game.level.buildTower(event.getPosition(), event.getType(), event.getPlayer().getTeam());
-            if (!Game.level.pathNotBlocked(event.getPlayer().getTeam()))
+            if (!Game.level.isPathNotBlocked(event.getPlayer().getTeam()))
                 Game.level.removeTower(event.getPosition());
             else
                 Game.level.updateAllPaths();
