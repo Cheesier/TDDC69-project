@@ -24,6 +24,7 @@ public class Player {
         this.name = name;
     }
 
+    @SuppressWarnings("ProhibitedExceptionThrown")
     public static Team getEnemy(Team team) {
         switch (team) {
             case BLUE:

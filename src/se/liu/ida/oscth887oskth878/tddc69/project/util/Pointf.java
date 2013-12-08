@@ -9,6 +9,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.util;
  * @since 15/09/2013
  */
 public class Pointf {
+    @SuppressWarnings("PublicField")
     public float x, y;
 
     public Pointf() {

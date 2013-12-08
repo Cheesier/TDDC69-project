@@ -79,31 +79,31 @@ public class GLBegin implements Renderer {
             baseX += Client.UI_SIZE;
         }
 
-        baseX = 0;
+        int baseX2 = 0;
 
-        for (int i = 0; i < GUI.GUI_TOWER_ELEMENTS.length; i++) {
+        for (int i = 0; i < GUI.getGuiTowerElements().length; i++) {
 
-            if (GUI.GUI_TOWER_ELEMENTS[i] == null) {
-                baseX += Client.UI_SIZE;
+            if (GUI.getGuiTowerElements()[i] == null) {
+                baseX2 += Client.UI_SIZE;
             }
             else {
-                ResourceManager.bindTower(GUI.GUI_TOWER_ELEMENTS[i]);
-                drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
+                ResourceManager.bindTower(GUI.getGuiTowerElements()[i]);
+                drawSprite(baseX2, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
-                baseX += Client.UI_SIZE;
+                baseX2 += Client.UI_SIZE;
             }
         }
 
-        for (int i = 0; i < GUI.GUI_UNIT_ELEMENTS.length; i++) {
+        for (int i = 0; i < GUI.getGuiUnitElements().length; i++) {
 
-            if (GUI.GUI_UNIT_ELEMENTS[i] == null) {
-                baseX += Client.UI_SIZE;
+            if (GUI.getGuiUnitElements()[i] == null) {
+                baseX2 += Client.UI_SIZE;
             }
             else {
-                ResourceManager.bindUnit(GUI.GUI_UNIT_ELEMENTS[i]);
-                drawSprite(baseX, baseY, Client.UI_SIZE, Client.UI_SIZE);
+                ResourceManager.bindUnit(GUI.getGuiUnitElements()[i]);
+                drawSprite(baseX2, baseY, Client.UI_SIZE, Client.UI_SIZE);
 
-                baseX += Client.UI_SIZE;
+                baseX2 += Client.UI_SIZE;
             }
         }
     }

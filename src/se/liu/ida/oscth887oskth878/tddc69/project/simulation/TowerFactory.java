@@ -18,6 +18,7 @@ public final class TowerFactory {
         BASIC_TOWER, ADVANCED_TOWER, SPAWN, PORTAL
     }
 
+    @SuppressWarnings("ProhibitedExceptionThrown")
     public static Tower getTower(TowerType type, Player.Team owner) {
         switch (type) {
             case SPAWN:

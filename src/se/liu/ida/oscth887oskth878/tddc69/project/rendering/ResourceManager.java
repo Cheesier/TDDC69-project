@@ -46,6 +46,7 @@ public final class ResourceManager {
     private ResourceManager() {
     }
 
+    @SuppressWarnings({"ProhibitedExceptionThrown", "ThrowInsideCatchBlockWhichIgnoresCaughtException"})
     private static Texture load(String path) {
         try {
             return TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(path));

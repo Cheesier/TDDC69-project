@@ -19,6 +19,7 @@ public final class UnitFactory {
         BASIC_UNIT, GOOMBA_UNIT, ADVANCED_UNIT, BASIC_FLYING
     }
 
+    @SuppressWarnings("ProhibitedExceptionThrown")
     public static Unit getUnit(UnitType type, Player.Team team, Pointf pointf) {
         switch (type) {
             case BASIC_UNIT:

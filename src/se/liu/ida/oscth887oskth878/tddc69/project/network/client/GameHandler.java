@@ -1,6 +1,5 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 
-import com.esotericsoftware.kryonet.Connection;
 import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.TowerPlacedPacket;
@@ -19,7 +18,7 @@ public final class GameHandler {
     private GameHandler() {
     }
 
-    public static void handle(Connection connection, GamePacket incomingPacket) {
+    public static void handle(GamePacket incomingPacket) {
         if (incomingPacket instanceof TowerPlacedPacket) {
             TowerPlacedPacket packet = (TowerPlacedPacket)incomingPacket;
             EventManager.placeTower(packet.getPlayer(), packet.getTowerType(), packet.getPosition());

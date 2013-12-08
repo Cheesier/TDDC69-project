@@ -15,6 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  */
 public class TileClickHandler implements MouseListener {
 
+    @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void init() {
         new TileClickHandler();
     }

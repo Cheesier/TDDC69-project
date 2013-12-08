@@ -203,6 +203,7 @@ public class Level {
         return units.iterator();
     }
 
+    @SuppressWarnings("ProhibitedExceptionThrown")
     public Pointf getSpawnTile(Player.Team owner) {
         Pointf spawn;
         switch (owner) {
@@ -220,6 +221,7 @@ public class Level {
         return spawn;
     }
 
+    @SuppressWarnings("ProhibitedExceptionThrown")
     public Pointf getPortalTile(Player.Team owner) {
         switch (owner) {
             case BLUE:

@@ -14,13 +14,13 @@ import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.Protoc
  * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
-    @Override
+    @SuppressWarnings("RefusedBequest") // library not written by someone else, suppressing error from it
     public void received (Connection connection, Object packet) {
         if (packet instanceof ProtocolPacket) {
             ProtocolHandler.handle(connection, (ProtocolPacket)packet);
         }
         if (packet instanceof GamePacket) {
-            GameHandler.handle(connection, (GamePacket) packet);
+            GameHandler.handle((GamePacket) packet);
         }
     }
 

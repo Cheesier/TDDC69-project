@@ -15,6 +15,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
  */
 public class GUIClickHandler implements MouseListener {
 
+    @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void init() {
         new GUIClickHandler();
     }
@@ -28,14 +29,14 @@ public class GUIClickHandler implements MouseListener {
         if (event.isButtonDown()) { // pressed down
             if (event.getLocation() == MouseClickEvent.Location.GUI) { // click was performed on GUI
                 Point pos = MouseTranslator.getGui(event.getX(), event.getY());
-                if (pos.x < GUI.GUI_TOWER_ELEMENTS.length && GUI.GUI_TOWER_ELEMENTS[pos.x] != null) {
-                    GUI.setSelectedTower(GUI.GUI_TOWER_ELEMENTS[pos.x]);
+                if (pos.x < GUI.getGuiTowerElements().length && GUI.getGuiTowerElements()[pos.x] != null) {
+                    GUI.setSelectedTower(GUI.getGuiTowerElements()[pos.x]);
                     System.out.println("Selected " + GUI.getSelectedTower());
                 }
-                else if (pos.x >= GUI.GUI_TOWER_ELEMENTS.length &&
-                         pos.x < GUI.GUI_TOWER_ELEMENTS.length + GUI.GUI_UNIT_ELEMENTS.length &&
-                         GUI.GUI_UNIT_ELEMENTS[pos.x - GUI.GUI_TOWER_ELEMENTS.length] != null) {
-                    EventManager.spawnUnit(GUI.GUI_UNIT_ELEMENTS[pos.x - GUI.GUI_TOWER_ELEMENTS.length], Client.getPlayer().getTeam());
+                else if (pos.x >= GUI.getGuiTowerElements().length &&
+                         pos.x < GUI.getGuiTowerElements().length + GUI.getGuiUnitElements().length &&
+                         GUI.getGuiUnitElements()[pos.x - GUI.getGuiTowerElements().length] != null) {
+                    EventManager.spawnUnit(GUI.getGuiUnitElements()[pos.x - GUI.getGuiTowerElements().length], Client.getPlayer().getTeam());
                 }
             }
         }

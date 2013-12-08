@@ -21,12 +21,14 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @version 1.0
  * @since 17/09/2013
  */
+@SuppressWarnings("OverlyCoupledClass")
 public final class Network {
     public static final int DEFAULT_PORT = 22400;
 
     private Network() {
     }
 
+    @SuppressWarnings("OverlyCoupledMethod")
     public static void registerClasses(Kryo kryo) {
         kryo.register(Packet.class);
 

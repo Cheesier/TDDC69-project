@@ -29,7 +29,7 @@ public class GameServer {
         listenerPort = port;
 
         server = new Server() {
-            @Override
+            @SuppressWarnings("RefusedBequest") // library not written by someone else, suppressing error from it
             protected Connection newConnection () {
                 // By providing our own connection implementation, we can store per
                 // connection state without a connection ID to state look up.

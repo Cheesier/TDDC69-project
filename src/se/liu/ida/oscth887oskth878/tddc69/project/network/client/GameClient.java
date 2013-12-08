@@ -34,7 +34,7 @@ public class GameClient {
             Network.registerClasses(client.getKryo());
             client.connect(TIMEOUT, address, port);
             client.addListener(new Listener() {
-                @Override
+                @SuppressWarnings("RefusedBequest") // library not written by someone else, suppressing error from it
                 public void received(Connection connection, Object packet) {
                     if (packet instanceof Packet) {
                         connectionQueue.add(connection);

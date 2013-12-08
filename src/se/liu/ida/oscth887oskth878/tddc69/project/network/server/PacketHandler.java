@@ -16,7 +16,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
  * @since 17/09/2013
  */
 public class PacketHandler extends Listener {
-    @Override
+    @SuppressWarnings("RefusedBequest") // library not written by someone else, suppressing error from it
     public void received (Connection con, Object packet) {
         NetworkConnection connection = (NetworkConnection)con;
         if (packet instanceof ProtocolPacket) {
