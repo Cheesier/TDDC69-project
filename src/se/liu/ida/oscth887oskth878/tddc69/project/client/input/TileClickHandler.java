@@ -17,7 +17,7 @@ public class TileClickHandler implements MouseListener {
 
     public static void init() {} // just to trigger the initialization of "instance"
 
-    public static TileClickHandler instance = new TileClickHandler();
+    private static TileClickHandler instance = new TileClickHandler();
 
     public TileClickHandler() {
         MouseHandler.addTileListener(this);

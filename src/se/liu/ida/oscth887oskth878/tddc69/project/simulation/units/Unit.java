@@ -18,7 +18,7 @@ import se.liu.ida.oscth887oskth878.tddc69.project.util.Pointf;
  * @since 15/09/2013
  */
 public abstract class Unit {
-    public static Pathfinding pathfinding = new Astar();
+    private static Pathfinding pathfinding = new Astar();
     public enum MoveType {
         GROUND, AIR
     }
