@@ -38,7 +38,6 @@ public final class Network {
         kryo.register(TerminatePacket.class);
 
         kryo.register(GamePacket.class);
-        kryo.register(StartGamePacket.class);
         kryo.register(TowerPacket.class);
         kryo.register(TowerPlacedPacket.class);
         kryo.register(TowerRemovedPacket.class);

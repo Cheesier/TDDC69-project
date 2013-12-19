@@ -1,5 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
+import com.esotericsoftware.kryonet.Connection;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.UnitFactory;
 
@@ -29,5 +33,15 @@ public class UnitSpawnedPacket implements GamePacket {
 
     public Player.Team getTeam() {
         return team;
+    }
+
+    @Override
+    public void onClientReceive(Connection connection) {
+        EventManager.spawnUnit(this.getUnitType(), this.getTeam());
+    }
+
+    @Override
+    public void onServerReceive(NetworkConnection connection) {
+        Server.getServer().sendToAllExcept(connection.getID(), this);
     }
 }

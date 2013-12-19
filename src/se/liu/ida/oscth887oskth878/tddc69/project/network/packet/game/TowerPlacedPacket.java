@@ -1,5 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game;
 
+import com.esotericsoftware.kryonet.Connection;
+import se.liu.ida.oscth887oskth878.tddc69.project.event.EventManager;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.TowerFactory;
 import se.liu.ida.oscth887oskth878.tddc69.project.util.Point;
@@ -25,5 +29,15 @@ public class TowerPlacedPacket extends TowerPacket {
 
     public TowerFactory.TowerType getTowerType() {
         return towerType;
+    }
+
+    @Override
+    public void onClientReceive(Connection connection) {
+        EventManager.placeTower(this.getPlayer(), this.getTowerType(), this.getPosition());
+    }
+
+    @Override
+    public void onServerReceive(NetworkConnection connection) {
+        Server.getServer().sendToAllExcept(connection.getID(), this);
     }
 }

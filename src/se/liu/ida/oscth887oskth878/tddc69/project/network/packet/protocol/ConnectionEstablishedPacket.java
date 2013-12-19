@@ -1,5 +1,9 @@
 package se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol;
 
+import com.esotericsoftware.kryonet.Connection;
+import org.lwjgl.opengl.Display;
+import se.liu.ida.oscth887oskth878.tddc69.project.client.Client;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
 import se.liu.ida.oscth887oskth878.tddc69.project.simulation.Player;
 
 /**
@@ -23,5 +27,17 @@ public class ConnectionEstablishedPacket implements ProtocolPacket {
 
     public Player getPlayer() {
         return player;
+    }
+
+    @Override
+    public void onClientReceive(Connection connection) {
+        System.out.println("I am: " + this.getPlayer().getTeam());
+        Display.setTitle(this.getPlayer().getName() + " playing on team " + this.getPlayer().getTeam());
+        Client.setPlayer(this.getPlayer());
+    }
+
+    @Override
+    public void onServerReceive(NetworkConnection connection) {
+        // Only read from client side.
     }
 }

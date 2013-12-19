@@ -3,6 +3,7 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.server;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.NetworkConnection;
+import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 import se.liu.ida.oscth887oskth878.tddc69.project.server.Server;
@@ -19,11 +20,8 @@ public class PacketHandler extends Listener {
     @SuppressWarnings("RefusedBequest") // library not written by someone else, suppressing error from it
     public void received (Connection con, Object packet) {
         NetworkConnection connection = (NetworkConnection)con;
-        if (packet instanceof ProtocolPacket) {
-            ProtocolHandler.handle(connection, (ProtocolPacket)packet);
-        }
-        else if (packet instanceof GamePacket) {
-            GameHandler.handle(connection, (GamePacket)packet);
+        if (packet instanceof Packet) {
+            ((Packet) packet).onServerReceive(connection);
         }
     }
 
