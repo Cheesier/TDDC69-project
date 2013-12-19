@@ -24,10 +24,6 @@ public class InitPacket implements ProtocolPacket {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public void onClientReceive(Connection connection) {
         // Do nothing. Only read by server.
@@ -35,14 +31,14 @@ public class InitPacket implements ProtocolPacket {
 
     @Override
     public void onServerReceive(NetworkConnection connection) {
-        Player player = Server.addPlayer(this.getName());
+        Player player = Server.addPlayer(this.name);
         if (player != null) {
             connection.setPlayer(player);
             System.out.println("\"" + player.getName() + "\" connected to server, and is on team: " + player.getTeam());
             connection.sendTCP(new ConnectionEstablishedPacket(player));
         }
         else {
-            System.out.println("\"" + this.getName() + "\" tried to connect when server is full");
+            System.out.println("\"" + this.name + "\" tried to connect when server is full");
             connection.sendTCP(new TerminatePacket("Server full"));
         }
     }

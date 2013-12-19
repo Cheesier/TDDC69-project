@@ -3,8 +3,6 @@ package se.liu.ida.oscth887oskth878.tddc69.project.network.client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.Packet;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.game.GamePacket;
-import se.liu.ida.oscth887oskth878.tddc69.project.network.packet.protocol.ProtocolPacket;
 
 /**
  * Splits all the incoming packets up to simplify handling.

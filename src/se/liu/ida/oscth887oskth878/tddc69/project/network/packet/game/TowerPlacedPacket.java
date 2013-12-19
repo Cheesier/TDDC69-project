@@ -27,13 +27,9 @@ public class TowerPlacedPacket extends TowerPacket {
         this.towerType = towerType;
     }
 
-    public TowerFactory.TowerType getTowerType() {
-        return towerType;
-    }
-
     @Override
     public void onClientReceive(Connection connection) {
-        EventManager.placeTower(this.getPlayer(), this.getTowerType(), this.getPosition());
+        EventManager.placeTower(this.getPlayer(), this.towerType, this.getPosition());
     }
 
     @Override

@@ -24,17 +24,13 @@ public class TerminatePacket implements ProtocolPacket {
         this.reason = reason;
     }
 
-    public String getReason() {
-        return reason;
-    }
-
     @Override
     public void onClientReceive(Connection connection) {
-        System.out.println("Disconnecting from server, reason: " + this.getReason());
+        System.out.println("Disconnecting from server, reason: " + this.reason);
         connection.close();
 
         // fun way to tell the user the game disconnected
-        JOptionPane.showInputDialog("Disconnected from server, reason: " + this.getReason() +
+        JOptionPane.showInputDialog("Disconnected from server, reason: " + this.reason +
                 ".\nHow sad are you now?", "Very");
         System.exit(0);
     }

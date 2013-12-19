@@ -25,15 +25,11 @@ public class ConnectionEstablishedPacket implements ProtocolPacket {
         this.player = player;
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
     @Override
     public void onClientReceive(Connection connection) {
-        System.out.println("I am: " + this.getPlayer().getTeam());
-        Display.setTitle(this.getPlayer().getName() + " playing on team " + this.getPlayer().getTeam());
-        Client.setPlayer(this.getPlayer());
+        System.out.println("I am: " + player.getTeam());
+        Display.setTitle(this.player.getName() + " playing on team " + this.player.getTeam());
+        Client.setPlayer(this.player);
     }
 
     @Override

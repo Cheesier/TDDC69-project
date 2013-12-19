@@ -27,17 +27,9 @@ public class UnitSpawnedPacket implements GamePacket {
         this.team = team;
     }
 
-    public UnitFactory.UnitType getUnitType() {
-        return unitType;
-    }
-
-    public Player.Team getTeam() {
-        return team;
-    }
-
     @Override
     public void onClientReceive(Connection connection) {
-        EventManager.spawnUnit(this.getUnitType(), this.getTeam());
+        EventManager.spawnUnit(this.unitType, this.team);
     }
 
     @Override
